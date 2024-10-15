@@ -1,22 +1,18 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import initModels from '../models/init-models.js';
-import sequelize from '../database/connection.js';
+import { PrismaClient } from '@prisma/client';
 import { validateColor } from '../utils/validators.js';
 
 const router = express.Router();
-
-// Initialize models
-const models = initModels(sequelize);
-const { users, user_word_associations, words } = models;
+const prisma = new PrismaClient();
 
 router.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
     
     // Check if user already exists
-    const existingUser = await users.findOne({ where: { email } });
+    const existingUser = await prisma.user.findUnique({ where: { email } });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
@@ -26,23 +22,24 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
-    const newUser = await users.create({
-      email,
-      hashed_password: hashedPassword
+    const newUser = await prisma.user.create({
+      data: {
+        email,
+        hashedPassword
+      }
     });
 
     // Create JWT token
-    const token = jwt.sign({ id: newUser.user_id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, {
       expiresIn: '1h'
     });
 
     res.status(201).json({
       message: 'User registered successfully',
       token,
-      user: { id: newUser.user_id, email: newUser.email }
+      user: { id: newUser.id, email: newUser.email }
     });
   } catch (error) {
-
     res.status(500).json({ message: 'Server error', error: error.message, reqBody: req.body });
   }
 });
@@ -52,26 +49,26 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     // Find user by email
-    const user = await users.findOne({ where: { email } });
+    const user = await prisma.user.findUnique({ where: { email } });
     if (!user) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
     // Check password
-    const isMatch = await bcrypt.compare(password, user.hashed_password);
+    const isMatch = await bcrypt.compare(password, user.hashedPassword);
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
     // Create JWT token
-    const token = jwt.sign({ id: user.user_id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
       expiresIn: '1h'
     });
 
     res.json({
       message: 'Login successful',
       token,
-      user: { id: user.user_id, email: user.email }
+      user: { id: user.id, email: user.email }
     });
   } catch (error) {
     console.error('Login error:', error);
@@ -112,19 +109,29 @@ router.post('/word-association', authenticateUser, async (req, res) => {
     }
 
     // Check if the word exists
-    const wordExists = await words.findByPk(word_id);
+    const wordExists = await prisma.word.findUnique({ where: { id: word_id } });
     if (!wordExists) {
       return res.status(404).json({ message: 'Word not found' });
     }
 
-    const [association, created] = await user_word_associations.findOrCreate({
-      where: { user_id, word_id },
-      defaults: { emoji, highlight_color },
+    const association = await prisma.user_word_association.upsert({
+      where: {
+        userId_wordId: {
+          userId: user_id,
+          wordId: word_id
+        }
+      },
+      update: {
+        emoji,
+        highlightColor: highlight_color
+      },
+      create: {
+        userId: user_id,
+        wordId: word_id,
+        emoji,
+        highlightColor: highlight_color
+      }
     });
-
-    if (!created) {
-      await association.update({ emoji, highlight_color });
-    }
 
     res.status(200).json({ message: 'Word association saved successfully', association });
   } catch (error) {
@@ -137,12 +144,16 @@ router.get('/word-associations', authenticateUser, async (req, res) => {
   try {
     const user_id = req.user.id;
 
-    const associations = await user_word_associations.findAll({
-      where: { user_id },
-      include: [{
-        model: words,
-        attributes: ['word_id', 'word_text'] // Assuming 'word_text' is the column name for the actual word
-      }]
+    const associations = await prisma.user_word_association.findMany({
+      where: { userId: user_id },
+      include: {
+        word: {
+          select: {
+            id: true,
+            text: true // Assuming 'text' is the field name for the actual word
+          }
+        }
+      }
     });
 
     res.status(200).json(associations);
@@ -157,11 +168,11 @@ router.delete('/word-association/:word_id', authenticateUser, async (req, res) =
     const user_id = req.user.id;
     const { word_id } = req.params;
 
-    const deleted = await user_word_associations.destroy({
-      where: { user_id, word_id }
+    const deleted = await prisma.user_word_association.deleteMany({
+      where: { userId: user_id, wordId: parseInt(word_id) }
     });
 
-    if (deleted) {
+    if (deleted.count > 0) {
       res.status(200).json({ message: 'Word association deleted successfully' });
     } else {
       res.status(404).json({ message: 'Word association not found' });

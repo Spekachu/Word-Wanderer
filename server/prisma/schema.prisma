@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model contexts {
+  context_id          Int                 @id @default(autoincrement())
+  context_description String?
+  sentence_contexts   sentence_contexts[]
+  word_contexts       word_contexts[]
+}
+
+model sentences {
+  sentence_id            Int                      @id @default(autoincrement())
+  level                  String?                  @db.VarChar(2)
+  frequency_score        Int?
+  sentence_contexts      sentence_contexts[]
+  sentence_words         sentence_words[]
+  sentences_translations sentences_translations[]
+}
+
+model users {
+  user_id                Int                      @id @default(autoincrement())
+  email                  String                   @unique @db.VarChar(255)
+  hashed_password        String                   @db.VarChar(255)
+  user_word_associations user_word_associations[]
+}
+
+model words {
+  word_id                Int                      @id @default(autoincrement())
+  part_of_speech         String?                  @db.VarChar(50)
+  level                  String?                  @db.VarChar(2)
+  frequency_score        Int?
+  sentence_words         sentence_words[]
+  user_word_associations user_word_associations[]
+  word_contexts          word_contexts[]
+  words_translations     words_translations[]
+}
+
+model sentence_contexts {
+  sentence_id Int
+  context_id  Int
+  contexts    contexts  @relation(fields: [context_id], references: [context_id], onDelete: NoAction, onUpdate: NoAction)
+  sentences   sentences @relation(fields: [sentence_id], references: [sentence_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([sentence_id, context_id])
+}
+
+model sentence_words {
+  sentence_word_id Int        @id @default(autoincrement())
+  sentence_id      Int?
+  word_id          Int?
+  sentences        sentences? @relation(fields: [sentence_id], references: [sentence_id], onDelete: NoAction, onUpdate: NoAction)
+  words            words?     @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model sentences_translations {
+  translation_id      Int        @id @default(autoincrement())
+  sentence_id         Int?
+  language_code       String?    @db.Char(2)
+  translation         String?
+  literal_translation String?
+  translation_rank    Int?
+  sentences           sentences? @relation(fields: [sentence_id], references: [sentence_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model user_word_associations {
+  id              Int       @id @default(autoincrement())
+  user_id         Int
+  word_id         Int
+  emoji           String?   @db.VarChar(8)
+  highlight_color String?   @db.Char(7)
+  createdAt       DateTime? @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime? @default(now()) @db.Timestamptz(6)
+  users           users     @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+  words           words     @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([user_id, word_id])
+  @@index([user_id, word_id], map: "idx_user_word_associations_user_word")
+}
+
+model word_contexts {
+  word_id    Int
+  context_id Int
+  contexts   contexts @relation(fields: [context_id], references: [context_id], onDelete: NoAction, onUpdate: NoAction)
+  words      words    @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([word_id, context_id])
+}
+
+model words_translations {
+  translation_id      Int     @id @default(autoincrement())
+  word_id             Int?
+  language_code       String? @db.Char(2)
+  translation         String?
+  literal_translation String?
+  translation_rank    Int?
+  words               words?  @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([language_code], map: "idx_language")
+}

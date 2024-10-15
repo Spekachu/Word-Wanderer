@@ -3,7 +3,7 @@ import cors from 'cors';
 
 const port = 5000;
 
-import words_route from './src/routes/words_route.js';
+import wordsRoute from './src/routes/wordsRoute.js';
 import userRoutes from './src/routes/userRoutes.js';
 
 const start = async () => {
@@ -17,7 +17,7 @@ const start = async () => {
 	app.use(express.json());
 
 	// API routes
-	app.use('/api', words_route);
+	app.use('/api', wordsRoute);
 	app.use('/api/users', userRoutes);
 
 	app.use('/static', express.static('public'));

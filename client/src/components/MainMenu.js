@@ -92,7 +92,7 @@ export const MainMenu = () => {
             <option className='text-black' value="fr">{t('languages.fr')}</option>
             <option className='text-black' value="es">{t('languages.es')}</option>
           </select>
-          
+
           <FaArrowRightArrowLeft 
             className="mx-2 cursor-pointer"
             onClick={switchLanguages} 

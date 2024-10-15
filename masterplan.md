@@ -17,16 +17,16 @@
 
 ## Tech Specs
 1. Frontend:
-   - React.js for the user interface
-   - React Router for navigation
-   - Context API for state management
-   - Tailwind CSS for styling
-   - i18next for internationalization
+	- React.js for the user interface
+	- React Router for navigation
+	- Context API for state management
+	- Tailwind CSS for styling
+	- i18next for internationalization
 
 2. Backend:
-   - Node.js with Express.js
-   - Sequelize ORM for database interactions
-   - JWT for authentication
+	- Node.js with Express.js
+	- Prisma ORM for database interactions
+	- JWT for authentication
 
 3. Database:
    - PostgreSQL
@@ -40,7 +40,7 @@
 ## Feature Roadmap
 
 ### Implemented Features
-- [x] User Registration and Authentication
+- [x] User Registration and Authentication, Login, Logout
 - [x] Interactive Word Map with algorithm for placing words in circular shape
 - [x] Word Selection and Information Display
 - [x] Language Pair Selection
@@ -53,6 +53,10 @@
 - [x] Duplicate words in db with different translations get combined on the frontend
 
 ### Planned Features
+
+#### Authentication
+- [ ] Password Reset
+- [ ] User Profile page, update password, delete account
 
 #### Content Enhancement
 - [ ] Word Categories and Themes

@@ -15,10 +15,23 @@ This repository contains the backend code for the Word Wanderer project, an inte
 
 - **Node.js**: Runtime environment
 - **Express.js**: Web application framework
-- **Sequelize ORM**: For database operations and migrations
+- **Prisma ORM**: For database operations and migrations
 - **PostgreSQL**: Primary database
 - **JSON Web Tokens (JWT)**: For secure authentication
 - **bcrypt**: For password hashing
+- **Stripe.js** (Payments)
+- **dotenv** (Environment variables)
+- **cors** (CORS handling)
+
+### Possible Technologies if needed
+- **Passport.js** (Authentication)
+- **Joi** (Validation)
+- **Winston** (Logging)
+- **Helmet.js** (Security)
+- **Swagger** (API documentation)
+- **Jest** (Testing)
+- **node-cron** (Task scheduling, if needed)
+- **Socket.io** (WebSockets, if needed)
 
 ## API Structure
 

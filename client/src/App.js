@@ -1,0 +1,51 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import WordMap from './components/WordMap';
+import ContentWindow from './components/ContentWindow';
+import { WordProvider } from './contexts/AppContext';
+import { AuthProvider } from './contexts/AuthContext';
+import { NotificationProvider } from './contexts/NotificationContext';
+import { AppWindow } from './pages/AppWindow';
+import { MainMenu } from './components/MainMenu';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import NotificationDisplay from './components/NotificationDisplay';
+
+function App() {
+  return (
+    <Router>
+      <AuthProvider>
+				<NotificationProvider>
+					<WordProvider>
+						<div className="App w-full h-dvh flex flex-col text-white" 
+							style={{
+								backgroundImage: `linear-gradient(to top right, #7d596c, #415068)`,
+								backgroundSize: 'cover',
+								backgroundPosition: 'center',
+							}}>
+							<div className="flex-grow overflow-auto">
+								<Routes>
+									<Route path="/" element={<Home />} />
+									<Route path="/map" element={
+										<AppWindow>
+											<WordMap />
+											<ContentWindow />
+										</AppWindow>
+									} />
+									<Route path="/register" element={<Register />} />
+									<Route path="/login" element={<Login />} />
+								</Routes>
+							</div>
+							<MainMenu />
+							<NotificationDisplay />
+						</div>
+					</WordProvider>
+        </NotificationProvider>
+      </AuthProvider>
+    </Router>
+  );
+}
+
+export default App;

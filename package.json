@@ -1,0 +1,17 @@
+{
+  "name": "word-wanderer",
+  "version": "1.0.0",
+  "description": "a language learning app",
+	"author": "Spencer Johnson",
+  "scripts": {
+    "start": "cd server && npm start",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0"
+  }
+}

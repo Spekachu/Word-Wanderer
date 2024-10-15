@@ -1,0 +1,51 @@
+{
+  "welcome": "Welcome",
+  "menu": {
+    "home": "Home",
+    "about": "About Us",
+    "contact": "Contact",
+		"filter": "filter",
+		"partOfSpeech": "part of speech",
+		"level": "level",
+		"context": "context"
+  },
+	"languages": {
+		"de": "German",
+		"en": "English",
+		"es": "Spanish",
+		"fr": "French"
+	},
+	"partOfSpeech": {
+		"adjective": "Adjective",
+		"article": "Article",
+		"noun": "Noun",
+		"preposition": "Preposition",
+		"verb": "Verb",
+		"adverb": "Adverb",
+		"conjunction": "Conjunction",
+		"pronoun": "Pronoun",
+		"interjection": "Interjection"
+	},
+	"register": {
+    "title": "Create your account",
+    "username": "Username",
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "submit": "Sign up",
+    "passwordMismatch": "Passwords do not match",
+    "error": "Registration failed",
+    "networkError": "Network error, please try again"
+  },
+	"login": {
+    "title": "Login",
+    "username": "Username",
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "submit": "Login",
+    "passwordMismatch": "Passwords do not match",
+    "error": "Login failed",
+    "networkError": "Network error, please try again"
+  }
+}

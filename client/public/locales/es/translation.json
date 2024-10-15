@@ -1,0 +1,40 @@
+{
+  "welcome": "Bienvenido",
+  "menu": {
+    "home": "Inicio",
+    "about": "Acerca de nosotros",
+    "contact": "Contacto",
+    "filter": "Filtrar",
+    "partOfSpeech": "Parte del discurso",
+    "level": "Nivel",
+    "context": "Contexto"
+  },
+  "languages": {
+    "de": "Alemán",
+    "en": "Inglés",
+    "es": "Español",
+    "fr": "Francés"
+  },
+	"partOfSpeech": {
+		"adjective": "Adjetivo",
+		"article": "Artículo",
+		"noun": "Sustantivo",
+		"preposition": "Preposición",
+		"verb": "Verbo",
+		"adverb": "Adverbio",
+		"conjunction": "Conjunción",
+		"pronoun": "Pronombre",
+		"interjection": "Interjección"
+	},
+	"register": {
+    "title": "Create your account",
+    "username": "Username",
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "submit": "Sign up",
+    "passwordMismatch": "Passwords do not match",
+    "error": "Registration failed",
+    "networkError": "Network error, please try again"
+  }
+}

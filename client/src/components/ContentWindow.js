@@ -1,0 +1,213 @@
+import { useContext, useRef, useEffect } from 'react';
+import { AppContext } from '../contexts/AppContext';
+import { FaArrowAltCircleDown } from "react-icons/fa";
+import { RiEmojiStickerLine } from "react-icons/ri";
+import EmojiPicker from 'emoji-picker-react'; 
+import { IoIosCloseCircle } from "react-icons/io";
+import { PiHighlighterDuotone } from "react-icons/pi";
+
+const ContentWindow = () => {
+  const { selectedWord, activeContent, setActiveContent, selectedSticker, setSelectedSticker, showEmojiPicker, setShowEmojiPicker,selectedHighlight, setSelectedHighlight, showHighlightPicker, setShowHighlightPicker } = useContext(AppContext);
+
+	const emojiPickerRef = useRef(null);
+
+  function closeContentWindow() {
+    setActiveContent(false);
+		setShowEmojiPicker(false);
+		setShowHighlightPicker(false);
+  }
+
+  function onEmojiClick(emojiData, event) {
+    setSelectedSticker(emojiData.emoji); // Save selected emoji in state
+    setShowEmojiPicker(false); // Close emoji picker after selection
+  }
+
+  function removeSticker() {
+    setSelectedSticker(null); // Save selected emoji in state
+    setShowEmojiPicker(false); // Close emoji picker after selection
+  }
+
+  function toggleHighlightPicker() {
+		setShowHighlightPicker(!showHighlightPicker);
+  }
+
+  function setHighlight(color) {
+		setSelectedHighlight(color);
+  }
+
+	useEffect(() => {
+		if (activeContent && showEmojiPicker) {
+			const timeoutId = setTimeout(() => {
+				emojiPickerRef.current.scrollIntoView({
+					behavior: "smooth"
+				});
+			}, 150);
+	
+			// Cleanup timeout if the component unmounts or dependencies change
+			return () => clearTimeout(timeoutId);
+		}
+	}, [showEmojiPicker, activeContent]);	
+
+  return (
+    <div id="ContentWindow"
+      className={`relative
+				transition-all
+				bg-white 
+				text-stone-900 
+				p-8 
+				backdrop-blur-sm 
+				border-8 
+				border-slate-200 
+				rounded-t-lg
+				sm:rounded-t-3xl 
+				shadow-2xl 
+				z-10 
+				w-full
+				sm:w-[calc(100%-2rem)]
+				sm:max-w-lg 
+				ml-auto
+				${
+        activeContent ? showEmojiPicker ?  'min-h-[35rem] max-h-dvh translate-y-[calc(100dvh-12rem)]' : 'min-h-48 translate-y-[calc(100dvh-12rem)]' : 'min-h-48 translate-y-[calc(100dvh+1rem)] pointer-events-none opacity-0'
+      }`}
+    >
+			<div className={`absolute bottom-[calc(100%+.5rem)] left-0 sm:left-4 w-full sm:w-[calc(100%-2rem)] overflow-hidden origin-bottom transition-all ${showHighlightPicker ? "h-20" : "h-0"}`}>
+				<div className="flex h-full absolute w-full top-0 left-0 items-end">
+					{[
+						"#ffffff", 
+						"#fee2e2",
+						"#ffedd5",
+						"#fef9c3",
+						"#ecfccb",
+						"#dcfce7",
+						"#d1fae5",
+						"#cffafe",
+						"#e0f2fe",
+						"#e0e7ff",
+						"#f3e8ff",
+						"#fce7f3",
+						"#fecaca",
+						"#fed7aa",
+						"#fde68a",
+						"#fef08a",
+						"#d9f99d",
+						"#bbf7d0",
+						"#a7f3d0",
+						"#99f6e4",
+						"#a5f3fc",
+						"#bae6fd",
+						"#bfdbfe",
+						"#c7d2fe",
+						"#ddd6fe",
+						"#e9d5ff",
+						"#f5d0fe",
+						"#fbcfe8"
+					].map((color) => (
+						<div
+							key={color}
+							onClick={() => setHighlight(color)}
+							className={`w-auto grow h-16 border border-white rounded-t-full transition origin-bottom cursor-pointer hover:scale-y-125 ${
+								selectedHighlight === color ? "scale-y-125" : ""
+							}`}
+							style={{
+								backgroundColor: color,
+							}}
+						/>
+					))}
+				</div>
+			</div>
+
+      {/* Close button */}
+      <button className='text-4xl p-1 absolute right-0 -top-4 text-slate-300 bg-white rounded-full hover:text-slate-600 transition-colors' onClick={closeContentWindow}>
+        <FaArrowAltCircleDown />
+      </button>
+
+      {/* Emoji sticker button */}
+      <button 
+        className={`text-4xl p-1 absolute left-0 -top-4 text-slate-300 rounded-full hover:text-slate-600 transition-colors aspect-square ${
+					selectedSticker ? 'w-12 h-12' : 'bg-white'
+				}`}
+        onClick={() => setShowEmojiPicker(!showEmojiPicker)} // Toggle emoji picker
+      >
+				<div className={`${
+					selectedSticker ? 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 drop-shadow-[-.1rem_-.1rem_0_rgba(255,255,255,0.9)]' : ''
+				}`}>
+        	{selectedSticker ? selectedSticker : <RiEmojiStickerLine />}
+				</div>
+      </button>
+      {/* Emoji sticker remove button */}
+			{selectedSticker && (
+				<button className='text-2xl absolute left-12 -top-3 text-red-400 bg-white/90 rounded-full hover:text-red-600 transition-colors' onClick={removeSticker}>
+        	<IoIosCloseCircle />
+      	</button>
+			)}
+			<button className={`text-2xl absolute right-14 -top-3 p-1  border-2 border-slate-300 rounded-full hover:text-slate-600 transition-colors ${
+				selectedHighlight === "#ffffff" ? "text-slate-300" : ""
+			}`} 
+			style={{
+				backgroundColor: selectedHighlight,
+				...(selectedHighlight !== "#ffffff" && { color: selectedHighlight })
+			}}
+			onClick={toggleHighlightPicker}>
+				<PiHighlighterDuotone />
+			</button>
+
+      {/* Emoji picker (conditionally render based on showEmojiPicker state) */}
+			<div ref={emojiPickerRef} 
+			className={`fixed right-0 bottom-0 z-20 w-full transition-all ${
+				showEmojiPicker ? "h-[calc(100%-2rem)]" : "translate-y-full opacity-0 pointer-events-none h-0 origin-bottom"
+			}`}>
+				<EmojiPicker onEmojiClick={onEmojiClick} width="100%" height="100%" previewConfig={{
+						defaultCaption: "Pick a sticker for this word!", 
+					}} />
+			</div>
+
+      {/* Conditionally render the content */}
+      {selectedWord && activeContent && (
+        <>
+          <p className='text-4xl capitalize'><span className='relative inline-block'>{selectedHighlight !== "#ffffff" && (
+						<span className='absolute -z-10 w-[calc(100%+2rem)] min-w-40 h-full top-0 -left-4 -skew-y-1' 
+						style={{
+							backgroundColor: selectedHighlight
+						}}></span>
+					)}{selectedWord.translations.target.translation}</span></p>
+					<hr className='mt-2'  />
+          <p className='text-xl'>
+						{selectedWord.translations.source.translation}
+						{selectedWord.translations.source.alternate_translations.length > 0 && (
+							<span>
+								{selectedWord.translations.source.alternate_translations.map((alt, index) => (
+									<span key={index}>
+										, {alt.translation}{index < selectedWord.translations.source.alternate_translations.length - 1 && ', '}
+									</span>
+								))}
+							</span>
+						)}
+					</p>
+
+					{selectedWord.translations.source.literal_translation && (
+						<p className='text-lg'>
+							<i>{selectedWord.translations.source.literal_translation}</i>
+							{selectedWord.translations.source.alternate_translations.length > 0 && (
+								<span>
+									{selectedWord.translations.source.alternate_translations.map((alt, index) => (
+										<span key={index}>
+											{alt.literal_translation && (
+												<span>
+													, <i>{alt.literal_translation}</i>
+												</span>
+											)}
+										</span>
+									))}
+								</span>
+							)}
+						</p>
+					)}
+					<hr className='mt-2'  />
+
+        </>
+      )}
+    </div>
+  );
+}
+
+export default ContentWindow;

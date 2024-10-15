@@ -15,9 +15,9 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
 
   const { addNotification } = useNotification();
 
-  const [discovered, setDiscovered] = useState(!!word.user_association);
-  const [sticker, setSticker] = useState(word.user_association?.emoji || "");
-  const [highlight, setHighlight] = useState(word.user_association?.highlight_color || "#ffffff");
+  const [discovered, setDiscovered] = useState(!!word.userAssociation);
+  const [sticker, setSticker] = useState(word.userAssociation?.emoji || "");
+  const [highlight, setHighlight] = useState(word.userAssociation?.highlightColor || "#ffffff");
   const [dragging, setDragging] = useState(false);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [isSelected, setIsSelected] = useState(false);

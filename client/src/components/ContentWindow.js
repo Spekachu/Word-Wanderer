@@ -173,11 +173,11 @@ const ContentWindow = () => {
 					<hr className='mt-2'  />
           <p className='text-xl'>
 						{selectedWord.translations.source.translation}
-						{selectedWord.translations.source.alternate_translations.length > 0 && (
+						{selectedWord.translations.source.alternate_translations?.length > 0 && (
 							<span>
-								{selectedWord.translations.source.alternate_translations.map((alt, index) => (
+								{selectedWord.translations.source.alternate_translations?.map((alt, index) => (
 									<span key={index}>
-										, {alt.translation}{index < selectedWord.translations.source.alternate_translations.length - 1 && ', '}
+										, {alt.translation}{index < selectedWord.translations.source.alternate_translations?.length - 1 && ', '}
 									</span>
 								))}
 							</span>
@@ -187,9 +187,9 @@ const ContentWindow = () => {
 					{selectedWord.translations.source.literal_translation && (
 						<p className='text-lg'>
 							<i>{selectedWord.translations.source.literal_translation}</i>
-							{selectedWord.translations.source.alternate_translations.length > 0 && (
+							{selectedWord.translations.source.alternate_translations?.length > 0 && (
 								<span>
-									{selectedWord.translations.source.alternate_translations.map((alt, index) => (
+									{selectedWord.translations.source.alternate_translations?.map((alt, index) => (
 										<span key={index}>
 											{alt.literal_translation && (
 												<span>

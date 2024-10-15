@@ -12,7 +12,7 @@ router.post('/register', async (req, res) => {
     const { email, password } = req.body;
     
     // Check if user already exists
-    const existingUser = await prisma.user.findUnique({ where: { email } });
+    const existingUser = await prisma.users.findUnique({ where: { email } });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
@@ -22,22 +22,22 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
-    const newUser = await prisma.user.create({
+    const newUser = await prisma.users.create({
       data: {
         email,
-        hashedPassword
+        hashed_password: hashedPassword
       }
     });
 
     // Create JWT token
-    const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: newUser.user_id }, process.env.JWT_SECRET, {
       expiresIn: '1h'
     });
 
     res.status(201).json({
       message: 'User registered successfully',
       token,
-      user: { id: newUser.id, email: newUser.email }
+      user: { id: newUser.user_id, email: newUser.email }
     });
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message, reqBody: req.body });
@@ -49,26 +49,26 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     // Find user by email
-    const user = await prisma.user.findUnique({ where: { email } });
+    const user = await prisma.users.findUnique({ where: { email } });
     if (!user) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
     // Check password
-    const isMatch = await bcrypt.compare(password, user.hashedPassword);
+    const isMatch = await bcrypt.compare(password, user.hashed_password);
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
     // Create JWT token
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: user.user_id }, process.env.JWT_SECRET, {
       expiresIn: '1h'
     });
 
     res.json({
       message: 'Login successful',
       token,
-      user: { id: user.id, email: user.email }
+      user: { id: user.user_id, email: user.email }
     });
   } catch (error) {
     console.error('Login error:', error);
@@ -109,27 +109,27 @@ router.post('/word-association', authenticateUser, async (req, res) => {
     }
 
     // Check if the word exists
-    const wordExists = await prisma.word.findUnique({ where: { id: word_id } });
+    const wordExists = await prisma.words.findUnique({ where: { word_id: word_id } });
     if (!wordExists) {
       return res.status(404).json({ message: 'Word not found' });
     }
 
-    const association = await prisma.user_word_association.upsert({
+    const association = await prisma.user_word_associations.upsert({
       where: {
-        userId_wordId: {
-          userId: user_id,
-          wordId: word_id
+        user_id_word_id: {
+          user_id: user_id,
+          word_id: word_id
         }
       },
       update: {
         emoji,
-        highlightColor: highlight_color
+        highlight_color: highlight_color
       },
       create: {
-        userId: user_id,
-        wordId: word_id,
+        user_id: user_id,
+        word_id: word_id,
         emoji,
-        highlightColor: highlight_color
+        highlight_color: highlight_color
       }
     });
 
@@ -144,19 +144,35 @@ router.get('/word-associations', authenticateUser, async (req, res) => {
   try {
     const user_id = req.user.id;
 
-    const associations = await prisma.user_word_association.findMany({
-      where: { userId: user_id },
+    const associations = await prisma.user_word_associations.findMany({
+      where: { user_id: user_id },
       include: {
-        word: {
+        words: {
           select: {
-            id: true,
-            text: true // Assuming 'text' is the field name for the actual word
+            word_id: true,
+            words_translations: {
+              where: {
+                language_code: 'en',  
+                translation_rank: 1
+              },
+              select: {
+                translation: true
+              }
+            }
           }
         }
       }
     });
 
-    res.status(200).json(associations);
+    // Format the response
+    const formattedAssociations = associations.map(assoc => ({
+      word_id: assoc.word_id,
+      emoji: assoc.emoji,
+      highlight_color: assoc.highlight_color,
+      word: assoc.words.words_translations[0]?.translation || null
+    }));
+
+    res.status(200).json(formattedAssociations);
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
@@ -168,8 +184,8 @@ router.delete('/word-association/:word_id', authenticateUser, async (req, res) =
     const user_id = req.user.id;
     const { word_id } = req.params;
 
-    const deleted = await prisma.user_word_association.deleteMany({
-      where: { userId: user_id, wordId: parseInt(word_id) }
+    const deleted = await prisma.user_word_associations.deleteMany({
+      where: { user_id: user_id, word_id: parseInt(word_id) }
     });
 
     if (deleted.count > 0) {

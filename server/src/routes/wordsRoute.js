@@ -29,17 +29,17 @@ router.get('/words', optionalAuthenticateUser, async (req, res) => {
     let words = await prisma.words.findMany({
       where: {
         level,
-        partOfSpeech,
-        translations: {
+        part_of_speech: partOfSpeech,
+        words_translations: {
           some: {
-            languageCode: { in: [sourceLanguage, targetLanguage] }
+            language_code: { in: [sourceLanguage, targetLanguage] }
           }
         }
       },
       include: {
-        translations: {
+        words_translations: {
           where: {
-            languageCode: { in: [sourceLanguage, targetLanguage] }
+            language_code: { in: [sourceLanguage, targetLanguage] }
           }
         }
       }
@@ -47,25 +47,25 @@ router.get('/words', optionalAuthenticateUser, async (req, res) => {
 
     // Format words
     words = words.map(word => ({
-      id: word.id,
-      partOfSpeech: word.partOfSpeech,
+      id: word.word_id,
+      partOfSpeech: word.part_of_speech,
       level: word.level,
-      frequencyScore: word.frequencyScore,
+      frequencyScore: word.frequency_score,
       translations: {
-        source: word.translations.find(t => t.languageCode === sourceLanguage),
-        target: word.translations.find(t => t.languageCode === targetLanguage)
+        source: word.words_translations.find(t => t.language_code === sourceLanguage),
+        target: word.words_translations.find(t => t.language_code === targetLanguage)
       }
     }));
 
     // If user is authenticated, fetch and merge user associations
     if (req.user) {
-      const userAssociations = await prisma.user_word_association.findMany({
-        where: { userId: req.user.id },
-        select: { wordId: true, emoji: true, highlightColor: true }
+      const userAssociations = await prisma.user_word_associations.findMany({
+        where: { user_id: req.user.id },
+        select: { word_id: true, emoji: true, highlight_color: true }
       });
 
       const associationsMap = userAssociations.reduce((acc, assoc) => {
-        acc[assoc.wordId] = { emoji: assoc.emoji, highlightColor: assoc.highlightColor };
+        acc[assoc.word_id] = { emoji: assoc.emoji, highlightColor: assoc.highlight_color };
         return acc;
       }, {});
 

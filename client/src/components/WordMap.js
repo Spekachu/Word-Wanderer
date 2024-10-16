@@ -2,8 +2,12 @@ import React, { useEffect, useState, useRef, useCallback, useContext } from 'rea
 import Word from './Word';
 import { AppContext } from '../contexts/AppContext';
 import useDebounce from '../utils/useDebounce';
+import { useNotification } from '../contexts/NotificationContext';
+import { useAuth } from '../contexts/AuthContext';
 
 const WordMap = () => {
+	const { addNotification } = useNotification();
+	const { logout } = useAuth();
 	const { 
 		isDragging, 
 		setIsDragging, 
@@ -33,27 +37,40 @@ const WordMap = () => {
   const debouncedUserLearningLanguage = useDebounce(userLearningLanguage, 300);
 
 	const fetchWords = useCallback(async () => {
-		setLoading(true);
-		setError(null);
-		const token = localStorage.getItem('token');
-		try {
-			const response = await fetch(
-				`${process.env.REACT_APP_API_URL}/api/words?sourceLanguage=${debouncedUserLanguage}&targetLanguage=${debouncedUserLearningLanguage}&level=${debouncedCefrLevel}&partOfSpeech=${debouncedPartOfSpeech}`,
-				{
-					headers: token ? { 'Authorization': `Bearer ${token}` } : {}
-				}
-			);
-			if (!response.ok) {
-				throw new Error('Failed to fetch words');
-			}
-			const data = await response.json();
-			setWords(data);
-		} catch (err) {
-			setError(err.message);
-		} finally {
-			setLoading(false);
-		}
-	}, [debouncedUserLanguage, debouncedUserLearningLanguage, debouncedCefrLevel, debouncedPartOfSpeech]);
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/words?sourceLanguage=${debouncedUserLanguage}&targetLanguage=${debouncedUserLearningLanguage}&level=${debouncedCefrLevel}&partOfSpeech=${debouncedPartOfSpeech}`,
+        {
+          credentials: 'include'
+        }
+      );
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          addNotification("Your session has expired. Please log in again.", "error");
+					logout();
+        } else {
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Failed to fetch words');
+        }
+      }
+
+      const data = await response.json();
+      setWords(data);
+    } catch (err) {
+      setError(err.message);
+      if (err.name === 'TypeError' && err.message === 'Failed to fetch') {
+        addNotification("Network error. Please check your connection and try again.", "error");
+      } else {
+        addNotification(err.message || "An unexpected error occurred. Please try again later.", "error");
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, [debouncedUserLanguage, debouncedUserLearningLanguage, debouncedCefrLevel, debouncedPartOfSpeech, addNotification]);
+
 
 	useEffect(() => {
 		fetchWords();

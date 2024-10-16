@@ -7,13 +7,14 @@ const router = Router();
 
 // Middleware to optionally authenticate user
 const optionalAuthenticateUser = (req, res, next) => {
-  const token = req.header('Authorization')?.replace('Bearer ', '');
+  const token = req.cookies.token;
   if (token) {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       req.user = decoded;
     } catch (error) {
-      console.log('Invalid token, continuing as guest');
+      console.log('Invalid or expired token, continuing as guest');
+      res.clearCookie(token);
     }
   }
   next();

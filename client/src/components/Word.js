@@ -1,8 +1,10 @@
 import { forwardRef, useContext, useEffect, useState, useCallback } from 'react';
 import { AppContext } from '../contexts/AppContext';
 import { useNotification } from '../contexts/NotificationContext';
+import { useAuth } from '../contexts/AuthContext';
 
 const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => {
+	const { isLoggedIn, logout } = useAuth();
   const { 
     selectedWord, setSelectedWord, 
     activeContent, setActiveContent, 
@@ -23,14 +25,12 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
   const [isSelected, setIsSelected] = useState(false);
 
   const saveWordAssociation = useCallback(async (wordId, emoji, highlightColor) => {
-    const token = localStorage.getItem('token');
-    
     // Update local state immediately
     setSticker(emoji);
     setHighlight(highlightColor);
     setDiscovered(true);
 
-    if (!token) {
+    if (!isLoggedIn) {
       addNotification("Changes saved locally. Log in to save permanently.", "info");
       return;
     }
@@ -40,8 +40,8 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
         },
+        credentials: 'include',
         body: JSON.stringify({
           word_id: wordId,
           emoji: emoji,
@@ -50,14 +50,29 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
       });
 
       if (!response.ok) {
-        throw new Error('Failed to save word association');
+        if (response.status === 401) {
+          addNotification("Your session has expired. Please log in again.", "error");
+					logout();
+        } else if (response.status === 404) {
+          addNotification("Word not found. Please try again.", "error");
+        } else {
+          const errorData = await response.json();
+          addNotification(errorData.message || "Failed to save word association", "error");
+        }
+        return;
       }
+
+      // addNotification("Word association saved successfully!", "success");
 
     } catch (error) {
       console.error('Error saving word association:', error);
-      addNotification("Failed to save changes to server. Your changes are saved locally.", "error", 7000);
+      if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+        addNotification("Network error. Please check your connection and try again.", "error");
+      } else {
+        addNotification("An unexpected error occurred. Please try again later.", "error");
+      }
     }
-  }, [addNotification]);
+  }, [addNotification, isLoggedIn]);
 
   const handleWordClick = useCallback(() => {
     if (dragging) {

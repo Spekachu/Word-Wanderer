@@ -3,12 +3,13 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
 import { useTranslation } from 'react-i18next';
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
+import { useAuth } from '../contexts/AuthContext';
 
 export const MainMenu = () => {
+	const { isLoggedIn, logout } = useAuth();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const isLoggedIn = !!localStorage.getItem('token');
   const isWordMapRoute = location.pathname === '/map';
 
   const {
@@ -59,11 +60,6 @@ export const MainMenu = () => {
     setShowHighlightPicker(false);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
-  };
-
   return (
     <div id="MainMenu" className="fixed text-white p-2 top-0 flex items-center justify-between w-full backdrop-blur-xl bg-black/5 border-b border-white">
       <div className="flex items-center">
@@ -76,7 +72,7 @@ export const MainMenu = () => {
           </>
         )}
         {isLoggedIn && (
-          <button onClick={handleLogout} className="text-white hover:text-gray-300 py-2">Logout</button>
+          <button onClick={logout} className="text-white hover:text-gray-300 py-2">Logout</button>
         )}
       </div>
 

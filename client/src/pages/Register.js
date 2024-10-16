@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../contexts/AuthContext';
+import { useNotification } from '../contexts/NotificationContext';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -8,9 +9,9 @@ const Register = () => {
     password: '',
     confirmPassword: '',
   });
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
   const { t } = useTranslation();
+  const { register } = useAuth();
+  const { addNotification } = useNotification();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,40 +20,12 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-		console.log('Sending registration data:', {
-			email: formData.email,
-			password: formData.password,
-		});
-
     if (formData.password !== formData.confirmPassword) {
-      setError(t('register.passwordMismatch'));
+      addNotification(t('register.passwordMismatch'), 'error');
       return;
     }
 
-    try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        navigate('/map');
-      } else {
-        setError(data.message || t('register.error'));
-      }
-    } catch (error) {
-			console.error('Registration error:', error);
-      setError(t('register.networkError'));
-    }
+    await register(formData.email, formData.password);
   };
 
   return (
@@ -113,10 +86,6 @@ const Register = () => {
               />
             </div>
           </div>
-
-          {error && (
-            <div className="text-red-500 text-sm mt-2">{error}</div>
-          )}
 
           <div>
             <button

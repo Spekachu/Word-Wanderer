@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
   const { t } = useTranslation();
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,27 +16,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        navigate('/map');
-      } else {
-        setError(data.message || t('login.error'));
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-      setError(t('login.networkError'));
-    }
+    await login(formData.email, formData.password);
   };
 
   return (
@@ -82,10 +61,6 @@ const Login = () => {
               />
             </div>
           </div>
-
-          {error && (
-            <div className="text-red-500 text-sm mt-2">{error}</div>
-          )}
 
           <div>
             <button

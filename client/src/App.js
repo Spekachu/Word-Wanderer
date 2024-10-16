@@ -16,34 +16,34 @@ import NotificationDisplay from './components/NotificationDisplay';
 function App() {
   return (
     <Router>
-      <AuthProvider>
-				<NotificationProvider>
-					<WordProvider>
-						<div className="App w-full h-dvh flex flex-col text-white" 
-							style={{
-								backgroundImage: `linear-gradient(to top right, #7d596c, #415068)`,
-								backgroundSize: 'cover',
-								backgroundPosition: 'center',
-							}}>
-							<div className="flex-grow overflow-auto">
-								<Routes>
-									<Route path="/" element={<Home />} />
-									<Route path="/map" element={
-										<AppWindow>
-											<WordMap />
-											<ContentWindow />
-										</AppWindow>
-									} />
-									<Route path="/register" element={<Register />} />
-									<Route path="/login" element={<Login />} />
-								</Routes>
-							</div>
-							<MainMenu />
-							<NotificationDisplay />
-						</div>
-					</WordProvider>
-        </NotificationProvider>
-      </AuthProvider>
+      <NotificationProvider>
+        <AuthProvider>
+          <WordProvider>
+            <div className="App w-full h-dvh flex flex-col text-white" 
+              style={{
+                backgroundImage: `linear-gradient(to top right, #7d596c, #415068)`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}>
+              <div className="flex-grow overflow-auto">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/map" element={
+                    <AppWindow>
+                      <WordMap />
+                      <ContentWindow />
+                    </AppWindow>
+                  } />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/login" element={<Login />} />
+                </Routes>
+              </div>
+              <MainMenu />
+              <NotificationDisplay />
+            </div>
+          </WordProvider>
+        </AuthProvider>
+      </NotificationProvider>
     </Router>
   );
 }

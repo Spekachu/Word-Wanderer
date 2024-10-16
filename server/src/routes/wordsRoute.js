@@ -1,10 +1,9 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
-import { PrismaClient } from '@prisma/client';
-import { getWordsWithTranslations } from '../queries/getWords.js'; // Make sure this path is correct
+import { getWordsWithTranslations } from '../queries/getWords.js';
+import { getUserWordAssociations } from '../queries/getUserWordAssociations.js';
 
 const router = Router();
-const prisma = new PrismaClient();
 
 // Middleware to optionally authenticate user
 const optionalAuthenticateUser = (req, res, next) => {
@@ -31,15 +30,7 @@ router.get('/words', optionalAuthenticateUser, async (req, res) => {
 
     // If user is authenticated, fetch and merge user associations
     if (req.user) {
-      const userAssociations = await prisma.user_word_associations.findMany({
-        where: { user_id: req.user.id },
-        select: { word_id: true, emoji: true, highlight_color: true }
-      });
-
-      const associationsMap = userAssociations.reduce((acc, assoc) => {
-        acc[assoc.word_id] = { emoji: assoc.emoji, highlightColor: assoc.highlight_color };
-        return acc;
-      }, {});
+      const associationsMap = await getUserWordAssociations(req.user.id);
 
       words = words.map(word => ({
         ...word,

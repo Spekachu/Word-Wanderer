@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
+import cookieParser from 'cookie-parser';
 
 const port = 5000;
 const prisma = new PrismaClient();
@@ -12,6 +13,7 @@ const start = async () => {
   const app = express();
 
   // Middleware
+	app.use(cookieParser());
   app.use(express.static('public'));
   app.use(cors({
     origin: 'http://localhost:3000'

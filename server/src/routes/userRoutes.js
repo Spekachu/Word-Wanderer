@@ -7,6 +7,16 @@ import { validateColor } from '../utils/validators.js';
 const router = express.Router();
 const prisma = new PrismaClient();
 
+// Helper function to set token cookie
+const setTokenCookie = (res, token) => {
+  res.cookie('token', token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+  });
+};
+
 router.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -31,12 +41,14 @@ router.post('/register', async (req, res) => {
 
     // Create JWT token
     const token = jwt.sign({ id: newUser.user_id }, process.env.JWT_SECRET, {
-      expiresIn: '1h'
+      expiresIn: '7d'
     });
+
+    // Set token as HTTP-only cookie
+    setTokenCookie(res, token);
 
     res.status(201).json({
       message: 'User registered successfully',
-      token,
       user: { id: newUser.user_id, email: newUser.email }
     });
   } catch (error) {
@@ -62,12 +74,14 @@ router.post('/login', async (req, res) => {
 
     // Create JWT token
     const token = jwt.sign({ id: user.user_id }, process.env.JWT_SECRET, {
-      expiresIn: '1h'
+      expiresIn: '7d'
     });
+
+    // Set token as HTTP-only cookie
+    setTokenCookie(res, token);
 
     res.json({
       message: 'Login successful',
-      token,
       user: { id: user.user_id, email: user.email }
     });
   } catch (error) {
@@ -76,8 +90,31 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/refresh-token', (req, res) => {
+  const token = req.cookies.token;
+  if (!token) {
+    return res.status(401).json({ message: 'No token provided' });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const newToken = jwt.sign({ id: decoded.id }, process.env.JWT_SECRET, {
+      expiresIn: '7d'
+    });
+    setTokenCookie(res, newToken);
+    res.json({ message: 'Token refreshed' });
+  } catch (error) {
+    res.status(401).json({ message: 'Invalid token' });
+  }
+});
+
+router.post('/logout', (req, res) => {
+  res.clearCookie('token');
+  res.json({ message: 'Logged out successfully' });
+});
+
 const authenticateUser = (req, res, next) => {
-  const token = req.header('Authorization')?.replace('Bearer ', '');
+  const token = req.cookies.token;
   if (!token) return res.status(401).json({ message: 'Authentication required' });
 
   try {

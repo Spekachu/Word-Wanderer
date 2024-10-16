@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
 import { PrismaClient } from '@prisma/client';
+import { getWordsWithTranslations } from '../queries/getWords.js'; // Make sure this path is correct
 
 const router = Router();
 const prisma = new PrismaClient();
@@ -26,36 +27,7 @@ router.get('/words', optionalAuthenticateUser, async (req, res) => {
     const level = req.query.level || 'a1';
     const partOfSpeech = req.query.partOfSpeech || 'verb';
 
-    let words = await prisma.words.findMany({
-      where: {
-        level,
-        part_of_speech: partOfSpeech,
-        words_translations: {
-          some: {
-            language_code: { in: [sourceLanguage, targetLanguage] }
-          }
-        }
-      },
-      include: {
-        words_translations: {
-          where: {
-            language_code: { in: [sourceLanguage, targetLanguage] }
-          }
-        }
-      }
-    });
-
-    // Format words
-    words = words.map(word => ({
-      id: word.word_id,
-      partOfSpeech: word.part_of_speech,
-      level: word.level,
-      frequencyScore: word.frequency_score,
-      translations: {
-        source: word.words_translations.find(t => t.language_code === sourceLanguage),
-        target: word.words_translations.find(t => t.language_code === targetLanguage)
-      }
-    }));
+    let words = await getWordsWithTranslations(level, partOfSpeech, sourceLanguage, targetLanguage);
 
     // If user is authenticated, fetch and merge user associations
     if (req.user) {

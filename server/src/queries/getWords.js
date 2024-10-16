@@ -10,76 +10,81 @@ const getWordsWithTranslations = async (level = 'a1', partOfSpeech = 'verb', sou
         part_of_speech: partOfSpeech,
         words_translations: {
           some: {
-            language_code: { in: [sourceLanguage, targetLanguage] }
+            language_code: { in: [sourceLanguage, targetLanguage] },
+            translation: { not: null }
           }
         }
       },
       include: {
         words_translations: {
           where: {
-            language_code: { in: [sourceLanguage, targetLanguage] }
+            language_code: { in: [sourceLanguage, targetLanguage] },
+            translation: { not: null }
           }
         }
       }
     });
 
-    // Format words
-    words = words.map(word => {
-      const sourceTranslations = word.words_translations.filter(t => t.language_code === sourceLanguage);
-      const targetTranslations = word.words_translations.filter(t => t.language_code === targetLanguage);
-
-      return {
-        id: word.word_id,
-        partOfSpeech: word.part_of_speech,
-        level: word.level,
-        frequencyScore: word.frequency_score,
-        translations: {
-          source: {
-            languageCode: sourceLanguage,
-            translation: sourceTranslations[0]?.translation,
-            literalTranslation: sourceTranslations[0]?.literal_translation,
-            translationRank: sourceTranslations[0]?.translation_rank,
-            alternateTranslations: sourceTranslations.slice(1).map(t => ({
-              translation: t.translation,
-              literalTranslation: t.literal_translation,
-              translationRank: t.translation_rank
-            }))
-          },
-          target: {
-            languageCode: targetLanguage,
-            translation: targetTranslations[0]?.translation,
-            literalTranslation: targetTranslations[0]?.literal_translation,
-            translationRank: targetTranslations[0]?.translation_rank
-          }
-        }
-      };
-    });
-
-    // Group words by target translation
+    // Step 1: Group words by target translation
     const groupedWords = words.reduce((acc, word) => {
-      const key = word.translations.target.translation;
-      if (!acc[key]) {
-        acc[key] = [];
+      const targetTranslation = word.words_translations.find(t => t.language_code === targetLanguage);
+      const sourceTranslation = word.words_translations.find(t => t.language_code === sourceLanguage);
+
+      if (targetTranslation && sourceTranslation) {
+        const key = targetTranslation.translation;
+        if (!acc[key]) {
+          acc[key] = [];
+        }
+        acc[key].push(word);
       }
-      acc[key].push(word);
       return acc;
     }, {});
 
-    // Process each group and gather alternate translations
+    // Step 2 & 3: Process each group and format words
     const formattedWords = Object.values(groupedWords).map(group => {
-      const highestRankedWord = group.reduce((highest, current) => 
-        current.translations.target.translationRank < highest.translations.target.translationRank ? current : highest
-      );
+      // Find the word with the highest translation rank (lowest rank number)
+      const highestRankedWord = group.reduce((highest, current) => {
+        const currentTargetTranslation = current.words_translations.find(t => t.language_code === targetLanguage);
+        const highestTargetTranslation = highest.words_translations.find(t => t.language_code === targetLanguage);
+        return (currentTargetTranslation.translation_rank || 0) < (highestTargetTranslation.translation_rank || 0) ? current : highest;
+      });
 
-      highestRankedWord.translations.source.alternateTranslations = group
+      const sourceTranslation = highestRankedWord.words_translations.find(t => t.language_code === sourceLanguage);
+      const targetTranslation = highestRankedWord.words_translations.find(t => t.language_code === targetLanguage);
+
+      // Gather alternate source translations
+      const alternateTranslations = group
         .filter(word => word !== highestRankedWord)
-        .map(word => ({
-          translation: word.translations.source.translation,
-          literalTranslation: word.translations.source.literalTranslation,
-          translationRank: word.translations.source.translationRank
-        }));
+        .map(word => {
+          const altSourceTranslation = word.words_translations.find(t => t.language_code === sourceLanguage);
+          return {
+            translation: altSourceTranslation.translation,
+            literal_translation: altSourceTranslation.literal_translation,
+            translation_rank: altSourceTranslation.translation_rank
+          };
+        });
 
-      return highestRankedWord;
+      return {
+        id: highestRankedWord.word_id,
+        partOfSpeech: highestRankedWord.part_of_speech,
+        level: highestRankedWord.level,
+        frequencyScore: highestRankedWord.frequency_score,
+        translations: {
+          source: {
+            languageCode: sourceLanguage,
+            translation: sourceTranslation.translation,
+            literal_translation: sourceTranslation.literal_translation,
+            translationRank: sourceTranslation.translation_rank,
+            alternateTranslations: alternateTranslations
+          },
+          target: {
+            languageCode: targetLanguage,
+            translation: targetTranslation.translation,
+            literal_translation: targetTranslation.literal_translation,
+            translationRank: targetTranslation.translation_rank
+          }
+        }
+      };
     });
 
     return formattedWords;

@@ -4,7 +4,7 @@ import { useNotification } from '../contexts/NotificationContext';
 import { useAuth } from '../contexts/AuthContext';
 
 const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => {
-	const { isLoggedIn, logout } = useAuth();
+	const { isLoggedIn, logout, getAuthHeaders } = useAuth();
   const { 
     selectedWord, setSelectedWord, 
     activeContent, setActiveContent, 
@@ -38,9 +38,7 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/word-association`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+				headers: getAuthHeaders(),
         credentials: 'include',
         body: JSON.stringify({
           word_id: wordId,

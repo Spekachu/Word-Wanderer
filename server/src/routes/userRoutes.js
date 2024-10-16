@@ -7,16 +7,6 @@ import { validateColor } from '../utils/validators.js';
 const router = express.Router();
 const prisma = new PrismaClient();
 
-// Helper function to set token cookie
-const setTokenCookie = (res, token) => {
-  res.cookie('token', token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
-  });
-};
-
 router.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -39,17 +29,23 @@ router.post('/register', async (req, res) => {
       }
     });
 
-    // Create JWT token
-    const token = jwt.sign({ id: newUser.user_id }, process.env.JWT_SECRET, {
-      expiresIn: '7d'
+    // Generate access token and refresh token
+    const accessToken = generateAccessToken(newUser.user_id);
+    const refreshToken = generateRefreshToken(newUser.user_id);
+
+    // Set refresh token in HTTP-only cookie
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+      sameSite: 'strict',
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
-    // Set token as HTTP-only cookie
-    setTokenCookie(res, token);
-
+    // Send access token and user info in response
     res.status(201).json({
       message: 'User registered successfully',
-      user: { id: newUser.user_id, email: newUser.email }
+      user: { id: newUser.user_id, email: newUser.email },
+      accessToken
     });
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message, reqBody: req.body });
@@ -72,59 +68,58 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    // Create JWT token
-    const token = jwt.sign({ id: user.user_id }, process.env.JWT_SECRET, {
-      expiresIn: '7d'
-    });
-
-    // Set token as HTTP-only cookie
-    setTokenCookie(res, token);
-
-    res.json({
-      message: 'Login successful',
-      user: { id: user.user_id, email: user.email }
-    });
+    const accessToken = generateAccessToken(user.user_id);
+		const refreshToken = generateRefreshToken(user.user_id);
+		res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true, sameSite: 'strict' });
+		res.json({ accessToken, user: { id: user.user_id, email: user.email } });
   } catch (error) {
     console.error('Login error:', error);
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
 
+// Refresh token endpoint
 router.post('/refresh-token', (req, res) => {
-  const token = req.cookies.token;
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
+  const refreshToken = req.cookies.refreshToken;
+  if (!refreshToken) {
+    return res.status(401).json({ message: 'No refresh token' });
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const newToken = jwt.sign({ id: decoded.id }, process.env.JWT_SECRET, {
-      expiresIn: '7d'
-    });
-    setTokenCookie(res, newToken);
-    res.json({ message: 'Token refreshed' });
+    const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+    const accessToken = generateAccessToken(decoded.id);
+    res.json({ accessToken });
   } catch (error) {
-    res.status(401).json({ message: 'Invalid token' });
+    res.status(401).json({ message: 'Invalid refresh token' });
   }
 });
 
 router.post('/logout', (req, res) => {
-  res.clearCookie('token');
+  res.clearCookie('refreshToken');
   res.json({ message: 'Logged out successfully' });
 });
 
 const authenticateUser = (req, res, next) => {
-  const token = req.cookies.token;
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
   if (!token) return res.status(401).json({ message: 'Authentication required' });
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.user = decoded;
     next();
   } catch (error) {
     res.status(401).json({ message: 'Invalid token' });
   }
 };
+
+function generateAccessToken(userId) {
+  return jwt.sign({ id: userId }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
+}
+
+function generateRefreshToken(userId) {
+  return jwt.sign({ id: userId }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
+}
 
 // Save user-word association
 router.post('/word-association', authenticateUser, async (req, res) => {

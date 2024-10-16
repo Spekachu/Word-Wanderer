@@ -7,14 +7,16 @@ const router = Router();
 
 // Middleware to optionally authenticate user
 const optionalAuthenticateUser = (req, res, next) => {
-  const token = req.cookies.token;
-  if (token) {
+  const refreshToken = req.cookies.refreshToken;
+  if (refreshToken) {
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = decoded;
+      const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+      const accessToken = jwt.sign({ id: decoded.id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
+      req.user = { id: decoded.id };
+      req.accessToken = accessToken;
     } catch (error) {
-      console.log('Invalid or expired token, continuing as guest');
-      res.clearCookie(token);
+      console.log('Invalid or expired refresh token, continuing as guest');
+      res.clearCookie('refreshToken');
     }
   }
   next();
@@ -37,6 +39,9 @@ router.get('/words', optionalAuthenticateUser, async (req, res) => {
         ...word,
         userAssociation: associationsMap[word.id] || null
       }));
+
+      // Include the new access token in the response
+      res.set('Access-Token', req.accessToken);
     } else {
       // For guest users, add null userAssociation
       words = words.map(word => ({ ...word, userAssociation: null }));

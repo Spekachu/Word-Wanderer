@@ -25,6 +25,13 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
 
+	useEffect(() => {
+		const wordAssociation = userWordAssociations[word.id];
+		setSticker(wordAssociation?.emoji || "");
+		setHighlight(wordAssociation?.highlightColor || "#ffffff");
+		setDiscovered(!!wordAssociation);
+	}, [userWordAssociations, word.id]);
+	
   const saveWordAssociation = useCallback(async (wordId, emoji, highlightColor) => {
     // Update local state immediately
     setSticker(emoji);

@@ -14,28 +14,6 @@ export const fetchWords = async (userLanguage, userLearningLanguage, cefrLevel, 
 
     const words = await wordsResponse.json();
 
-    // Fetch user word associations (should not be cached)
-    const associationsResponse = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/user/word-associations`,
-      {
-        credentials: 'include',
-        headers: getAuthHeaders()
-      }
-    );
-
-    const associationsMap = await associationsResponse.json();
-
-    // Combine words with user associations
-    const combinedWords = words.map(word => ({
-      ...word,
-      userAssociation: associationsMap[word.id] || null
-    }));
-
-    const newAccessToken = associationsResponse.headers.get('Access-Token');
-    if (newAccessToken) {
-      setAccessToken(newAccessToken);
-    }
-
     return words;
   } catch (err) {
     if (err.name === 'TypeError' && err.message === 'Failed to fetch') {

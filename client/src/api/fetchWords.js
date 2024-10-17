@@ -1,38 +1,42 @@
-import { getAuthHeaders, checkAuth, logout, setAccessToken } from '../contexts/AuthContext';
-
-export const fetchWords = async (userLanguage, userLearningLanguage, cefrLevel, partOfSpeech, addNotification, getAuthHeaders, checkAuth, logout, setAccessToken) => {
+export const fetchWords = async (userLanguage, userLearningLanguage, cefrLevel, partOfSpeech, addNotification, getAuthHeaders, setAccessToken) => {
   try {
-    const response = await fetch(
+    // Fetch words (can be cached)
+    const wordsResponse = await fetch(
       `${process.env.REACT_APP_API_URL}/api/words?sourceLanguage=${userLanguage}&targetLanguage=${userLearningLanguage}&level=${cefrLevel}&partOfSpeech=${partOfSpeech}`,
+      {
+        headers: getAuthHeaders()
+      }
+    );
+
+    if (!wordsResponse.ok) {
+      throw new Error('Failed to fetch words');
+    }
+
+    const words = await wordsResponse.json();
+
+    // Fetch user word associations (should not be cached)
+    const associationsResponse = await fetch(
+      `${process.env.REACT_APP_API_URL}/api/user/word-associations`,
       {
         credentials: 'include',
         headers: getAuthHeaders()
       }
     );
 
-    if (!response.ok) {
-      if (response.status === 401) {
-        const isRefreshed = await checkAuth();
-        if (isRefreshed) {
-          return fetchWords(userLanguage, userLearningLanguage, cefrLevel, partOfSpeech);
-        } else {
-          addNotification("Your session has expired. Please log in again.", "error");
-          logout();
-          throw new Error('Authentication failed');
-        }
-      } else {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to fetch words');
-      }
-    }
+    const associationsMap = await associationsResponse.json();
 
-    const newAccessToken = response.headers.get('Access-Token');
+    // Combine words with user associations
+    const combinedWords = words.map(word => ({
+      ...word,
+      userAssociation: associationsMap[word.id] || null
+    }));
+
+    const newAccessToken = associationsResponse.headers.get('Access-Token');
     if (newAccessToken) {
       setAccessToken(newAccessToken);
     }
 
-    const data = await response.json();
-    return data;
+    return words;
   } catch (err) {
     if (err.name === 'TypeError' && err.message === 'Failed to fetch') {
       addNotification("Network error. Please check your connection and try again.", "error");

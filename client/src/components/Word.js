@@ -12,14 +12,15 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
     isDragging, 
     setShowEmojiPicker, 
     selectedHighlight, setSelectedHighlight, 
-    setShowHighlightPicker 
+    setShowHighlightPicker,
+    userWordAssociations
   } = useContext(AppContext);
 
   const { addNotification } = useNotification();
 
-  const [discovered, setDiscovered] = useState(!!word.userAssociation);
-  const [sticker, setSticker] = useState(word.userAssociation?.emoji || "");
-  const [highlight, setHighlight] = useState(word.userAssociation?.highlightColor || "#ffffff");
+  const [discovered, setDiscovered] = useState(!!userWordAssociations[word.id]);
+  const [sticker, setSticker] = useState(userWordAssociations[word.id]?.emoji || "");
+  const [highlight, setHighlight] = useState(userWordAssociations[word.id]?.highlightColor || "#ffffff");
   const [dragging, setDragging] = useState(false);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
@@ -36,7 +37,7 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/word-association`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/word-association`, {
         method: 'POST',
 				headers: getAuthHeaders(),
         credentials: 'include',

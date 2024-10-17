@@ -1,14 +1,15 @@
-import React, { useEffect, useState, useRef, useCallback, useContext } from 'react';
+import React, { useEffect, useState, useRef, useCallback, useContext, useMemo } from 'react';
 import Word from './Word';
 import { AppContext } from '../contexts/AppContext';
 import useDebounce from '../utils/useDebounce';
 import { useNotification } from '../contexts/NotificationContext';
 import { useAuth } from '../contexts/AuthContext';
 import { fetchWords } from '../api/fetchWords';
+import { fetchUserWordAssociations } from '../api/fetchUserWordAssociations';
 
 const WordMap = () => {
 	const { addNotification } = useNotification();
-	const { getAuthHeaders, setAccessToken, checkAuth, logout } = useAuth();
+	const { getAuthHeaders, accessToken, setAccessToken, checkAuth, logout, isLoggedIn } = useAuth();
 	const { 
 		isDragging, 
 		setIsDragging, 
@@ -16,9 +17,10 @@ const WordMap = () => {
 		cefrLevel,
 		relatedContext,
 		userLanguage,
-		userLearningLanguage
+		userLearningLanguage,
+		setUserWordAssociations
 	} = useContext(AppContext);
-	const [words, setWords] = useState([]);
+	const [wordList, setWordList] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const wordRefs = useRef([]); // To store references to word elements
@@ -53,7 +55,7 @@ const WordMap = () => {
 					logout, 
 					setAccessToken 
         );
-        setWords(data);
+        setWordList(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -64,9 +66,26 @@ const WordMap = () => {
     getWords();
   }, [debouncedUserLanguage, debouncedUserLearningLanguage, debouncedCefrLevel, debouncedPartOfSpeech]);
 
+	useEffect(() => {
+    const getUserWordAssociations = async () => {
+      try {
+        const data = await fetchUserWordAssociations(
+					addNotification, getAuthHeaders, setAccessToken
+        );
+				setUserWordAssociations(data);
+				console.log("USER WORD ASSOCIATIONS received", data);
+      } catch (err) {
+				setUserWordAssociations({});
+				console.log("ERROR getting user word associations", err);
+      }
+    };
+
+    getUserWordAssociations();
+  }, [isLoggedIn, wordList, accessToken]);
+
 
 	useEffect(() => {
-		if (!words.length || !mapRef.current) return;
+		if (!wordList.length || !mapRef.current) return;
 
 		const newPositions = [];
 		const newWordDimensions = [];
@@ -79,9 +98,9 @@ const WordMap = () => {
 			left: [],
 			up: []
 		};
-		//each time a word gets placed, it creates an vailable point next to it
+		//each time a word gets placed, it creates an available point next to it
 
-		words.forEach((word, index) => {
+		wordList.forEach((word, index) => {
 			let centerX = 0, centerY = 0;
 			const wordHalfWidth = (wordRefs.current[index]?.offsetWidth + 4) / 2 || 0;
 			const wordHalfHeight = (wordRefs.current[index]?.offsetHeight + 4) / 2 || 0;
@@ -183,10 +202,10 @@ const WordMap = () => {
 
 		setPositions(newPositions);
 		setWordDimensions(newWordDimensions);
-		if (words.length && newPositions.length && mapRef.current) {
+		if (wordList.length && newPositions.length && mapRef.current) {
 			mapRef.current.classList.add("loaded");
 		}
-	}, [words]);
+	}, [wordList]);
 
 	function findClosestToCenter(spots, remove = false) {
 		if (spots.length === 0) return null; // Return null if no spots are given
@@ -339,6 +358,7 @@ const WordMap = () => {
       onTouchMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onTouchEnd={handleMouseUp}
+			onTouchCancel={handleMouseUp}
 			style={{
 				cursor: isMouseDown ? 'grabbing' : 'grab', // Change cursor when dragging
 			}}>
@@ -346,7 +366,7 @@ const WordMap = () => {
 			style={{
 				transform: `translate(calc(-50% + ${panOffset.x}px), calc(-50% + ${panOffset.y}px)) scale(${zoomLevel})`, // Apply panning offset
 			}}>
-				{words?.map((word, index) => (
+				{wordList?.map((word, index) => (
 					<Word
 						key={word.id}
 						index={index}

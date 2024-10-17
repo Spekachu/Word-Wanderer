@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
 	const refreshAccessToken = async () => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/refresh-token`, {
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/refresh-token`, {
 				method: 'POST',
 				credentials: 'include',
 			});
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
 		try {
 			const newAccessToken = await refreshAccessToken();
-			console.log('newAccessToken:', newAccessToken);
+			// console.log('newAccessToken:', newAccessToken);
 			if (newAccessToken) {
 				setIsLoggedIn(true);
 				// Optionally fetch user data here if needed
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (email, password) => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/register`, {
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/register`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ email, password }),
@@ -89,7 +89,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/login`, {
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/login`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ email, password }),
@@ -113,7 +113,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
 		try {
-			await fetch(`${process.env.REACT_APP_API_URL}/api/users/logout`, {
+			await fetch(`${process.env.REACT_APP_API_URL}/api/user/logout`, {
 				method: 'POST',
 				credentials: 'include',
 			});
@@ -151,7 +151,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, user, register, login, logout, checkAuth, getAuthHeaders }}>
+    <AuthContext.Provider value={{ isLoggedIn, user, register, login, logout, checkAuth, getAuthHeaders, accessToken, setAccessToken }}>
       {children}
     </AuthContext.Provider>
   );

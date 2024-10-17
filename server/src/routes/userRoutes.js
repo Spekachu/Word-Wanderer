@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { PrismaClient } from '@prisma/client';
 import { validateColor } from '../utils/validators.js';
+import { getUserWordAssociations } from '../queries/getUserWordAssociations.js';
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -174,39 +175,15 @@ router.post('/word-association', authenticateUser, async (req, res) => {
 // Get user-word associations
 router.get('/word-associations', authenticateUser, async (req, res) => {
   try {
-    const user_id = req.user.id;
-
-    const associations = await prisma.user_word_associations.findMany({
-      where: { user_id: user_id },
-      include: {
-        words: {
-          select: {
-            word_id: true,
-            words_translations: {
-              where: {
-                language_code: 'en',  
-                translation_rank: 1
-              },
-              select: {
-                translation: true
-              }
-            }
-          }
-        }
-      }
-    });
-
-    // Format the response
-    const formattedAssociations = associations.map(assoc => ({
-      word_id: assoc.word_id,
-      emoji: assoc.emoji,
-      highlight_color: assoc.highlight_color,
-      word: assoc.words.words_translations[0]?.translation || null
-    }));
-
-    res.status(200).json(formattedAssociations);
+    if (req.user) {
+      const associationsMap = await getUserWordAssociations(req.user.id);
+      res.json(associationsMap);
+    } else {
+      res.json({});
+    }
   } catch (error) {
-    res.status(500).json({ message: 'Server error', error: error.message });
+    console.error(error);
+    res.status(500).json({ error: 'Failed to retrieve user word associations' });
   }
 });
 

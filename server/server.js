@@ -25,7 +25,7 @@ const start = async () => {
 
   // API routes
   app.use('/api', wordsRoute);
-  app.use('/api/users', userRoutes);
+  app.use('/api/user', userRoutes);
 
   app.use('/static', express.static('public'));
 

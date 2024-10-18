@@ -73,14 +73,14 @@ const WordMap = () => {
 					addNotification, getAuthHeaders, setAccessToken
         );
 				setUserWordAssociations(data);
-				console.log("USER WORD ASSOCIATIONS received", data);
       } catch (err) {
 				setUserWordAssociations({});
 				console.log("ERROR getting user word associations", err);
       }
     };
-
-    getUserWordAssociations();
+		if (isLoggedIn && wordList.length && accessToken) {
+      getUserWordAssociations();
+    }
   }, [isLoggedIn, wordList, accessToken]);
 
 

@@ -81,7 +81,7 @@ export const MainMenu = () => {
           <select
             value={userLanguage}
             onChange={(e) => handleLanguageChange(e.target.value, true)}
-            className="bg-transparent text-white border border-white rounded p-1 mr-2"
+            className="bg-transparent text-white border border-white rounded p-1"
           >
             <option className='text-black hover:bg-slate-900' value="en">{t('languages.en')}</option>
             <option className='text-black' value="de">{t('languages.de')}</option>

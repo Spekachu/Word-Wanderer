@@ -14,6 +14,11 @@ export const fetchWords = async (userLanguage, userLearningLanguage, cefrLevel, 
 
     const words = await wordsResponse.json();
 
+    const newAccessToken = wordsResponse.headers.get('Access-Token');
+    if (newAccessToken) {
+      setAccessToken(newAccessToken);
+    }
+
     return words;
   } catch (err) {
     if (err.name === 'TypeError' && err.message === 'Failed to fetch') {

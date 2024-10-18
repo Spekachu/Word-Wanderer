@@ -177,6 +177,7 @@ router.get('/word-associations', authenticateUser, async (req, res) => {
   try {
     if (req.user) {
       const associationsMap = await getUserWordAssociations(req.user.id);
+      res.set('Access-Token', req.accessToken);
       res.json(associationsMap);
     } else {
       res.json({});

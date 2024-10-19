@@ -40,7 +40,7 @@
 ## Feature Roadmap
 
 ### Implemented Features
-- [x] User Registration and Authentication, Login, Logout
+- [x] User Registration and Authentication, Login, Logout, refresh token, access token
 - [x] Interactive Word Map with algorithm for placing words in circular shape
 - [x] Word Selection and Information Display
 - [x] Language Pair Selection

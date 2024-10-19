@@ -13,7 +13,8 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
     setShowEmojiPicker, 
     selectedHighlight, setSelectedHighlight, 
     setShowHighlightPicker,
-    userWordAssociations
+    userWordAssociations,
+		userLearningLanguage
   } = useContext(AppContext);
 
   const { addNotification } = useNotification();
@@ -24,19 +25,22 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
   const [dragging, setDragging] = useState(false);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
+  const [discoveredThisLanguage, setDiscoveredThisLanguage] = useState(false);
 
 	useEffect(() => {
 		const wordAssociation = userWordAssociations[word.id];
 		setSticker(wordAssociation?.emoji || "");
 		setHighlight(wordAssociation?.highlightColor || "#ffffff");
+		setDiscoveredThisLanguage(wordAssociation?.languageCodes.includes(userLearningLanguage) || false);
 		setDiscovered(!!wordAssociation);
 	}, [userWordAssociations, word.id]);
 	
-  const saveWordAssociation = useCallback(async (wordId, emoji, highlightColor) => {
+  const saveWordAssociation = useCallback(async (wordId, emoji, highlightColor, languageCode) => {
     // Update local state immediately
     setSticker(emoji);
     setHighlight(highlightColor);
     setDiscovered(true);
+		setDiscoveredThisLanguage(true);
 
     if (!isLoggedIn) {
       addNotification("Changes saved locally. Log in to save permanently.", "info");
@@ -51,7 +55,8 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
         body: JSON.stringify({
           word_id: wordId,
           emoji: emoji,
-          highlight_color: highlightColor
+          highlight_color: highlightColor,
+					language_code: languageCode
         })
       });
 
@@ -92,9 +97,10 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
     } else {
       setSelectedSticker(sticker);
       setSelectedHighlight(highlight);
-      if (!discovered) {
+      if (!discoveredThisLanguage) {
         setDiscovered(true);
-        saveWordAssociation(word.id, sticker, highlight);
+				setDiscoveredThisLanguage(true);
+        saveWordAssociation(word.id, sticker, highlight, userLearningLanguage);
       }
       setIsSelected(true);
       setActiveContent(true);
@@ -105,7 +111,7 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
   useEffect(() => {
     if (selectedWord?.id === word.id && activeContent) {
       if (selectedSticker !== sticker || selectedHighlight !== highlight) {
-        saveWordAssociation(word.id, selectedSticker, selectedHighlight);
+        saveWordAssociation(word.id, selectedSticker, selectedHighlight, userLearningLanguage);
       }
       setIsSelected(true);
     } else {
@@ -133,12 +139,12 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         ref={ref}
-        className={`word select-none border-2 border-white px-[.75em] pb-1 absolute rounded-full hover:bg-white hover:text-black -translate-x-1/2 -translate-y-1/2 opacity-0 backdrop-blur-sm text-nowrap whitespace-nowrap ${
+        className={`word select-none border-2 border-white px-[.75em] pb-1 absolute rounded-full hover:bg-white hover:!text-black -translate-x-1/2 -translate-y-1/2 opacity-0 backdrop-blur-sm text-nowrap whitespace-nowrap ${
           loaded ? 'opacity-100' : 'opacity-0'
         } ${
           isMouseDown ? 'cursor-grabbing' : 'cursor-pointer'
         } ${
-          isSelected ? 'bg-white text-black shadow-[0_0_.5em_.25em_white]' : discovered ? 'bg-white/85 text-black shadow-[0_0_.5em_.25em_transparent]' : 'shadow-[0_0_.5em_.25em_transparent]'
+          isSelected ? 'bg-white text-black shadow-[0_0_.5em_.25em_white]' : discoveredThisLanguage ? 'bg-white/85 text-black shadow-[0_0_.5em_.25em_transparent]' : 'shadow-[0_0_.5em_.25em_transparent]'
         }`}
         style={{
           top: `calc(50% + ${position.centerY}px)`,
@@ -146,7 +152,9 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
           position: 'absolute',
           transition: `color .25s ease, background .25s ease, box-shadow .25s ease, border .25s ease, opacity .25s ease ${index * 0.0075}s`,
           fontSize: `${Math.max(1.5, 3 - Math.min(index / 30, 1.5))}rem`,
-          ...(highlight !== "#ffffff" && { backgroundColor: highlight })
+          ...(highlight !== "#ffffff" && discoveredThisLanguage && { backgroundColor: highlight }),
+          ...(highlight !== "#ffffff" && !discoveredThisLanguage && isSelected && { backgroundColor: highlight }),
+          ...(highlight !== "#ffffff" && !discoveredThisLanguage && !isSelected && { color: highlight })
         }}
       >
         <span className='relative inline-block'>{word.translations.target?.translation}</span>

@@ -125,7 +125,7 @@ function generateRefreshToken(userId) {
 // Save user-word association
 router.post('/word-association', authenticateUser, async (req, res) => {
   try {
-    const { word_id, emoji, highlight_color } = req.body;
+    const { word_id, emoji, highlight_color, language_code } = req.body;
     const user_id = req.user.id;
 
     // Validate inputs
@@ -140,6 +140,15 @@ router.post('/word-association', authenticateUser, async (req, res) => {
     if (highlight_color && !validateColor(highlight_color)) {
       return res.status(400).json({ message: 'Invalid highlight color', color: highlight_color });
     }
+
+		if (!language_code || typeof language_code !== 'string' || language_code.length !== 2) {
+			return res.status(400).json({ message: 'Invalid language code', language_code: language_code });
+		}
+
+		const validLanguageCodes = ['en', 'de', 'fr', 'es']; // Add all valid language codes
+		if (!validLanguageCodes.includes(language_code.toLowerCase())) {
+			return res.status(400).json({ message: 'Unsupported language code', language_code: language_code });
+		}
 
     // Check if the word exists
     const wordExists = await prisma.words.findUnique({ where: { word_id: word_id } });
@@ -156,13 +165,17 @@ router.post('/word-association', authenticateUser, async (req, res) => {
       },
       update: {
         emoji,
-        highlight_color: highlight_color
+        highlight_color: highlight_color,
+				language_codes: {
+					push: language_code
+				}
       },
       create: {
         user_id: user_id,
         word_id: word_id,
         emoji,
-        highlight_color: highlight_color
+        highlight_color: highlight_color,
+				language_codes: language_code ? [language_code] : []
       }
     });
 

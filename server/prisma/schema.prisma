@@ -74,8 +74,9 @@ model user_word_associations {
   word_id         Int
   emoji           String?   @db.VarChar(8)
   highlight_color String?   @db.Char(7)
-  createdAt       DateTime? @default(now()) @db.Timestamptz(6)
-  updatedAt       DateTime? @default(now()) @db.Timestamptz(6)
+  created_at      DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime? @default(now()) @db.Timestamptz(6)
+  language_codes  String[]
   users           users     @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
   words           words     @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction)
 

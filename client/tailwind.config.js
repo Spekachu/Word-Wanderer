@@ -3,7 +3,10 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
-			keyframes: {
+      fontFamily: {
+        'pacifico': ['Pacifico', 'cursive'],
+      },
+      keyframes: {
         'slide-in-right': {
           '0%': { transform: 'translateX(100%)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
@@ -27,8 +30,7 @@ module.exports = {
         'slide-in-left': 'slide-in-left 0.3s linear',
         'slide-out-left': 'slide-out-left 0.3s linear forwards',
       },
-		},
+    },
   },
   plugins: []
 }
-

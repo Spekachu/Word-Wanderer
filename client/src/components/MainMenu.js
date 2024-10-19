@@ -23,10 +23,6 @@ export const MainMenu = () => {
   } = useContext(AppContext);
 
   const handleLanguageChange = (language, isUserLanguage) => {
-    if ((language === userLearningLanguage && isUserLanguage) || (language === userLanguage && !isUserLanguage)) {
-      switchLanguages();
-      return;
-    }
     if (isUserLanguage) {
       set_userLanguage(language);
       i18n.changeLanguage(language);

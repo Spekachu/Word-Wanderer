@@ -7,7 +7,7 @@ export const AppWindow = ({ children }) => {
 	
   return (
     <div id="AppWindow" 
-		className={`min-h-dvh ${
+		className={`min-h-dvh max-w-[2000px] mx-auto ${
 			activeContent ?  '' : 'overflow-hidden'
 		}`}>
       {children}

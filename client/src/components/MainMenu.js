@@ -137,31 +137,33 @@ export const MainMenu = () => {
 	);
 
   return (
-    <div id="MainMenu" className="fixed text-white p-2 top-0 flex items-center justify-between w-full backdrop-blur-xl bg-black/5 border-b border-white flex-wrap lg:flex-nowrap">
-      {/* this is the main menu links */}
-			{menuLinks()}
+    <div id="MainMenu" className="fixed text-white p-2 top-0 flex items-center justify-center w-full backdrop-blur-xl bg-black/5 border-b border-white">
+			<div className='flex items-center justify-between w-full max-w-screen-xl flex-wrap lg:flex-nowrap'>
+				{/* this is the main menu links */}
+				{menuLinks()}
 
-			{/* this is the logo/branding for the menu nav */}
-			
-			<Link to="/" className="order-1 lg:order-2 lg:m-auto">
-				<h2 className="text-2xl lg:text-3xl font-pacifico">Word Wanderer</h2>
-			</Link>
+				{/* this is the logo/branding for the menu nav */}
+				
+				<Link to="/" className="order-1 lg:order-2 lg:m-auto">
+					<h2 className="text-2xl lg:text-3xl font-pacifico">Word Wanderer</h2>
+				</Link>
 
-			{/* this is the language selector and filters for the word map */}
-			{filters()}
-			<div className='flex items-center order-2'>
-				<button 
-					className={`text-2xl mr-2 p-2 rounded-md md:hidden transition-colors ${showMobileFilters ? 'text-slate-600 bg-white' : ''}`} 
-					onClick={() => setShowMobileFilters(!showMobileFilters)}
-				>
-					<FaFilter />
-				</button>
-				<button 
-					className={`text-2xl p-2 rounded-md lg:hidden transition-colors ${showMobileMenu ? 'text-slate-600 bg-white' : ''}`} 
-					onClick={() => setShowMobileMenu(!showMobileMenu)}
-				>
-					<FaBars />
-				</button>
+				{/* this is the language selector and filters for the word map */}
+				{filters()}
+				<div className='flex items-center order-2'>
+					<button 
+						className={`text-2xl mr-2 p-2 rounded-md md:hidden transition-colors ${showMobileFilters ? 'text-slate-600 bg-white' : ''}`} 
+						onClick={() => setShowMobileFilters(!showMobileFilters)}
+					>
+						<FaFilter />
+					</button>
+					<button 
+						className={`text-2xl p-2 rounded-md lg:hidden transition-colors ${showMobileMenu ? 'text-slate-600 bg-white' : ''}`} 
+						onClick={() => setShowMobileMenu(!showMobileMenu)}
+					>
+						<FaBars />
+					</button>
+				</div>
 			</div>
     </div>
   );

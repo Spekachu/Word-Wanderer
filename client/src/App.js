@@ -13,7 +13,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import NotificationDisplay from './components/NotificationDisplay';
 import Starfield from 'react-starfield';
-
+import Profile from './pages/Profile';
 function App() {
   return (
     <Router>
@@ -42,6 +42,7 @@ function App() {
                   } />
                   <Route path="/register" element={<Register />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/profile" element={<Profile />} />
                 </Routes>
               </div>
               <MainMenu />

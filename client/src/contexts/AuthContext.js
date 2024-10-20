@@ -8,7 +8,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
 	const [accessToken, setAccessToken] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
   const { addNotification } = useNotification();
 
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
 			console.error('Error checking authentication:', error);
 			setAccessToken(null);
 			setIsLoggedIn(false);
-			setUser(null);
+			setCurrentUser(null);
 			return false;
 		}
 	};
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
 			if (response.ok) {
 				setAccessToken(data.accessToken);
 				setIsLoggedIn(true);
-				setUser(data.user);
+				setCurrentUser(data.user);
 				navigate('/map');
 				addNotification('Registration successful!', 'success');
 			} else {
@@ -99,7 +99,7 @@ export const AuthProvider = ({ children }) => {
 			if (response.ok) {
 				setAccessToken(data.accessToken);
 				setIsLoggedIn(true);
-				setUser(data.user); // Ensure the backend sends user data
+				setCurrentUser(data.user); // Ensure the backend sends user data
 				navigate('/map');
 				addNotification('Login successful!', 'success');
 			} else {
@@ -120,7 +120,7 @@ export const AuthProvider = ({ children }) => {
 			// Clear local state immediately
 			setAccessToken(null);
 			setIsLoggedIn(false);
-			setUser(null);
+			setCurrentUser(null);
 			navigate('/');
 			addNotification('Logged out successfully', 'success');
 		} catch (error) {
@@ -128,6 +128,49 @@ export const AuthProvider = ({ children }) => {
 			addNotification('An error occurred during logout', 'error');
 		}
 	};
+  const updatePassword = async (currentPassword, newPassword) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/update-password`, {
+        method: 'POST',
+        headers: getAuthHeaders(),
+        body: JSON.stringify({ currentPassword, newPassword }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        addNotification('Password updated successfully', 'success');
+      } else {
+        throw new Error(data.message || 'Failed to update password');
+      }
+    } catch (error) {
+      console.error('Update password error:', error);
+      addNotification(error.message || 'An error occurred while updating password', 'error');
+      throw error;
+    }
+  };
+
+  const sendPasswordResetEmail = async (email) => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/forgot-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        addNotification('Password reset email sent', 'success');
+      } else {
+        throw new Error(data.message || 'Failed to send password reset email');
+      }
+    } catch (error) {
+      console.error('Send password reset email error:', error);
+      addNotification(error.message || 'An error occurred while sending password reset email', 'error');
+      throw error;
+    }
+  };
+
+  const deleteUser = async () => {
+    // Implement delete user logic here
+  };
 
 	// Axios interceptor to handle token expiration
   useEffect(() => {
@@ -151,7 +194,20 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, user, register, login, logout, checkAuth, getAuthHeaders, accessToken, setAccessToken }}>
+    <AuthContext.Provider value={{ 
+      isLoggedIn, 
+      currentUser, 
+      register, 
+      login, 
+      logout, 
+      checkAuth, 
+      getAuthHeaders, 
+      accessToken, 
+      setAccessToken,
+      updatePassword,
+      sendPasswordResetEmail,
+      deleteUser
+    }}>
       {children}
     </AuthContext.Provider>
   );

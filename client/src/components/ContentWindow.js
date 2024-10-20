@@ -1,13 +1,13 @@
 import { useContext, useRef, useEffect } from 'react';
 import { AppContext } from '../contexts/AppContext';
-import { FaArrowAltCircleDown } from "react-icons/fa";
+import { FaArrowAltCircleDown, FaVolumeUp } from "react-icons/fa";
 import { RiEmojiStickerLine } from "react-icons/ri";
 import EmojiPicker from 'emoji-picker-react'; 
 import { IoIosCloseCircle } from "react-icons/io";
 import { PiHighlighterDuotone } from "react-icons/pi";
 
 const ContentWindow = () => {
-  const { selectedWord, activeContent, setActiveContent, selectedSticker, setSelectedSticker, showEmojiPicker, setShowEmojiPicker,selectedHighlight, setSelectedHighlight, showHighlightPicker, setShowHighlightPicker } = useContext(AppContext);
+  const { selectedWord, activeContent, setActiveContent, selectedSticker, setSelectedSticker, showEmojiPicker, setShowEmojiPicker,selectedHighlight, setSelectedHighlight, showHighlightPicker, setShowHighlightPicker, userLearningLanguage } = useContext(AppContext);
 
 	const emojiPickerRef = useRef(null);
 
@@ -34,6 +34,12 @@ const ContentWindow = () => {
   function setHighlight(color) {
 		setSelectedHighlight(color);
   }
+
+	function playPronunciation(text) {
+		const utterance = new SpeechSynthesisUtterance(text);
+		utterance.lang = userLearningLanguage;
+		window.speechSynthesis.speak(utterance);
+	}
 
 	useEffect(() => {
 		if (activeContent && showEmojiPicker) {
@@ -169,7 +175,14 @@ const ContentWindow = () => {
 						style={{
 							backgroundColor: selectedHighlight
 						}}></span>
-					)}{selectedWord.translations.target.translation}</span></p>
+					)}{selectedWord.translations.target.translation}
+					<button 
+						className="ml-2 text-2xl text-slate-900 hover:text-slate-500 transition-colors"
+						onClick={() => playPronunciation(selectedWord.translations.target.translation)}
+					>
+						<FaVolumeUp />
+					</button></span>
+					</p>
 					<hr className='mt-2'  />
           <p className='text-xl'>
 						{selectedWord.translations.source.translation}

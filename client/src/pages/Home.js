@@ -16,29 +16,29 @@ const Home = () => {
 				</Link>
 			</div>
 			<div className="text-center flex flex-wrap justify-center items-center gap-4 mb-4">
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-green-900 bg-green-50"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-fuchsia-900 bg-fuchsia-50"
 				onClick={() => { set_partOfSpeech("verb"); set_cefrLevel("a1"); }}>
 					A1 Verbs
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-green-900 bg-green-50"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-fuchsia-900 bg-fuchsia-50"
 				onClick={() => { set_partOfSpeech("noun"); set_cefrLevel("a1"); }}>
 					A1 Nouns
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-green-900 bg-green-50"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-fuchsia-900 bg-fuchsia-50"
 				onClick={() => { set_partOfSpeech("adjective"); set_cefrLevel("a1"); }}>
 					A1 Adjectives
 				</Link>
 			</div>
 			<div className="text-center flex flex-wrap justify-center items-center gap-4 mb-4">
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-green-900 bg-green-100"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-fuchsia-900 bg-fuchsia-100"
 				onClick={() => { set_partOfSpeech("verb"); set_cefrLevel("a2"); }}>
 					A2 Verbs
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-green-900 bg-green-100"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-fuchsia-900 bg-fuchsia-100"
 				onClick={() => { set_partOfSpeech("noun"); set_cefrLevel("a2"); }}>
 					A2 Nouns
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-green-900 bg-green-100"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-fuchsia-900 bg-fuchsia-100"
 				onClick={() => { set_partOfSpeech("adjective"); set_cefrLevel("a2"); }}>
 					A2 Adjectives
 				</Link>
@@ -47,29 +47,29 @@ const Home = () => {
 				<hr className="mb-4 max-w-80 w-full border-white" />
 			</div>
 			<div className="text-center flex flex-wrap justify-center items-center gap-4 mb-4">
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-yellow-900 bg-yellow-50"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-orange-900 bg-orange-50"
 				onClick={() => { set_partOfSpeech("verb"); set_cefrLevel("b1"); }}>
 					B1 Verbs
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-yellow-900 bg-yellow-50"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-orange-900 bg-orange-50"
 				onClick={() => { set_partOfSpeech("noun"); set_cefrLevel("b1"); }}>
 					B1 Nouns
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-yellow-900 bg-yellow-50"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-orange-900 bg-orange-50"
 				onClick={() => { set_partOfSpeech("adjective"); set_cefrLevel("b1"); }}>
 					B1 Adjectives
 				</Link>
 			</div>
 			<div className="text-center flex flex-wrap justify-center items-center gap-4 mb-4">
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-yellow-900 bg-yellow-100"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-orange-900 bg-orange-100"
 				onClick={() => { set_partOfSpeech("verb"); set_cefrLevel("b2"); }}>
 					B2 Verbs
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-yellow-900 bg-yellow-100"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-orange-900 bg-orange-100"
 				onClick={() => { set_partOfSpeech("noun"); set_cefrLevel("b2"); }}>
 					B2 Nouns
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-yellow-900 bg-yellow-100"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-orange-900 bg-orange-100"
 				onClick={() => { set_partOfSpeech("adjective"); set_cefrLevel("b2"); }}>
 					B2 Adjectives
 				</Link>
@@ -78,29 +78,29 @@ const Home = () => {
 				<hr className="mb-4 max-w-80 w-full border-white" />
 			</div>
 			<div className="text-center flex flex-wrap justify-center items-center gap-4 mb-4">
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-red-900 bg-red-50"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-rose-900 bg-rose-50"
 				onClick={() => { set_partOfSpeech("verb"); set_cefrLevel("c1"); }}>
 					C1 Verbs
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-red-900 bg-red-50"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-rose-900 bg-rose-50"
 				onClick={() => { set_partOfSpeech("noun"); set_cefrLevel("c1"); }}>
 					C1 Nouns
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-red-900 bg-red-50"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-rose-900 bg-rose-50"
 				onClick={() => { set_partOfSpeech("adjective"); set_cefrLevel("c1"); }}>
 					C1 Adjectives
 				</Link>
 			</div>
 			<div className="text-center flex flex-wrap justify-center items-center gap-4 mb-4">
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-red-900 bg-red-100"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-rose-900 bg-rose-100"
 				onClick={() => { set_partOfSpeech("verb"); set_cefrLevel("c2"); }}>
 					C2 Verbs
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-red-900 bg-red-100"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-rose-900 bg-rose-100"
 				onClick={() => { set_partOfSpeech("noun"); set_cefrLevel("c2"); }}>
 					C2 Nouns
 				</Link>
-				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-red-900 bg-red-100"
+				<Link to="/map" className="inline-block border border-white hover:bg-white transition-colors font-bold py-2 px-4 rounded-lg text-lg text-rose-900 bg-rose-100"
 				onClick={() => { set_partOfSpeech("adjective"); set_cefrLevel("c2"); }}>
 					C2 Adjectives
 				</Link>

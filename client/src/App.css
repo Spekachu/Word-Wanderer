@@ -22,10 +22,11 @@
 	.animate-gradient::after {
 		content: '';
 		position: fixed;
-		left: min(-40vw, -40dvh);
-		top: min(-40dvh, -40vw);
-		width: max(160vw, 160dvh);
-		height: max(160vw, 160dvh);
+		left: min(-50vw, -50dvh);
+		top: min(-50vw, -50dvh);
+		width: max(200vw, 200dvh);
+		height: auto;
+		aspect-ratio: 1 / 1;
 		background-size: cover;
 		background-position: center;
 		z-index: -1;

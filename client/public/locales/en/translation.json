@@ -27,18 +27,18 @@
 		"interjection": "Interjection"
 	},
 	"register": {
-    "title": "Create your account",
+    "title": "Start your journey",
     "username": "Username",
     "email": "Email address",
     "password": "Password",
     "confirmPassword": "Confirm password",
-    "submit": "Sign up",
+    "submit": "Register",
     "passwordMismatch": "Passwords do not match",
     "error": "Registration failed",
     "networkError": "Network error, please try again"
   },
 	"login": {
-    "title": "Login",
+    "title": "Welcome back",
     "username": "Username",
     "email": "Email address",
     "password": "Password",

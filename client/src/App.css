@@ -17,4 +17,34 @@
 		height:100dvh;
 		top:0;
 	}
+	
+	.animate-gradient::before,
+	.animate-gradient::after {
+		content: '';
+		position: fixed;
+		left: min(-40vw, -40dvh);
+		top: min(-40dvh, -40vw);
+		width: max(160vw, 160dvh);
+		height: max(160vw, 160dvh);
+		background-size: cover;
+		background-position: center;
+		z-index: -1;
+		transform-origin: center;
+	}
+	
+	.animate-gradient::before {
+		background-image: linear-gradient(to bottom right, hsl(0, 23%, 42%), hsl(251, 33%, 42%));
+		animation: gradient 10s linear infinite;
+	}
+	
+	.animate-gradient::after {
+		background-image: linear-gradient(to top right, hsl(36, 23%, 51%), hsl(313, 38%, 54%));
+		animation: gradient 10s linear infinite reverse 5s;
+	}
+	
+	@keyframes gradient {
+		0% { opacity: 1; rotate: 0deg; }
+		50% { opacity: .25; rotate: 180deg; }
+		100% { opacity: 1; rotate: 360deg; }
+	}
 }

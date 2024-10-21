@@ -1,11 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useNotification } from '../contexts/NotificationContext';
+import { AppContext } from '../contexts/AppContext';
+import { useTranslation } from 'react-i18next';
 
 const Profile = () => {
 	const navigate = useNavigate();
 	const { currentUser, updatePassword, sendPasswordResetEmail, deleteUser, logout } = useAuth();
+	const { userWordAssociations } = useContext(AppContext);
 	const { addNotification } = useNotification();
 	const currentPasswordRef = useRef();
 	const newPasswordRef = useRef();
@@ -13,6 +16,7 @@ const Profile = () => {
 	const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 	const [deleteConfirmed, setDeleteConfirmed] = useState(false);
 	const [passwordError, setPasswordError] = useState('');
+  const { t, i18n } = useTranslation();
 
 	const handlePasswordChange = async (e) => {
 		e.preventDefault();
@@ -88,8 +92,27 @@ const Profile = () => {
 	return (
 		<div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 			<div className="max-w-md w-full space-y-8">
-				<h1 className="mt-6 text-center text-3xl font-pacifico">Profile</h1>
+				<h1 className="mt-6 text-center text-4xl font-pacifico">Profile</h1>
 				<p className="text-center text-lg">Email: {currentUser.email}</p>
+
+				{userWordAssociations && (
+					<div>
+						<p className="text-center text-lg">You've wandered through {Object.keys(userWordAssociations).length} words.</p>
+						{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('en')).length > 0 && (
+							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('en')).length} in {t('languages.en')}</p>
+						)}
+						{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('fr')).length > 0 && (
+							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('fr')).length} in {t('languages.fr')}</p>
+						)}
+						
+						{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('de')).length > 0 && (
+							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('de')).length} in {t('languages.de')}</p>
+						)}
+						{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('es')).length > 0 && (
+							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('es')).length} in {t('languages.es')}</p>
+						)}
+					</div>
+				)}
 
 				<form onSubmit={handlePasswordChange} className="mt-8 space-y-6">
 					<h2 className="text-2xl font-bold mb-4">Change Password</h2>

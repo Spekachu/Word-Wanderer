@@ -9,11 +9,22 @@ const Profile = () => {
 	const { addNotification } = useNotification();
 	const currentPasswordRef = useRef();
 	const newPasswordRef = useRef();
+	const newPasswordConfirmRef = useRef();
 	const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 	const [deleteConfirmed, setDeleteConfirmed] = useState(false);
+	const [passwordError, setPasswordError] = useState('');
 
 	const handlePasswordChange = async (e) => {
 		e.preventDefault();
+		setPasswordError('');
+
+		const newPassword = newPasswordRef.current.value;
+		const newPasswordConfirm = newPasswordConfirmRef.current.value;
+
+		if (newPassword !== newPasswordConfirm) {
+			setPasswordError("*New passwords don't match");
+			return;
+		}
 
 		try {
 			const isCurrentPasswordValid = await verifyCurrentPassword(
@@ -30,6 +41,7 @@ const Profile = () => {
 			addNotification('Password updated successfully', 'success');
 			currentPasswordRef.current.value = '';
 			newPasswordRef.current.value = '';
+			newPasswordConfirmRef.current.value = '';
 		} catch (error) {
 			addNotification('Failed to update password', 'error');
 		}
@@ -66,7 +78,8 @@ const Profile = () => {
 
 	useEffect(() => {
 		if (!currentUser) {
-			navigate('/');
+			logout();
+			navigate('/login');
 		}
 	}, [currentUser, navigate]);
 
@@ -80,34 +93,65 @@ const Profile = () => {
 
 				<form onSubmit={handlePasswordChange} className="mt-8 space-y-6">
 					<h2 className="text-2xl font-bold mb-4">Change Password</h2>
-					<div className="rounded-md shadow-sm -space-y-px">
-						<div>
-							<label htmlFor="currentPassword" className="sr-only">Current Password:</label>
+					<div className="space-y-4">
+						<div className="relative">
 							<input
 								type="password"
 								id="currentPassword"
 								ref={currentPasswordRef}
 								required
-								className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-								placeholder="Current Password"
+								className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-white bg-white appearance-none focus:outline-none focus:ring-0 focus:border-fuchsia-600 peer"
+								placeholder=" "
 							/>
+							<label
+								forHtml="currentPassword"
+								className="absolute pointer-events-none text-sm rounded-md text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-fuchsia-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
+							>
+								Current Password
+							</label>
 						</div>
-						<div>
-							<label htmlFor="newPassword" className="sr-only">New Password:</label>
+						<hr />
+						<div className="relative">
 							<input
 								type="password"
 								id="newPassword"
 								ref={newPasswordRef}
 								required
-								className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-								placeholder="New Password"
+								className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-white bg-white appearance-none focus:outline-none focus:ring-0 focus:border-fuchsia-600 peer"
+								placeholder=" "
 							/>
+							<label
+								forHtml="newPassword"
+								className="absolute pointer-events-none text-sm rounded-md text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-fuchsia-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
+							>
+								New Password
+							</label>
+						</div>
+						<div className="relative">
+							<input
+								type="password"
+								id="newPasswordConfirm"
+								ref={newPasswordConfirmRef}
+								required
+								className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-white bg-white appearance-none focus:outline-none focus:ring-0 focus:border-fuchsia-600 peer"
+								placeholder=" "
+							/>
+							<label
+								forHtml="newPasswordConfirm"
+								className="absolute pointer-events-none text-sm rounded-md text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-fuchsia-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
+							>
+								Confirm New Password
+							</label>
 						</div>
 					</div>
+					{passwordError && (
+						<p className="text-red-400 text-sm mt-2">{passwordError}</p>
+					)}
 					<div>
 						<button
 							type="submit"
-							className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+							className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500"
+							disabled={passwordError !== ''}
 						>
 							Update Password
 						</button>
@@ -117,7 +161,7 @@ const Profile = () => {
 				<div className="mt-4">
 					<button
 						onClick={handleForgotPassword}
-						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500"
 					>
 						Forgot Password?
 					</button>

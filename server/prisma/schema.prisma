@@ -65,7 +65,13 @@ model sentences_translations {
   translation         String?
   literal_translation String?
   translation_rank    Int?
+  grammatical_person  Int?
+  grammatical_number  String?    @db.VarChar(2)
+  verb_tense          String?    @db.VarChar(20)
+  verb_mood           String?    @db.VarChar(20)
   sentences           sentences? @relation(fields: [sentence_id], references: [sentence_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([grammatical_person, grammatical_number, verb_tense, verb_mood], map: "idx_sentences_translations_conjugation")
 }
 
 model user_word_associations {

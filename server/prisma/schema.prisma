@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["views"]
 }
 
 datasource db {
@@ -109,4 +110,64 @@ model words_translations {
   words               words?  @relation(fields: [word_id], references: [word_id], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([language_code], map: "idx_language")
+}
+
+view incomplete_translations_view {
+  word_id             Int      @unique
+  part_of_speech      String?  @db.VarChar(50)
+  level               String?  @db.VarChar(2)
+  frequency_score     Int?
+  missing_languages   String[]
+  available_languages String[]
+  en_translation      String?
+  de_translation      String?
+  es_translation      String?
+  fr_translation      String?
+}
+
+view words_missing_sentences_view {
+  word_id                     Int      @unique
+  part_of_speech              String?  @db.VarChar(50)
+  level                       String?  @db.VarChar(2)
+  frequency_score             Int?
+  en_translation              String?
+  de_translation              String?
+  es_translation              String?
+  fr_translation              String?
+  total_sentences             BigInt?
+  languages_missing_sentences String[]
+  en_sentences                BigInt?
+  de_sentences                BigInt?
+  es_sentences                BigInt?
+  fr_sentences                BigInt?
+}
+
+view sentence_word_translations_view {
+  sentence_id         Int     @unique
+  sentence_level      String? @db.VarChar(2)
+  sentence_frequency  Int?
+  en_sentence         String?
+  en_sentence_literal String?
+  de_sentence         String?
+  de_sentence_literal String?
+  es_sentence         String?
+  es_sentence_literal String?
+  fr_sentence         String?
+  fr_sentence_literal String?
+  words               Json?
+}
+
+view word_translations_view {
+  word_id                Int     @unique
+  part_of_speech         String? @db.VarChar(50)
+  level                  String? @db.VarChar(2)
+  frequency_score        Int?
+  en_translation         String?
+  en_literal_translation String?
+  de_translation         String?
+  de_literal_translation String?
+  es_translation         String?
+  es_literal_translation String?
+  fr_translation         String?
+  fr_literal_translation String?
 }

@@ -26,7 +26,7 @@ function App() {
       <NotificationProvider>
         <AuthProvider>
           <WordProvider>
-            <div className="App w-full h-dvh flex flex-col text-white animate-gradient font-mono" 
+            <div className="App w-full h-dvh flex flex-col text-white animate-gradient font-nunito" 
               style={{
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',

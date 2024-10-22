@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'pacifico': ['Pacifico', 'cursive'],
+        'nunito': ['Nunito', 'sans-serif'],
       },
       keyframes: {
         'slide-in-right': {

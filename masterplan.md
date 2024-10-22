@@ -55,8 +55,8 @@
 ### Planned Features
 
 #### Authentication
-- [ ] Password Reset
-- [ ] User Profile page, update password, delete account
+- [x] (frontend) User Profile page, update password, password reset, delete account 
+- [ ] (backend) User Profile page, update password, password reset, delete account 
 
 #### Content Enhancement
 - [ ] Word Categories and Themes
@@ -65,13 +65,13 @@
 - [ ] Contextual Sentences
   - Provide example sentences for each word
   - Possibly using an API, which user would cache the data from
-- [ ] Pronunciation Practice
+- [x] Pronunciation Practice
   - Integrate text-to-speech functionality for word pronunciation
-  - User should cache this audio so the API doesn't have to recall
-- [ ] Unsplash API for associated images, user would cache
+  [-] User should cache this audio so the API doesn't have to recall (not necessary)
+- [-] Unsplash API for associated images, user would cache (not good results)
 
 #### User Experience
-- [ ] Welcome/home page with welcome in different languages in word map, but using CSS grid instead, as part of scrollable page
+- [x] Welcome/home page
   - Would include buttons like "A1 verbs" to go to the word map with those filters already applied
 - [ ] Experiment with map, flag, compass icons to enhance exploratory vibes
 - [ ] Offline Mode

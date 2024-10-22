@@ -8,7 +8,7 @@ const Home = () => {
 	return (
 		<div className="min-h-screen text-white p-4 py-24 flex flex-col justify-center">
 			<div className="text-center">
-				<h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-8 font-pacifico"><span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Welcome, <br></br></span> Wanderer</h1>
+				<h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-8"><span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Welcome, <br></br></span> <span className="font-pacifico">Wanderer</span></h1>
 			</div>
 			<div className="text-center mb-8">
 				<Link to="/map" className="inline-block border border-white hover:bg-white text-white hover:text-fuchsia-950 transition-colors font-bold py-2 px-4 rounded-lg text-lg">

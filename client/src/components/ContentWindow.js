@@ -36,9 +36,19 @@ const ContentWindow = () => {
   }
 
 	function playPronunciation(text) {
-		const utterance = new SpeechSynthesisUtterance(text);
-		utterance.lang = userLearningLanguage;
-		window.speechSynthesis.speak(utterance);
+		// Check if the browser supports speech synthesis
+		if ('speechSynthesis' in window) {
+			const utterance = new SpeechSynthesisUtterance(text);
+			utterance.lang = userLearningLanguage;
+
+			// Cancel any ongoing speech synthesis
+			window.speechSynthesis.cancel();
+
+			// Speak the text
+			window.speechSynthesis.speak(utterance);
+		} else {
+			console.warn('Speech synthesis is not supported in this browser.');
+		}
 	}
 
 	useEffect(() => {
@@ -216,7 +226,6 @@ const ContentWindow = () => {
 						</p>
 					)}
 					<hr className='mt-2'  />
-
         </>
       )}
     </div>

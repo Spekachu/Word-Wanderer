@@ -2,7 +2,12 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const getWordsWithTranslations = async (level = 'a1', partOfSpeech = 'verb', sourceLanguage = 'en', targetLanguage = 'de') => {
+const getWordsWithTranslations = async (
+	level = 'a1', 
+	partOfSpeech = 'verb', 
+	sourceLanguage = 'en', 
+	targetLanguage = 'de'
+) => {
   try {
     let words = await prisma.words.findMany({
       where: {

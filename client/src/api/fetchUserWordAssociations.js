@@ -2,8 +2,9 @@ export const fetchUserWordAssociations = async (addNotification, getAuthHeaders,
   try {
 
     // Fetch user word associations (should not be cached)
+		const apiUrl = process.env.NODE_ENV === 'production' ? "/api" : process.env.REACT_APP_API_URL + "/api";
     const associationsResponse = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/user/word-associations`,
+      `${apiUrl}/user/word-associations`,
       {
         credentials: 'include',
         headers: getAuthHeaders()

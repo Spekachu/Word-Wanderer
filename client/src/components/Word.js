@@ -48,7 +48,8 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/word-association`, {
+			const apiUrl = process.env.NODE_ENV === 'production' ? "/api" : process.env.REACT_APP_API_URL + "/api";
+      const response = await fetch(`${apiUrl}/user/word-association`, {
         method: 'POST',
 				headers: getAuthHeaders(),
         credentials: 'include',

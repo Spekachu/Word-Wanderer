@@ -12,7 +12,6 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const { addNotification } = useNotification();
 	const apiUrl = process.env.NODE_ENV === 'production' ? "/api" : process.env.REACT_APP_API_URL + "/api";
-	console.log('API URL:', apiUrl);
 
   useEffect(() => {
     checkAuth();

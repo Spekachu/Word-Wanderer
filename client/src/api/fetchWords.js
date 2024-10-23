@@ -1,8 +1,9 @@
 export const fetchWords = async (userLanguage, userLearningLanguage, cefrLevel, partOfSpeech, addNotification) => {
   try {
     // Fetch words (can be cached)
+		const apiUrl = process.env.NODE_ENV === 'production' ? "/api" : process.env.REACT_APP_API_URL + "/api";
     const wordsResponse = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/words?sourceLanguage=${userLanguage}&targetLanguage=${userLearningLanguage}&level=${cefrLevel}&partOfSpeech=${partOfSpeech}`
+      `${apiUrl}/words?sourceLanguage=${userLanguage}&targetLanguage=${userLearningLanguage}&level=${cefrLevel}&partOfSpeech=${partOfSpeech}`
     );
 
     if (!wordsResponse.ok) {

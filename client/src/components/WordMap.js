@@ -9,7 +9,7 @@ import { fetchUserWordAssociations } from '../api/fetchUserWordAssociations';
 
 const WordMap = () => {
 	const { addNotification } = useNotification();
-	const { getAuthHeaders, accessToken, setAccessToken, checkAuth, logout, isLoggedIn } = useAuth();
+	const { getAuthHeaders, accessToken, setAccessToken, isLoggedIn } = useAuth();
 	const { 
 		isDragging, 
 		setIsDragging, 
@@ -74,7 +74,7 @@ const WordMap = () => {
 				console.log("ERROR getting user word associations", err);
       }
     };
-		if (isLoggedIn && wordList.length && accessToken) {
+		if (isLoggedIn && wordList.length && accessToken.length) {
       getUserWordAssociations();
     } else {
 			console.log("Not logged in or no word list or no access token");

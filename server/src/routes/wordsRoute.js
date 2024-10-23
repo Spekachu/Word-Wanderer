@@ -6,6 +6,7 @@ const router = Router();
 
 router.get('/words', async (req, res) => {
   try {
+		console.log('Fetching words');
     const sourceLanguage = req.query.sourceLanguage || 'en';
     const targetLanguage = req.query.targetLanguage || 'de';
     const level = req.query.level || 'a1';

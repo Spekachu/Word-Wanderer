@@ -12,11 +12,6 @@ export const fetchUserWordAssociations = async (addNotification, getAuthHeaders,
 
     const associationsMap = await associationsResponse.json();
 
-    const newAccessToken = associationsResponse.headers.get('Access-Token');
-    if (newAccessToken) {
-      setAccessToken(newAccessToken);
-    }
-
     return associationsMap;
   } catch (err) {
     if (err.name === 'TypeError' && err.message === 'Failed to fetch') {

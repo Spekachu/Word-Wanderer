@@ -98,6 +98,16 @@ router.post('/refresh-token', (req, res) => {
   try {
     const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
     const accessToken = generateAccessToken(decoded.id);
+    const newRefreshToken = generateRefreshToken(decoded.id);
+
+    res.cookie('refreshToken', newRefreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    });
+
     console.log('New access token generated for user:', decoded.id);
     res.json({ accessToken });
   } catch (error) {
@@ -112,25 +122,39 @@ router.post('/logout', (req, res) => {
 });
 
 const authenticateUser = (req, res, next) => {
-  const authHeader = req.headers['authorization'];
-  console.log('Auth header:', authHeader); // Log the entire header
+	console.log('Authenticating user');
+	const authHeader = req.headers['authorization'];
+	console.log('Auth header:', authHeader);
 
-  const token = authHeader && authHeader.split(' ')[1];
-  if (!token) {
-    console.log('No token found in auth header');
-    return res.status(401).json({ message: 'Authentication required' });
-  }
+	const token = authHeader && authHeader.split(' ')[1];
+	if (!token) {
+		console.log('No token found in auth header');
+		return res.status(401).json({ message: 'Authentication required' });
+	}
 
-  console.log('Token:', token); // Log the extracted token
+	console.log('Token:', token);
 
-  try {
-    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    console.error('Token verification error:', error);
-    res.status(401).json({ message: 'Invalid token', error: error.message });
-  }
+	try {
+		const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+		
+		// Check if token is about to expire (e.g., in less than 5 minutes)
+		const tokenExp = decoded.exp * 1000; // convert to milliseconds
+		const now = Date.now();
+		if (tokenExp - now < 5 * 60 * 1000) {
+			// Token is about to expire, generate a new one
+			const newToken = generateAccessToken(decoded.id);
+			res.set('New-Access-Token', newToken);
+		}
+
+		req.user = decoded;
+		next();
+	} catch (error) {
+		console.error('Token verification error:', error);
+		if (error.name === 'TokenExpiredError') {
+			return res.status(401).json({ message: 'Token expired', error: error.message });
+		}
+		res.status(401).json({ message: 'Invalid token', error: error.message });
+	}
 };
 
 function generateAccessToken(userId) {
@@ -207,9 +231,9 @@ router.post('/word-association', authenticateUser, async (req, res) => {
 // Get user-word associations
 router.get('/word-associations', authenticateUser, async (req, res) => {
   try {
+		console.log('Fetching user word associations');
     if (req.user) {
       const associationsMap = await getUserWordAssociations(req.user.id);
-      res.set('Access-Token', req.accessToken);
       res.json(associationsMap);
     } else {
       res.json({});

@@ -75,7 +75,8 @@ router.post('/login', async (req, res) => {
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      sameSite: 'lax', // Change this from 'strict' to 'lax'
+      path: '/', // Ensure the cookie is sent for all paths
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
@@ -112,8 +113,15 @@ router.post('/logout', (req, res) => {
 
 const authenticateUser = (req, res, next) => {
   const authHeader = req.headers['authorization'];
+  console.log('Auth header:', authHeader); // Log the entire header
+
   const token = authHeader && authHeader.split(' ')[1];
-  if (!token) return res.status(401).json({ message: 'Authentication required' });
+  if (!token) {
+    console.log('No token found in auth header');
+    return res.status(401).json({ message: 'Authentication required' });
+  }
+
+  console.log('Token:', token); // Log the extracted token
 
   try {
     const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
@@ -121,7 +129,7 @@ const authenticateUser = (req, res, next) => {
     next();
   } catch (error) {
     console.error('Token verification error:', error);
-    res.status(401).json({ message: 'Invalid token' });
+    res.status(401).json({ message: 'Invalid token', error: error.message });
   }
 };
 

@@ -11,6 +11,8 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
   const { addNotification } = useNotification();
+	const apiUrl = process.env.NODE_ENV === 'production' ? "/api" : process.env.REACT_APP_API_URL + "/api";
+	console.log('API URL:', apiUrl);
 
   useEffect(() => {
     checkAuth();
@@ -25,7 +27,7 @@ export const AuthProvider = ({ children }) => {
 
 	const refreshAccessToken = async () => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/refresh-token`, {
+			const response = await fetch(`${apiUrl}/user/refresh-token`, {
 				method: 'POST',
 				credentials: 'include',
 			});
@@ -64,7 +66,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (email, password) => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/register`, {
+			const response = await fetch(`${apiUrl}/user/register`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ email, password }),
@@ -88,7 +90,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/login`, {
+			const response = await fetch(`${apiUrl}/user/login`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ email, password }),
@@ -112,7 +114,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
 		try {
-			await fetch(`${process.env.REACT_APP_API_URL}/api/user/logout`, {
+			await fetch(`${apiUrl}/user/logout`, {
 				method: 'POST',
 				credentials: 'include',
 			});
@@ -129,7 +131,7 @@ export const AuthProvider = ({ children }) => {
 	};
   const updatePassword = async (currentPassword, newPassword) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/update-password`, {
+      const response = await fetch(`${apiUrl}/user/update-password`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({ currentPassword, newPassword }),
@@ -149,7 +151,7 @@ export const AuthProvider = ({ children }) => {
 
   const sendPasswordResetEmail = async (email) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/forgot-password`, {
+      const response = await fetch(`${apiUrl}/user/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),

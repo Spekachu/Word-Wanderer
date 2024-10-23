@@ -9,6 +9,7 @@ node_modules/
 # Production
 /client/build
 /server/build
+server/public
 
 # Misc
 .DS_Store

@@ -12,17 +12,10 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import NotificationDisplay from './components/NotificationDisplay';
-import Starfield from 'react-starfield';
 import Profile from './pages/Profile';
 function App() {
   return (
     <Router>
-			<Starfield
-        starCount={750}
-        starColor={[255, 255, 255]}
-        speedFactor={0.01}
-        backgroundColor="black"
-      />
       <NotificationProvider>
         <AuthProvider>
           <WordProvider>

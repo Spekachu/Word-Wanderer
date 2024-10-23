@@ -50,3 +50,4 @@ yarn-error.log*
 # OS-specific files
 .DS_Store
 Thumbs.db
+notes.txt

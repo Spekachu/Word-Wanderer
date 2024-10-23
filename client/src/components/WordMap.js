@@ -49,11 +49,7 @@ const WordMap = () => {
           debouncedUserLearningLanguage,
           debouncedCefrLevel,
           debouncedPartOfSpeech,
-					addNotification, 
-					getAuthHeaders, 
-					checkAuth, 
-					logout, 
-					setAccessToken 
+					addNotification
         );
         setWordList(data);
       } catch (err) {
@@ -80,6 +76,9 @@ const WordMap = () => {
     };
 		if (isLoggedIn && wordList.length && accessToken) {
       getUserWordAssociations();
+    } else {
+			console.log("Not logged in or no word list or no access token");
+      setUserWordAssociations({});
     }
   }, [isLoggedIn, wordList, accessToken]);
 

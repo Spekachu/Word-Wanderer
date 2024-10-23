@@ -1,11 +1,8 @@
-export const fetchWords = async (userLanguage, userLearningLanguage, cefrLevel, partOfSpeech, addNotification, getAuthHeaders, setAccessToken) => {
+export const fetchWords = async (userLanguage, userLearningLanguage, cefrLevel, partOfSpeech, addNotification) => {
   try {
     // Fetch words (can be cached)
     const wordsResponse = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/words?sourceLanguage=${userLanguage}&targetLanguage=${userLearningLanguage}&level=${cefrLevel}&partOfSpeech=${partOfSpeech}`,
-      {
-        headers: getAuthHeaders()
-      }
+      `${process.env.REACT_APP_API_URL}/api/words?sourceLanguage=${userLanguage}&targetLanguage=${userLearningLanguage}&level=${cefrLevel}&partOfSpeech=${partOfSpeech}`
     );
 
     if (!wordsResponse.ok) {
@@ -13,11 +10,6 @@ export const fetchWords = async (userLanguage, userLearningLanguage, cefrLevel, 
     }
 
     const words = await wordsResponse.json();
-
-    const newAccessToken = wordsResponse.headers.get('Access-Token');
-    if (newAccessToken) {
-      setAccessToken(newAccessToken);
-    }
 
     return words;
   } catch (err) {

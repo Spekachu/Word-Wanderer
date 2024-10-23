@@ -20,7 +20,6 @@ router.get('/words', async (req, res) => {
     res.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
     res.set('ETag', `"${etag}"`);
     res.set('Last-Modified', new Date().toUTCString());
-    res.set('Access-Token', req.accessToken);
 
     // Check if the client sent an If-None-Match header
     if (req.headers['if-none-match'] === `"${etag}"`) {

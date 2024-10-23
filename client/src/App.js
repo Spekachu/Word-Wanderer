@@ -21,7 +21,7 @@ function App() {
         starCount={750}
         starColor={[255, 255, 255]}
         speedFactor={0.01}
-        backgroundColor="transparent"
+        backgroundColor="black"
       />
       <NotificationProvider>
         <AuthProvider>

@@ -19,8 +19,9 @@ function App() {
       <NotificationProvider>
         <AuthProvider>
           <WordProvider>
-            <div className="App w-full h-dvh flex flex-col text-white animate-gradient font-nunito" 
+            <div className="App w-full h-dvh flex flex-col text-white font-nunito" 
               style={{
+                backgroundImage: `linear-gradient(to right top, rgb(125, 89, 108), rgb(217 161 161))`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}>

@@ -98,18 +98,18 @@ const Profile = () => {
 				{userWordAssociations && (
 					<div>
 						<p className="text-center text-lg">You've wandered through {Object.keys(userWordAssociations).length} words.</p>
-						{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('en')).length > 0 && (
-							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('en')).length} in {t('languages.en')}</p>
+						{Object.values(userWordAssociations).filter(word => word.languageCodes?.includes('en')).length > 0 && (
+							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes?.includes('en')).length} in {t('languages.en')}</p>
 						)}
-						{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('fr')).length > 0 && (
-							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('fr')).length} in {t('languages.fr')}</p>
+						{Object.values(userWordAssociations).filter(word => word.languageCodes?.includes('fr')).length > 0 && (
+							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes?.includes('fr')).length} in {t('languages.fr')}</p>
 						)}
 						
-						{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('de')).length > 0 && (
-							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('de')).length} in {t('languages.de')}</p>
+						{Object.values(userWordAssociations).filter(word => word.languageCodes?.includes('de')).length > 0 && (
+							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes?.includes('de')).length} in {t('languages.de')}</p>
 						)}
-						{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('es')).length > 0 && (
-							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes.includes('es')).length} in {t('languages.es')}</p>
+						{Object.values(userWordAssociations).filter(word => word.languageCodes?.includes('es')).length > 0 && (
+							<p className="text-center text-lg">{Object.values(userWordAssociations).filter(word => word.languageCodes?.includes('es')).length} in {t('languages.es')}</p>
 						)}
 					</div>
 				)}

@@ -70,9 +70,16 @@ router.post('/login', async (req, res) => {
     }
 
     const accessToken = generateAccessToken(user.user_id);
-		const refreshToken = generateRefreshToken(user.user_id);
-		res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: true, sameSite: 'strict' });
-		res.json({ accessToken, user: { id: user.user_id, email: user.email } });
+    const refreshToken = generateRefreshToken(user.user_id);
+    
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    });
+
+    res.json({ accessToken, user: { id: user.user_id, email: user.email } });
   } catch (error) {
     console.error('Login error:', error);
     res.status(500).json({ message: 'Server error', error: error.message });
@@ -83,14 +90,17 @@ router.post('/login', async (req, res) => {
 router.post('/refresh-token', (req, res) => {
   const refreshToken = req.cookies.refreshToken;
   if (!refreshToken) {
+    console.log('Refresh token missing');
     return res.status(401).json({ message: 'No refresh token' });
   }
 
   try {
     const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
     const accessToken = generateAccessToken(decoded.id);
+    console.log('New access token generated for user:', decoded.id);
     res.json({ accessToken });
   } catch (error) {
+    console.error('Error verifying refresh token:', error);
     res.status(401).json({ message: 'Invalid refresh token' });
   }
 });
@@ -110,6 +120,7 @@ const authenticateUser = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
+    console.error('Token verification error:', error);
     res.status(401).json({ message: 'Invalid token' });
   }
 };
@@ -219,6 +230,10 @@ router.delete('/word-association/:word_id', authenticateUser, async (req, res) =
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
+});
+
+router.get('/check-auth', authenticateUser, (req, res) => {
+  res.json({ isAuthenticated: true, user: { id: req.user.id } });
 });
 
 export default router;

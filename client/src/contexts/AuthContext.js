@@ -29,15 +29,15 @@ export const AuthProvider = ({ children }) => {
 				method: 'POST',
 				credentials: 'include',
 			});
-			if (response.ok) {
-				const { accessToken } = await response.json();
-				setAccessToken(accessToken);
-				return accessToken;
-			} else {
-				throw new Error('Failed to refresh token');
+			if (!response.ok) {
+				const errorData = await response.json();
+				throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
 			}
+			const { accessToken } = await response.json();
+			setAccessToken(accessToken);
+			return accessToken;
 		} catch (error) {
-			console.error('Error refreshing token:', error);
+			console.error('Error refreshing token:', error.message);
 			logout();
 			return null;
 		}
@@ -46,7 +46,6 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
 		try {
 			const newAccessToken = await refreshAccessToken();
-			// console.log('newAccessToken:', newAccessToken);
 			if (newAccessToken) {
 				setIsLoggedIn(true);
 				// Optionally fetch user data here if needed
@@ -55,7 +54,7 @@ export const AuthProvider = ({ children }) => {
 				throw new Error('Failed to refresh token');
 			}
 		} catch (error) {
-			console.error('Error checking authentication:', error);
+			console.error('Error checking authentication:', error.message);
 			setAccessToken(null);
 			setIsLoggedIn(false);
 			setCurrentUser(null);

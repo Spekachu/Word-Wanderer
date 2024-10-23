@@ -2,8 +2,14 @@ import express from 'express';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
 import cookieParser from 'cookie-parser';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const port = 5000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
+const port = isDevelopment ? 5000 : (process.env.PORT || 8080);
 const prisma = new PrismaClient();
 
 import wordsRoute from './src/routes/wordsRoute.js';
@@ -14,7 +20,6 @@ const start = async () => {
 
   // Middleware
 	app.use(cookieParser());
-  app.use(express.static('public'));
   app.use(cors({
     origin: 'http://localhost:3000',
     credentials: true,
@@ -27,10 +32,16 @@ const start = async () => {
   app.use('/api', wordsRoute);
   app.use('/api/user', userRoutes);
 
-  app.use('/static', express.static('public'));
+  // Serve static files from the React app
+  app.use(express.static(path.join(__dirname, '../client/build')));
+	// The "catchall" handler: for any request that doesn't
+	// match one above, send back React's index.html file.
+	app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+	});
 
   app.listen(port, '0.0.0.0', () => {
-    console.log(`Server running at http://0.0.0.0:${port}`);
+		console.log(`Server running in ${isDevelopment ? 'development' : 'production'} mode at http://localhost:${port}`);
   });
 }
 

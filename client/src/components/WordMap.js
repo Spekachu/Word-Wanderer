@@ -296,21 +296,6 @@ const WordMap = () => {
     });
   }, [zoomLevel, panOffset, queueUpdate]);
 
-	useEffect(() => {
-		const mapContainer = mapRef.current;
-    // Add wheel event only to the map container
-    if (mapContainer) {
-      mapContainer.addEventListener('wheel', handleWheel);
-    }
-
-		return () => {
-			// Clean up event listeners when the component unmounts
-      if (mapContainer) {
-        mapContainer.removeEventListener('wheel', handleWheel);
-      }
-		};
-  });
-
 	if (error) {
 		return <div>Error: {error.message}</div>;
 	}
@@ -326,6 +311,7 @@ const WordMap = () => {
       onMouseUp={handleMouseUp}
       onTouchEnd={handleMouseUp}
 			onTouchCancel={handleMouseUp}
+			onWheel={handleWheel}
 			style={{
 				cursor: isMouseDown ? 'grabbing' : 'grab', // Change cursor when dragging
 			}}>

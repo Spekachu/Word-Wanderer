@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
 	const [accessToken, setAccessToken] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [userWordAssociations, setUserWordAssociations] = useState({});
   const navigate = useNavigate();
   const { addNotification } = useNotification();
 	const apiUrl = process.env.NODE_ENV === 'production' ? "/api" : process.env.REACT_APP_API_URL + "/api";
@@ -34,9 +35,11 @@ export const AuthProvider = ({ children }) => {
 				const errorData = await response.json();
 				throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
 			}
-			const { accessToken } = await response.json();
+			const { accessToken, user, userWordAssociations } = await response.json();
 			setAccessToken(accessToken);
-			return accessToken;
+			setCurrentUser(user);
+			setUserWordAssociations(userWordAssociations);
+			return { accessToken, user, userWordAssociations };
 		} catch (error) {
 			console.error('Error refreshing token:', error.message);
 			logout();
@@ -47,10 +50,9 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
 		try {
 			console.log('Checking authentication');
-			const newAccessToken = await refreshAccessToken();
-			if (newAccessToken) {
+			const result = await refreshAccessToken();
+			if (result) {
 				setIsLoggedIn(true);
-				// Optionally fetch user data here if needed
 				return true;
 			} else {
 				throw new Error('Failed to refresh token');
@@ -60,6 +62,7 @@ export const AuthProvider = ({ children }) => {
 			setAccessToken(null);
 			setIsLoggedIn(false);
 			setCurrentUser(null);
+			setUserWordAssociations({});
 			return false;
 		}
 	};
@@ -122,8 +125,7 @@ export const AuthProvider = ({ children }) => {
 			setAccessToken(null);
 			setIsLoggedIn(false);
 			setCurrentUser(null);
-			navigate('/');
-			addNotification('Logged out successfully', 'success');
+			// addNotification('Logged out successfully', 'success');
 		} catch (error) {
 			console.error('Logout error:', error);
 			addNotification('An error occurred during logout', 'error');
@@ -207,6 +209,7 @@ export const AuthProvider = ({ children }) => {
       setAccessToken,
       updatePassword,
       sendPasswordResetEmail,
+      userWordAssociations, setUserWordAssociations,
       deleteUser
     }}>
       {children}

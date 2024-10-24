@@ -23,7 +23,6 @@ export const WordProvider = ({ children }) => {
   const [userLanguage, set_userLanguage] = useState("en");
   const learning = i18n.language === "de" ? "en" : "de";
   const [userLearningLanguage, set_userLearningLanguage] = useState(learning);
-  const [userWordAssociations, setUserWordAssociations] = useState({});
 
   // Reset certain values when the route changes
   useEffect(() => {
@@ -57,7 +56,6 @@ export const WordProvider = ({ children }) => {
       showEmojiPicker, setShowEmojiPicker,
       selectedHighlight, setSelectedHighlight,
       showHighlightPicker, setShowHighlightPicker,
-      userWordAssociations, setUserWordAssociations,
       resetContentWindow
     }}>
       {children}

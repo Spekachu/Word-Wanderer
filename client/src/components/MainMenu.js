@@ -73,18 +73,18 @@ export const MainMenu = () => {
 
 	const menuLinks = () => (
     <div className={`${showMobileMenu ? 'flex justify-center flex-wrap w-full pt-4 order-last' : 'hidden'} lg:flex items-center lg:order-1 lg:flex-row lg:w-auto lg:py-0`}>
-      <Link to="/" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Home</Link>
-      <Link to="/map" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Word Map</Link>
+      <Link to="/" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Home</Link>
+      <Link to="/map" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Word Map</Link>
       {!isLoggedIn && (
         <>
-          <Link to="/register" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Register</Link>
-          <Link to="/login" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Login</Link>
+          <Link to="/register" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Register</Link>
+          <Link to="/login" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Login</Link>
         </>
       )}
       {isLoggedIn && (
         <>
-          <Link to="/profile" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Profile</Link>
-          <button onClick={() => { logout(); closeMobileMenu(); }} className="text-white hover:text-gray-300 py-2">Logout</button>
+          <Link to="/profile" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Profile</Link>
+          <button onClick={() => { logout(); closeMobileMenu(); }} className="text-white hover:text-fuchsia-300 py-2">Logout</button>
         </>
       )}
     </div>

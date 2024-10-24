@@ -6,7 +6,7 @@ const NotificationDisplay = () => {
   const { notifications, removeNotification } = useNotification();
 
   return (
-    <div className="fixed bottom-4 left-4 flex flex-col-reverse items-start space-y-2 space-y-reverse z-50">
+    <div className="fixed w-full sm:w-auto bottom-0 sm:bottom-4 left-0 sm:left-4 flex flex-col-reverse items-start space-y-2 space-y-reverse z-50">
       {notifications.map((notification) => (
         <Toast 
           key={notification.id}

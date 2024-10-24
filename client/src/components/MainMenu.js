@@ -4,6 +4,7 @@ import { AppContext } from '../contexts/AppContext';
 import { useTranslation } from 'react-i18next';
 import { FaArrowRightArrowLeft, FaBars, FaFilter } from "react-icons/fa6";
 import { useAuth } from '../contexts/AuthContext';
+import { GrMapLocation } from "react-icons/gr";
 
 export const MainMenu = () => {
 	const { isLoggedIn, logout } = useAuth();
@@ -157,7 +158,7 @@ export const MainMenu = () => {
 				{/* this is the logo/branding for the menu nav */}
 				
 				<Link to="/" className="order-1 lg:order-2 lg:m-auto">
-					<h2 className="text-2xl lg:text-3xl font-pacifico">Word Wanderer</h2>
+					<h2 className="text-2xl lg:text-3xl font-pacifico text-nowrap inline-flex items-center">Word Wanderer <GrMapLocation className="ml-2" /></h2>
 				</Link>
 
 				{/* this is the language selector and filters for the word map */}

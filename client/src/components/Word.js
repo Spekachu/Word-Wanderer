@@ -4,7 +4,7 @@ import { useNotification } from '../contexts/NotificationContext';
 import { useAuth } from '../contexts/AuthContext';
 
 const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
-	const { isLoggedIn, logout, getAuthHeaders, userWordAssociations } = useAuth();
+	const { isLoggedIn, logout, getAuthHeaders, userWordAssociations, updateUserWordAssociation } = useAuth();
   const { 
     selectedWord, setSelectedWord, 
     activeContent, setActiveContent, 
@@ -39,7 +39,10 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
     setSticker(emoji);
     setHighlight(highlightColor);
     setDiscovered(true);
-		setDiscoveredThisLanguage(true);
+    setDiscoveredThisLanguage(true);
+
+    // Update the userWordAssociations in AuthContext
+    updateUserWordAssociation(wordId, emoji, highlightColor, languageCode);
 
     if (!isLoggedIn) {
       // addNotification("Changes saved temporarily. Log in to save permanently.", "info");
@@ -83,7 +86,7 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
         addNotification("An unexpected error occurred. Please try again later.", "error");
       }
     }
-  }, [addNotification, isLoggedIn]);
+  }, [addNotification, isLoggedIn, updateUserWordAssociation]);
 
   const handleWordClick = useCallback(() => {
     if (dragging) {

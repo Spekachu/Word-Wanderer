@@ -15,7 +15,16 @@ export const AuthProvider = ({ children }) => {
 	const apiUrl = process.env.NODE_ENV === 'production' ? "/api" : process.env.REACT_APP_API_URL + "/api";
 
   useEffect(() => {
-    checkAuth();
+    let isMounted = true;
+    const performAuthCheck = async () => {
+      if (isMounted) {
+        await checkAuth();
+      }
+    };
+    performAuthCheck();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
 	const getAuthHeaders = () => {
@@ -125,7 +134,8 @@ export const AuthProvider = ({ children }) => {
 			setAccessToken(null);
 			setIsLoggedIn(false);
 			setCurrentUser(null);
-			// addNotification('Logged out successfully', 'success');
+			setUserWordAssociations({});
+			addNotification('You are logged out', 'success');
 		} catch (error) {
 			console.error('Logout error:', error);
 			addNotification('An error occurred during logout', 'error');
@@ -196,6 +206,19 @@ export const AuthProvider = ({ children }) => {
     return () => axios.interceptors.response.eject(interceptor);
   }, []);
 
+	
+  const updateUserWordAssociation = (wordId, emoji, highlightColor, languageCode) => {
+    setUserWordAssociations(prevAssociations => ({
+      ...prevAssociations,
+      [wordId]: {
+        ...prevAssociations[wordId],
+        emoji,
+        highlightColor,
+        languageCodes: [...new Set([...(prevAssociations[wordId]?.languageCodes || []), languageCode])]
+      }
+    }));
+  };
+
   return (
     <AuthContext.Provider value={{ 
       isLoggedIn, 
@@ -210,6 +233,7 @@ export const AuthProvider = ({ children }) => {
       updatePassword,
       sendPasswordResetEmail,
       userWordAssociations, setUserWordAssociations,
+			updateUserWordAssociation,
       deleteUser
     }}>
       {children}

@@ -35,7 +35,7 @@
    - Custom API endpoints for word retrieval, user authentication, and word associations
 
 5. Deployment:
-   - Considering Netlify for frontend and Render for backend and database
+   - Render for backend (coupled with frontend) and database
 
 ## Feature Roadmap
 
@@ -51,6 +51,7 @@
 - [x] Panning and Zooming of Word Map
 - [x] User can save progress
 - [x] Duplicate words in db with different translations get combined on the frontend
+- [x] deployed to render! with custom domain https://www.wordwanderer.app/
 
 ### Planned Features
 
@@ -111,3 +112,9 @@
 #### Social Features
 - [ ] Collaborative Learning
   - Allow users to share custom word lists or maps
+
+#### Deployment
+- [x] Deploy to Render Production (https://www.wordwanderer.app/)
+- [ ] Deploy to Render Stage (https://stage.wordwanderer.app/)
+- [ ] Deploy to Render Dev (https://dev.wordwanderer.app/)
+

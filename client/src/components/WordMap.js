@@ -6,6 +6,7 @@ import { useNotification } from '../contexts/NotificationContext';
 import { useAuth } from '../contexts/AuthContext';
 import { fetchWords } from '../api/fetchWords';
 import { fetchUserWordAssociations } from '../api/fetchUserWordAssociations';
+import { useAnimationFrame } from '../hooks/useAnimationFrame';
 
 const WordMap = () => {
 	const { addNotification } = useNotification();
@@ -38,6 +39,8 @@ const WordMap = () => {
   const debouncedCefrLevel = useDebounce(cefrLevel, 300);
   const debouncedUserLanguage = useDebounce(userLanguage, 300);
   const debouncedUserLearningLanguage = useDebounce(userLearningLanguage, 300);
+
+	const queueUpdate = useAnimationFrame();
 
 	useEffect(() => {
     const getWords = async () => {
@@ -255,20 +258,20 @@ const WordMap = () => {
 			setIsDragging(true);
 		}
 
-    setPanOffset(prevOffset => {
+    // Queue all state updates together
+    queueUpdate(() => {
       const mapRect = mapRef.current.getBoundingClientRect();
       const minX = -mapRect.width / 2;
       const maxX = mapRect.width / 2;
       const minY = -mapRect.height / 2;
       const maxY = mapRect.height / 2;
 
-      const newOffsetX = Math.max(minX, Math.min(maxX, prevOffset.x + deltaX));
-      const newOffsetY = Math.max(minY, Math.min(maxY, prevOffset.y + deltaY));
+      const newOffsetX = Math.max(minX, Math.min(maxX, panOffset.x + deltaX));
+      const newOffsetY = Math.max(minY, Math.min(maxY, panOffset.y + deltaY));
 
-      return { x: newOffsetX, y: newOffsetY };
+      setPanOffset({ x: newOffsetX, y: newOffsetY });
+      setLastMousePos({ x: cX, y: cY });
     });
-
-    setLastMousePos({ x: cX, y: cY });
   }, [lastMousePos, panOffset, isMouseDown, setIsDragging]);
 
 	// Handle mouseup event (stop dragging)
@@ -279,35 +282,23 @@ const WordMap = () => {
 	
 	// Handle zoom via scroll wheel
   const handleWheel = useCallback((e) => {
-    // e.preventDefault();
-    const zoomDelta = e.deltaY * -0.001; // Adjust zoom speed
-    const newZoomLevel = Math.min(Math.max(zoomLevel + zoomDelta, zoomMin), zoomMax); // Bound the zoom level
-    const mapRect = mapRef.current.getBoundingClientRect();
-		
-		let newOffset = panOffset;
-		
-    const minX = -mapRect.width / 2;
-    const maxX = mapRect.width / 2;
-    const minY = -mapRect.height / 2;
-    const maxY = mapRect.height / 2;
+    const zoomDelta = e.deltaY * -0.001;
+    const newZoomLevel = Math.min(Math.max(zoomLevel + zoomDelta, zoomMin), zoomMax);
 
-		if (newOffset.x < minX) {
-			newOffset.x = minX;
-		} else if (newOffset.x > maxX) {
-			newOffset.x = maxX;
-		}
-		if (newOffset.y < minY) {
-			newOffset.y = minY;
-		} else if (newOffset.y > maxY) {
-			newOffset.y = maxY;
-		}
-		setPanOffset({
-			x: newOffset.x,
-			y: newOffset.y,
-		});
+    queueUpdate(() => {
+      const mapRect = mapRef.current.getBoundingClientRect();
+      const minX = -mapRect.width / 2;
+      const maxX = mapRect.width / 2;
+      const minY = -mapRect.height / 2;
+      const maxY = mapRect.height / 2;
 
-    setZoomLevel(newZoomLevel);
-  }, [panOffset, zoomLevel]);
+      const newOffsetX = Math.max(minX, Math.min(maxX, panOffset.x));
+      const newOffsetY = Math.max(minY, Math.min(maxY, panOffset.y));
+
+      setPanOffset({ x: newOffsetX, y: newOffsetY });
+      setZoomLevel(newZoomLevel);
+    });
+  }, [zoomLevel, panOffset, queueUpdate]);
 
 	useEffect(() => {
 		const mapContainer = mapRef.current;
@@ -344,21 +335,23 @@ const WordMap = () => {
 			style={{
 				cursor: isMouseDown ? 'grabbing' : 'grab', // Change cursor when dragging
 			}}>
-			<div ref={mapRef} className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform' 
-			style={{
-				transform: `translate3d(calc(-50% + ${panOffset.x}px), calc(-50% + ${panOffset.y}px), 0) scale(${zoomLevel})`, // Apply panning offset
-			}}>
-				{wordList?.map((word, index) => (
-					<Word
-						key={word.id}
-						index={index}
-						word={word}
-						position={positions[index] || { centerX: 0, centerY: 0 }}
-						loaded={mapRef.current?.classList.contains("loaded")}
-						dimensions={wordDimensions[index] || { width: 0, height: 0 }}
-						ref={(el) => (wordRefs.current[index] = el)}
-					/>
-				))}
+    	<div className="absolute left-1/2 top-1/2 transform-gpu -translate-x-1/2 -translate-y-1/2">
+				<div ref={mapRef} className='will-change-transform' 
+				style={{
+          transform: `translate3d(${panOffset.x}px, ${panOffset.y}px, 0) scale(${zoomLevel})`
+				}}>
+					{wordList?.map((word, index) => (
+						<Word
+							key={word.id}
+							index={index}
+							word={word}
+							position={positions[index] || { centerX: 0, centerY: 0 }}
+							loaded={mapRef.current?.classList.contains("loaded")}
+							dimensions={wordDimensions[index] || { width: 0, height: 0 }}
+							ref={(el) => (wordRefs.current[index] = el)}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);

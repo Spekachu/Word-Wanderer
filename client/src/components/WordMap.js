@@ -78,9 +78,6 @@ const WordMap = () => {
     };
 		if (isLoggedIn && wordList.length && accessToken.length) {
       getUserWordAssociations();
-    } else {
-			console.log("Not logged in or no word list or no access token");
-      setUserWordAssociations({});
     }
   }, [isLoggedIn, wordList, accessToken]);
 
@@ -314,16 +311,14 @@ const WordMap = () => {
 		};
   });
 
-	if (loading) {
-		return <div>Loading...</div>;
-	}
-
 	if (error) {
 		return <div>Error: {error.message}</div>;
 	}
 
 	return (
-		<div className="word-map text-white w-full h-dvh overflow-hidden fixed top-0 left-0 touch-none"
+		<div className={`word-map text-white w-full h-dvh overflow-hidden fixed top-0 left-0 touch-none transition-opacity duration-300 ${
+				loading ? 'opacity-0' : 'opacity-100'
+      }`}
 			onMouseDown={handleMouseDown} 
 			onTouchStart={handleTouchStart} 
 			onMouseMove={handleMouseMove}
@@ -345,7 +340,6 @@ const WordMap = () => {
 							index={index}
 							word={word}
 							position={positions[index] || { centerX: 0, centerY: 0 }}
-							loaded={mapRef.current?.classList.contains("loaded")}
 							dimensions={wordDimensions[index] || { width: 0, height: 0 }}
 							ref={(el) => (wordRefs.current[index] = el)}
 						/>

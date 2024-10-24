@@ -3,7 +3,7 @@ import { AppContext } from '../contexts/AppContext';
 import { useNotification } from '../contexts/NotificationContext';
 import { useAuth } from '../contexts/AuthContext';
 
-const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => {
+const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 	const { isLoggedIn, logout, getAuthHeaders, userWordAssociations } = useAuth();
   const { 
     selectedWord, setSelectedWord, 
@@ -135,14 +135,11 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
   return (
     <>
       <div
-				loading='lazy'
         onClick={() => handleWordClick(word)} 
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         ref={ref}
-        className={`word select-none border-2 border-white px-[.75em] pb-1 absolute rounded-full hover:bg-white hover:!text-black -translate-x-1/2 -translate-y-1/2 opacity-0 backdrop-blur-sm text-nowrap whitespace-nowrap ${
-          loaded ? 'opacity-100' : 'opacity-0'
-        } ${
+        className={`word select-none border-2 border-white px-[.75em] pb-1 absolute rounded-full hover:bg-white hover:!text-black -translate-x-1/2 -translate-y-1/2 backdrop-blur-sm text-nowrap whitespace-nowrap ${
           isMouseDown ? 'cursor-grabbing' : 'cursor-pointer'
         } ${
           isSelected ? 'bg-white text-black shadow-[0_0_.5em_.25em_white]' : discoveredThisLanguage ? 'bg-white/85 text-black shadow-[0_0_.5em_.25em_transparent]' : 'shadow-[0_0_.5em_.25em_transparent]'
@@ -151,7 +148,7 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
           top: `calc(50% + ${position.centerY}px)`,
           left: `calc(50% + ${position.centerX}px)`,
           position: 'absolute',
-          transition: `color .25s ease, background .25s ease, box-shadow .25s ease, border .25s ease, opacity .25s ease ${index * 0.0075}s`,
+          transition: `color .25s ease, background .25s ease, box-shadow .25s ease, border .25s ease, opacity .25s ease`,
           fontSize: `${Math.max(1.5, 3 - Math.min(index / 30, 1.5))}rem`,
           ...(highlight !== "#ffffff" && discoveredThisLanguage && { backgroundColor: highlight }),
           ...(highlight !== "#ffffff" && !discoveredThisLanguage && isSelected && { backgroundColor: highlight }),
@@ -163,14 +160,12 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
       {sticker && (
         <div 
 					loading='lazy'
-          className={`absolute pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 drop-shadow-[-1px_-1px_0_rgba(255,255,255,0.9)] text-slate-700 ${
-          loaded ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 drop-shadow-[-1px_-1px_0_rgba(255,255,255,0.9)] text-slate-700`}
           style={{
             top: `calc(50% + ${position.centerY - (dimensions.height / 2)}px + .35em)`,
             left: `calc(50% + ${position.centerX - (dimensions.width / 2)}px + .35em)`,
             position: 'absolute',
-            transition: `color .25s ease, background .25s ease, box-shadow .25s ease, opacity .25s ease ${index * 0.0075}s`,
+            transition: `color .25s ease, background .25s ease, box-shadow .25s ease, opacity .25s ease`,
             fontSize: `${Math.max(1.5, 2.25 - Math.min(index / 30, 1))}rem`
           }}
         >

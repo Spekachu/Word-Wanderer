@@ -244,48 +244,31 @@ const WordMap = () => {
 	// Handle mousemove event (when dragging)
 	const handleMouseMove = useCallback((e) => {
     if (!isMouseDown) return;
-		// console.log("TOUCH MOVE");
 
-		let cX = e.clientX ? e?.clientX : e?.touches[0]?.clientX;
-		let cY = e.clientY ? e?.clientY : e?.touches[0]?.clientY;
+		const cX = e.clientX ?? e?.touches[0]?.clientX;
+    const cY = e.clientY ?? e?.touches[0]?.clientY;
 		
 		const deltaX = cX - lastMousePos.x;
 		const deltaY = cY - lastMousePos.y;
 
-		// console.log(lastMousePos.x, lastMousePos.y);
 		if (Math.abs(deltaX) > 15 || Math.abs(deltaY) > 5) {
 			setIsDragging(true);
 		}
 
-    let newOffsetX = panOffset.x + deltaX;
-    let newOffsetY = panOffset.y + deltaY;
+    setPanOffset(prevOffset => {
+      const mapRect = mapRef.current.getBoundingClientRect();
+      const minX = -mapRect.width / 2;
+      const maxX = mapRect.width / 2;
+      const minY = -mapRect.height / 2;
+      const maxY = mapRect.height / 2;
 
-    // Calculate boundaries (prevent dragging out of screen bounds)
-    const mapRect = mapRef.current.getBoundingClientRect();
+      const newOffsetX = Math.max(minX, Math.min(maxX, prevOffset.x + deltaX));
+      const newOffsetY = Math.max(minY, Math.min(maxY, prevOffset.y + deltaY));
 
-    const minX = -mapRect.width / 2;
-    const maxX = mapRect.width / 2;
-    const minY = -mapRect.height / 2;
-    const maxY = mapRect.height / 2;
-
-		if (newOffsetX < minX) {
-			newOffsetX = minX;
-		} else if (newOffsetX > maxX) {
-			newOffsetX = maxX;
-		}
-		if (newOffsetY < minY) {
-			newOffsetY = minY;
-		} else if (newOffsetY > maxY) {
-			newOffsetY = maxY;
-		}
-
-    setPanOffset({
-      x: newOffsetX,
-      y: newOffsetY,
+      return { x: newOffsetX, y: newOffsetY };
     });
 
-    // Update last mouse position
-		setLastMousePos({ x: e.clientX ? e.clientX : e?.touches[0]?.clientX, y: e.clientY ? e.clientY : e.touches[0].clientY });
+    setLastMousePos({ x: cX, y: cY });
   }, [lastMousePos, panOffset, isMouseDown, setIsDragging]);
 
 	// Handle mouseup event (stop dragging)

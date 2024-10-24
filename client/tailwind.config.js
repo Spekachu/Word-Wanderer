@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'pacifico': ['Pacifico', 'cursive'],
+        'pacifico': ['Pacifico', 'sans-serif'],
         'nunito': ['Nunito', 'sans-serif'],
       },
       keyframes: {

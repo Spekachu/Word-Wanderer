@@ -66,6 +66,7 @@ const ContentWindow = () => {
 
   return (
     <div id="ContentWindow"
+			loading='lazy'
       className={`relative
 				transition-all
 				bg-white 
@@ -82,6 +83,8 @@ const ContentWindow = () => {
 				sm:w-[calc(100%-2rem)]
 				sm:max-w-lg 
 				ml-auto
+				transform-gpu
+				will-change-transform
 				${
         activeContent ? showEmojiPicker ?  'min-h-[35rem] max-h-dvh translate-y-[calc(100dvh-12rem)]' : 'min-h-48 translate-y-[calc(100dvh-12rem)]' : 'min-h-48 translate-y-[calc(100dvh+1rem)] pointer-events-none opacity-0'
       }`}
@@ -168,8 +171,10 @@ const ContentWindow = () => {
 			</button>
 
       {/* Emoji picker (conditionally render based on showEmojiPicker state) */}
-			<div ref={emojiPickerRef} 
-			className={`fixed right-0 bottom-0 z-20 w-full transition-all ${
+			<div 
+				loading='lazy' 
+				ref={emojiPickerRef} 
+				className={`fixed right-0 bottom-0 z-20 w-full transition-all ${
 				showEmojiPicker ? "h-[calc(100%-2rem)]" : "translate-y-full opacity-0 pointer-events-none h-0 origin-bottom"
 			}`}>
 				<EmojiPicker onEmojiClick={onEmojiClick} width="100%" height="100%" previewConfig={{

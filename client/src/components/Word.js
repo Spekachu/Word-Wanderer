@@ -136,6 +136,7 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
   return (
     <>
       <div
+				loading='lazy'
         onClick={() => handleWordClick(word)} 
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
@@ -162,6 +163,7 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
       </div>
       {sticker && (
         <div 
+					loading='lazy'
           className={`absolute pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 drop-shadow-[-1px_-1px_0_rgba(255,255,255,0.9)] text-slate-700 ${
           loaded ? 'opacity-100' : 'opacity-0'
           }`}

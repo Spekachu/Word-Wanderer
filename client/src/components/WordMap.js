@@ -361,9 +361,9 @@ const WordMap = () => {
 			style={{
 				cursor: isMouseDown ? 'grabbing' : 'grab', // Change cursor when dragging
 			}}>
-			<div ref={mapRef} className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' 
+			<div ref={mapRef} className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform' 
 			style={{
-				transform: `translate(calc(-50% + ${panOffset.x}px), calc(-50% + ${panOffset.y}px)) scale(${zoomLevel})`, // Apply panning offset
+				transform: `translate3d(calc(-50% + ${panOffset.x}px), calc(-50% + ${panOffset.y}px), 0) scale(${zoomLevel})`, // Apply panning offset
 			}}>
 				{wordList?.map((word, index) => (
 					<Word

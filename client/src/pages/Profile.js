@@ -1,14 +1,12 @@
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useNotification } from '../contexts/NotificationContext';
-import { AppContext } from '../contexts/AppContext';
 import { useTranslation } from 'react-i18next';
 
 const Profile = () => {
 	const navigate = useNavigate();
-	const { currentUser, updatePassword, sendPasswordResetEmail, deleteUser, logout } = useAuth();
-	const { userWordAssociations } = useContext(AppContext);
+	const { isLoggedIn, checkAuth, currentUser, updatePassword, sendPasswordResetEmail, deleteUser, logout, userWordAssociations } = useAuth();
 	const { addNotification } = useNotification();
 	const currentPasswordRef = useRef();
 	const newPasswordRef = useRef();
@@ -81,11 +79,18 @@ const Profile = () => {
 	};
 
 	useEffect(() => {
-		if (!currentUser) {
-			logout();
-			navigate('/login');
-		}
-	}, [currentUser, navigate]);
+    const verifyAuth = async () => {
+      if (!currentUser) {
+        const isAuthenticated = await checkAuth();
+        if (!isAuthenticated) {
+          logout();
+          navigate('/login');
+        }
+      }
+    };
+
+    verifyAuth();
+  }, [currentUser, checkAuth, logout, navigate]);
 
 	if (!currentUser) return null;
 

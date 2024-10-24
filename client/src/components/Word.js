@@ -4,7 +4,7 @@ import { useNotification } from '../contexts/NotificationContext';
 import { useAuth } from '../contexts/AuthContext';
 
 const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => {
-	const { isLoggedIn, logout, getAuthHeaders } = useAuth();
+	const { isLoggedIn, logout, getAuthHeaders, userWordAssociations } = useAuth();
   const { 
     selectedWord, setSelectedWord, 
     activeContent, setActiveContent, 
@@ -13,7 +13,6 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
     setShowEmojiPicker, 
     selectedHighlight, setSelectedHighlight, 
     setShowHighlightPicker,
-    userWordAssociations,
 		userLearningLanguage
   } = useContext(AppContext);
 
@@ -43,7 +42,7 @@ const Word = forwardRef(({ index, word, position, loaded, dimensions }, ref) => 
 		setDiscoveredThisLanguage(true);
 
     if (!isLoggedIn) {
-      addNotification("Changes saved locally. Log in to save permanently.", "info");
+      // addNotification("Changes saved temporarily. Log in to save permanently.", "info");
       return;
     }
 

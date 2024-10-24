@@ -10,7 +10,7 @@ import { useAnimationFrame } from '../hooks/useAnimationFrame';
 
 const WordMap = () => {
 	const { addNotification } = useNotification();
-	const { getAuthHeaders, accessToken, setAccessToken, isLoggedIn } = useAuth();
+	const { getAuthHeaders, accessToken, setAccessToken, isLoggedIn, setUserWordAssociations } = useAuth();
 	const { 
 		isDragging, 
 		setIsDragging, 
@@ -18,8 +18,7 @@ const WordMap = () => {
 		cefrLevel,
 		relatedContext,
 		userLanguage,
-		userLearningLanguage,
-		setUserWordAssociations
+		userLearningLanguage		
 	} = useContext(AppContext);
 	const [wordList, setWordList] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -28,9 +27,9 @@ const WordMap = () => {
 	const mapRef = useRef(null); // Reference to the word map container
 	const [panOffset, setPanOffset] = useState({ x: 0, y: 0 }); // Current offset
 	const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
-  const [zoomLevel, setZoomLevel] = useState(1); // Zoom level
+  const [zoomLevel, setZoomLevel] = useState(0.75); // Zoom level
   const zoomMin = 0.5;
-  const zoomMax = 2;
+  const zoomMax = 1;
   const [isMouseDown, setIsMouseDown] = useState(false); // Zoom level
 	const [positions, setPositions] = useState([null]);
 	const [wordDimensions, setWordDimensions] = useState([null]);

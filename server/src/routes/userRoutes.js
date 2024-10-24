@@ -88,31 +88,39 @@ router.post('/login', async (req, res) => {
 });
 
 // Refresh token endpoint
-router.post('/refresh-token', (req, res) => {
-  const refreshToken = req.cookies.refreshToken;
-  if (!refreshToken) {
-    console.log('Refresh token missing');
-    return res.status(401).json({ message: 'No refresh token' });
-  }
-
+router.post('/refresh-token', async (req, res) => {
   try {
-    const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
-    const accessToken = generateAccessToken(decoded.id);
-    const newRefreshToken = generateRefreshToken(decoded.id);
+    const refreshToken = req.cookies.refreshToken;
+    if (!refreshToken) {
+      return res.status(401).json({ message: 'Refresh token not found' });
+    }
 
-    res.cookie('refreshToken', newRefreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      path: '/',
-      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, decoded) => {
+      if (err) {
+        return res.status(403).json({ message: 'Invalid refresh token' });
+      }
+
+      const user = await prisma.users.findUnique({ where: { user_id: decoded.id } });
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+
+      const accessToken = jwt.sign({ id: user.user_id }, process.env.ACCESS_TOKEN_SECRET, {
+        expiresIn: '15m'
+      });
+
+      // Fetch user word associations
+      const associationsMap = await getUserWordAssociations(user.user_id);
+
+      res.json({
+        accessToken,
+        user: { id: user.user_id, email: user.email },
+        userWordAssociations: associationsMap
+      });
     });
-
-    console.log('New access token generated for user:', decoded.id);
-    res.json({ accessToken });
   } catch (error) {
-    console.error('Error verifying refresh token:', error);
-    res.status(401).json({ message: 'Invalid refresh token' });
+    console.error('Refresh token error:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
 

@@ -32,6 +32,7 @@ export const MainMenu = () => {
       set_userLearningLanguage(language);
     }
     resetContentWindow();
+    closeMobileFilters();
   };
 
   const switchLanguages = () => {
@@ -40,16 +41,19 @@ export const MainMenu = () => {
     i18n.changeLanguage(userLearningLanguage);
     set_userLearningLanguage(temp);
     resetContentWindow();
+    closeMobileFilters();
   };
 
   const handleLevelChange = (level) => {
     set_cefrLevel(level);
     resetContentWindow();
+    closeMobileFilters();
   };
 
   const handlePartOfSpeechChange = (pos) => {
     set_partOfSpeech(pos);
     resetContentWindow();
+    closeMobileFilters();
   };
 
   const resetContentWindow = () => {
@@ -58,27 +62,35 @@ export const MainMenu = () => {
     setShowHighlightPicker(false);
   };
 
+  const closeMobileMenu = () => {
+    setShowMobileMenu(false);
+  };
+
+  const closeMobileFilters = () => {
+    setShowMobileFilters(false);
+  };
+
 	const menuLinks = () => (
-		<div className={`${showMobileMenu ? 'flex justify-center flex-wrap w-full pt-4 order-last' : 'hidden'} lg:flex items-center lg:order-1 lg:flex-row lg:w-auto lg:py-0`}>
-        <Link to="/" className="text-white hover:text-gray-300 mr-4 py-2">Home</Link>
-        <Link to="/map" className="text-white hover:text-gray-300 mr-4 py-2">Word Map</Link>
-        {!isLoggedIn && (
-          <>
-            <Link to="/register" className="text-white hover:text-gray-300 mr-4 py-2">Register</Link>
-            <Link to="/login" className="text-white hover:text-gray-300 mr-4 py-2">Login</Link>
-          </>
-        )}
-        {isLoggedIn && (
-          <>
-            <Link to="/profile" className="text-white hover:text-gray-300 mr-4 py-2">Profile</Link>
-            <button onClick={logout} className="text-white hover:text-gray-300 py-2">Logout</button>
-          </>
-        )}
-      </div>
-	);
+    <div className={`${showMobileMenu ? 'flex justify-center flex-wrap w-full pt-4 order-last' : 'hidden'} lg:flex items-center lg:order-1 lg:flex-row lg:w-auto lg:py-0`}>
+      <Link to="/" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Home</Link>
+      <Link to="/map" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Word Map</Link>
+      {!isLoggedIn && (
+        <>
+          <Link to="/register" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Register</Link>
+          <Link to="/login" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Login</Link>
+        </>
+      )}
+      {isLoggedIn && (
+        <>
+          <Link to="/profile" className="text-white hover:text-gray-300 mr-4 py-2" onClick={closeMobileMenu}>Profile</Link>
+          <button onClick={() => { logout(); closeMobileMenu(); }} className="text-white hover:text-gray-300 py-2">Logout</button>
+        </>
+      )}
+    </div>
+  );
 
 	const filters = () => (
-		<div className={`${showMobileFilters ? 'flex justify-center flex-wrap w-full pt-4 pb-3 order-last' : 'hidden'} md:flex items-center md:order-1 md:ml-auto md:mr-4 lg:mr-0 lg:ml-0 lg:order-3 md:flex-row md:w-auto md:py-0`}>
+		<div className={`${showMobileFilters ? 'flex justify-center flex-wrap w-full pt-4 pb-3 order-last' : 'hidden'} gap-2 md:flex items-center md:order-1 md:ml-auto md:mr-4 lg:mr-0 lg:ml-0 lg:order-3 md:flex-row md:w-auto md:py-0`}>
 				<div className='flex items-center'>
 					<select
 						value={userLanguage}
@@ -99,7 +111,7 @@ export const MainMenu = () => {
 					<select
 						value={userLearningLanguage}
 						onChange={(e) => handleLanguageChange(e.target.value, false)}
-						className="bg-transparent text-white border border-white rounded p-1 mr-4"
+						className="bg-transparent text-white border border-white rounded p-1"
 					>
 						<option className='text-black' value="en">{t('languages.en')}</option>
 						<option className='text-black' value="de">{t('languages.de')}</option>
@@ -108,11 +120,11 @@ export const MainMenu = () => {
 					</select>
 				</div>
 				{isWordMapRoute && (
-					<>
+					<div className='flex items-center gap-2'>
 						<select
 							value={cefrLevel}
 						onChange={(e) => handleLevelChange(e.target.value)}
-						className="bg-transparent text-white border border-white rounded p-1 mr-4"
+						className="bg-transparent text-white border border-white rounded p-1"
 						>
 							<option className='text-black' value="a1">A1</option>
 							<option className='text-black' value="a2">A2</option>
@@ -131,7 +143,7 @@ export const MainMenu = () => {
 							<option className='text-black' value="noun">{t('partOfSpeech.noun')}</option>
 							<option className='text-black' value="verb">{t('partOfSpeech.verb')}</option>
 						</select>
-					</>
+					</div>
 				)}
 			</div>
 	);

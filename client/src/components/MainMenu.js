@@ -98,7 +98,7 @@ export const MainMenu = () => {
 						onChange={(e) => handleLanguageChange(e.target.value, true)}
 						className="bg-transparent text-white border border-white rounded p-1"
 					>
-						<option className='text-black hover:bg-slate-900' value="en">{t('languages.en')}</option>
+						<option className='text-black' value="en">{t('languages.en')}</option>
 						<option className='text-black' value="de">{t('languages.de')}</option>
 						<option className='text-black' value="fr">{t('languages.fr')}</option>
 						<option className='text-black' value="es">{t('languages.es')}</option>
@@ -165,13 +165,13 @@ export const MainMenu = () => {
 				{filters()}
 				<div className='flex items-center order-2'>
 					<button 
-						className={`text-2xl mr-2 p-2 rounded-md md:hidden transition-colors ${showMobileFilters ? 'text-slate-600 bg-white' : ''}`} 
+						className={`text-2xl mr-2 p-2 rounded-md md:hidden transition-colors ${showMobileFilters ? 'text-fuchsia-900 bg-white' : ''}`} 
 						onClick={() => setShowMobileFilters(!showMobileFilters)}
 					>
 						<FaFilter />
 					</button>
 					<button 
-						className={`text-2xl p-2 rounded-md lg:hidden transition-colors ${showMobileMenu ? 'text-slate-600 bg-white' : ''}`} 
+						className={`text-2xl p-2 rounded-md lg:hidden transition-colors ${showMobileMenu ? 'text-fuchsia-900 bg-white' : ''}`} 
 						onClick={() => setShowMobileMenu(!showMobileMenu)}
 					>
 						<FaBars />

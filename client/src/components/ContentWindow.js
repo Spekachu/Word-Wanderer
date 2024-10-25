@@ -67,6 +67,7 @@ const ContentWindow = () => {
   return (
     <div id="ContentWindow"
 			loading='lazy'
+			tabIndex="-1"
       className={`relative
 				transition-all
 				bg-white 
@@ -180,9 +181,18 @@ const ContentWindow = () => {
 				className={`fixed right-0 bottom-0 z-20 w-full transition-all ${
 				showEmojiPicker ? "h-[calc(100%-2rem)]" : "translate-y-full opacity-0 pointer-events-none h-0 origin-bottom"
 			}`}>
-				<EmojiPicker onEmojiClick={onEmojiClick} width="100%" height="100%" previewConfig={{
-						defaultCaption: "Pick a sticker for this word!", 
-					}} />
+				<EmojiPicker 
+					onEmojiClick={onEmojiClick} 
+					width="100%" 
+					height="100%" 
+					autoFocusSearch={false} 
+					open={showEmojiPicker}
+					lazyLoadEmojis={true}
+					skinTonesDisabled={true} 
+					previewConfig={{
+						defaultCaption: "Pick a sticker for this word!"
+					}}
+				/>
 			</div>
 
       {/* Conditionally render the content */}

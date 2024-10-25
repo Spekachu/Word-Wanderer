@@ -85,7 +85,7 @@
 - [ ] Users can upgrade to premium subscription for unlimited associations
 
 #### Data Management
-- [ ] User caches word lists, so user association changes should update local state, update database via API call, and update their cache of the word list to include the new changes
+- [x] User caches user-word-associations, so user association changes should update local state, update database via API call, and update their cache of the user-word-associations to include the new changes
 
 #### Integrations
 - [ ] Integration with External Resources

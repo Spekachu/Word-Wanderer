@@ -27,14 +27,13 @@ const WordMap = () => {
 	const wordRefs = useRef([]); // To store references to word elements
 	const mapRef = useRef(null); // Reference to the word map container
 	const [panOffset, setPanOffset] = useState({ x: 0, y: 0 }); // Current offset
-	const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
   const [zoomLevel, setZoomLevel] = useState(0.75); // Zoom level
   const zoomMin = 0.5;
   const zoomMax = 1;
-  const [isMouseDown, setIsMouseDown] = useState(false); // Zoom level
 	const [positions, setPositions] = useState([null]);
 	const [wordDimensions, setWordDimensions] = useState([null]);
-	const [lastDistance, setLastDistance] = useState(null);
+	const [dragStartTime, setDragStartTime] = useState(null);
+	const dragThreshold = 100; // milliseconds
 
 	const debouncedPartOfSpeech = useDebounce(partOfSpeech, 300);
   const debouncedCefrLevel = useDebounce(cefrLevel, 300);
@@ -44,98 +43,100 @@ const WordMap = () => {
 	const queueUpdate = useAnimationFrame();
 
 	const bind = useGesture({
-    onWheel: ({ delta: [, dy] }) => {
-      handleZoom(-dy * 0.001);
-    },
-    onPinch: ({ delta: [d], origin: [ox, oy], event }) => {
-      event.preventDefault();
-      handleZoom(d * 0.001, ox, oy);
-    },
-    onPinchStart: () => {
-      setIsMouseDown(true);
-    },
-    onPinchEnd: () => {
-      setIsMouseDown(false);
-    },
-    onDrag: ({ delta: [dx, dy] }) => {
-      handlePan(dx, dy);
-    },
-  }, {
-    eventOptions: { passive: false }
-  });
+		onWheel: ({ delta: [, dy] }) => {
+			handleZoom(-dy * 0.001);
+		},
+		onPinch: ({ delta: [d], origin: [ox, oy], event }) => {
+			event.preventDefault();
+			handleZoom(d * 0.01, ox, oy);
+		},
+		onDragStart: () => {
+			setDragStartTime(performance.now());
+		},
+		onDrag: ({ delta: [dx, dy], movement: [mx, my], timeStamp }) => {
+			if (dragStartTime && timeStamp - dragStartTime > dragThreshold) {
+				setIsDragging(true);
+			}
+			handlePan(dx, dy);
+		},
+		onDragEnd: () => {
+			setIsDragging(false);
+			setDragStartTime(null);
+		},
+	}, {
+		eventOptions: { passive: false }
+	});
 
 	const handleZoom = useCallback((zoomDelta, originX, originY) => {
-    queueUpdate(() => {
-      const newZoomLevel = Math.min(Math.max(zoomLevel + zoomDelta, zoomMin), zoomMax);
-      
-      if (originX && originY) {
-        const mapRect = mapRef.current.getBoundingClientRect();
-        const zoomRatio = newZoomLevel / zoomLevel;
-        const newOffsetX = originX - (originX - panOffset.x) * zoomRatio;
-        const newOffsetY = originY - (originY - panOffset.y) * zoomRatio;
+		queueUpdate(() => {
+			const newZoomLevel = Math.min(Math.max(zoomLevel + zoomDelta, zoomMin), zoomMax);
+			
+			if (originX && originY) {
+				const zoomRatio = newZoomLevel / zoomLevel;
+				const newOffsetX = originX - (originX - panOffset.x) * zoomRatio;
+				const newOffsetY = originY - (originY - panOffset.y) * zoomRatio;
 
-        setPanOffset({ x: newOffsetX, y: newOffsetY });
-      }
+				setPanOffset({ x: newOffsetX, y: newOffsetY });
+			}
 
-      setZoomLevel(newZoomLevel);
-    });
-  }, [zoomLevel, panOffset, queueUpdate]);
+			setZoomLevel(newZoomLevel);
+		});
+	}, [zoomLevel, panOffset, queueUpdate]);
 
 	const handlePan = useCallback((deltaX, deltaY) => {
-    queueUpdate(() => {
-      const mapRect = mapRef.current.getBoundingClientRect();
-      const minX = -mapRect.width / 2;
-      const maxX = mapRect.width / 2;
-      const minY = -mapRect.height / 2;
-      const maxY = mapRect.height / 2;
+		queueUpdate(() => {
+			const mapRect = mapRef.current.getBoundingClientRect();
+			const minX = -mapRect.width / 2;
+			const maxX = mapRect.width / 2;
+			const minY = -mapRect.height / 2;
+			const maxY = mapRect.height / 2;
 
-      const newOffsetX = Math.max(minX, Math.min(maxX, panOffset.x + deltaX));
-      const newOffsetY = Math.max(minY, Math.min(maxY, panOffset.y + deltaY));
+			const newOffsetX = Math.max(minX, Math.min(maxX, panOffset.x + deltaX));
+			const newOffsetY = Math.max(minY, Math.min(maxY, panOffset.y + deltaY));
 
-      setPanOffset({ x: newOffsetX, y: newOffsetY });
-    });
-  }, [panOffset, queueUpdate]);
+			setPanOffset({ x: newOffsetX, y: newOffsetY });
+		});
+	}, [panOffset, queueUpdate]);
 
 	useEffect(() => {
-    const getWords = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const data = await fetchWords(
-          debouncedUserLanguage,
-          debouncedUserLearningLanguage,
-          debouncedCefrLevel,
-          debouncedPartOfSpeech,
+		const getWords = async () => {
+			setLoading(true);
+			setError(null);
+			try {
+				const data = await fetchWords(
+					debouncedUserLanguage,
+					debouncedUserLearningLanguage,
+					debouncedCefrLevel,
+					debouncedPartOfSpeech,
 					addNotification
-        );
-        setWordList(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+				);
+				setWordList(data);
+			} catch (err) {
+				setError(err.message);
+			} finally {
+				setLoading(false);
+			}
+		};
 
-    getWords();
-  }, [debouncedUserLanguage, debouncedUserLearningLanguage, debouncedCefrLevel, debouncedPartOfSpeech]);
+		getWords();
+	}, [debouncedUserLanguage, debouncedUserLearningLanguage, debouncedCefrLevel, debouncedPartOfSpeech]);
 
 	useEffect(() => {
-    const getUserWordAssociations = async () => {
-      try {
-        const data = await fetchUserWordAssociations(
+		const getUserWordAssociations = async () => {
+			try {
+				const data = await fetchUserWordAssociations(
 					addNotification, getAuthHeaders, setAccessToken
-        );
+				);
 				setUserWordAssociations(data);
-      } catch (err) {
+			} catch (err) {
 				setUserWordAssociations({});
 				console.log("ERROR getting user word associations", err);
-      }
-    };
+			}
+		};
 		if (isLoggedIn && wordList.length && accessToken.length) {
-      getUserWordAssociations();
-    }
-  }, [isLoggedIn, wordList, accessToken]);
-
+			getUserWordAssociations();
+		}
+	}, [isLoggedIn, wordList, accessToken]);
 
 	useEffect(() => {
 		if (!wordList.length || !mapRef.current) return;
@@ -284,77 +285,25 @@ const WordMap = () => {
 
 		return closestSpot;
 	}
-
-	// Handle mousedown event
-	const handleMouseDown = (e) => {
-		setIsMouseDown(true);
-		setLastMousePos({ x: e.clientX ? e.clientX : e?.touches[0]?.clientX, y: e.clientY ? e.clientY : e.touches[0].clientY });
-	};
-	// Handle touchstart event
-	const handleTouchStart = (e) => {
-		handleMouseDown(e);
-	};
-	
-	// Handle mousemove event (when dragging)
-	const handleMouseMove = useCallback((e) => {
-    if (!isMouseDown) return;
-
-		const cX = e.clientX ?? e?.touches[0]?.clientX;
-    const cY = e.clientY ?? e?.touches[0]?.clientY;
-		
-		const deltaX = cX - lastMousePos.x;
-		const deltaY = cY - lastMousePos.y;
-
-		if (Math.abs(deltaX) > 15 || Math.abs(deltaY) > 5) {
-			setIsDragging(true);
-		}
-
-    // Queue all state updates together
-    queueUpdate(() => {
-      const mapRect = mapRef.current.getBoundingClientRect();
-      const minX = -mapRect.width / 2;
-      const maxX = mapRect.width / 2;
-      const minY = -mapRect.height / 2;
-      const maxY = mapRect.height / 2;
-
-      const newOffsetX = Math.max(minX, Math.min(maxX, panOffset.x + deltaX));
-      const newOffsetY = Math.max(minY, Math.min(maxY, panOffset.y + deltaY));
-
-      setPanOffset({ x: newOffsetX, y: newOffsetY });
-      setLastMousePos({ x: cX, y: cY });
-    });
-  }, [lastMousePos, panOffset, isMouseDown, setIsDragging]);
-
-	// Handle mouseup event (stop dragging)
-	const handleMouseUp = () => {
-		setIsDragging(false);
-		setIsMouseDown(false);
-	};
 	
 	if (error) {
 		return <div>Error: {error.message}</div>;
 	}
 
 	return (
-		<div className={`word-map text-white w-full h-dvh overflow-hidden fixed top-0 left-0 touch-none transition-opacity duration-300 ${
+		<div 
+			className={`word-map text-white w-full h-dvh overflow-hidden fixed top-0 left-0 touch-none transition-opacity duration-300 ${
 				loading ? 'opacity-0' : 'opacity-100'
-      }`}
-			onMouseDown={handleMouseDown} 
-			onTouchStart={handleTouchStart} 
-			onMouseMove={handleMouseMove}
-      onTouchMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onTouchEnd={handleMouseUp}
-			onTouchCancel={handleMouseUp}
+			}`}
 			style={{
-				cursor: isMouseDown ? 'grabbing' : 'grab', // Change cursor when dragging
+				cursor: isDragging ? 'grabbing' : 'grab',
 			}}
 			{...bind()}
 		>
-    	<div className="absolute left-1/2 top-1/2 transform-gpu -translate-x-1/2 -translate-y-1/2">
+			<div className="absolute left-1/2 top-1/2 transform-gpu -translate-x-1/2 -translate-y-1/2">
 				<div ref={mapRef} className='will-change-transform' 
 				style={{
-          transform: `translate3d(${panOffset.x}px, ${panOffset.y}px, 0) scale(${zoomLevel})`
+					transform: `translate3d(${panOffset.x}px, ${panOffset.y}px, 0) scale(${zoomLevel})`
 				}}>
 					{wordList?.map((word, index) => (
 						<Word

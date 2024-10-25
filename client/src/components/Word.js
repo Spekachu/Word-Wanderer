@@ -21,10 +21,10 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
   const [discovered, setDiscovered] = useState(!!userWordAssociations[word.id]);
   const [sticker, setSticker] = useState(userWordAssociations[word.id]?.emoji || "");
   const [highlight, setHighlight] = useState(userWordAssociations[word.id]?.highlightColor || "#ffffff");
-  const [dragging, setDragging] = useState(false);
-  const [isMouseDown, setIsMouseDown] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
   const [discoveredThisLanguage, setDiscoveredThisLanguage] = useState(false);
+  const [clickStartTime, setClickStartTime] = useState(null);
+  const clickThreshold = 200; // milliseconds
 
 	useEffect(() => {
 		const wordAssociation = userWordAssociations[word.id];
@@ -89,10 +89,6 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
   }, [addNotification, isLoggedIn, updateUserWordAssociation]);
 
   const handleWordClick = useCallback(() => {
-    if (dragging) {
-      setDragging(false);
-      return;
-    }
     setShowEmojiPicker(false);
 
     if (selectedWord?.id === word.id && activeContent) {
@@ -109,7 +105,7 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
       setActiveContent(true);
       setSelectedWord(word);
     }
-  }, [dragging, selectedWord, word, activeContent, sticker, highlight, discovered, setShowEmojiPicker, setSelectedHighlight, setActiveContent, setShowHighlightPicker, setSelectedSticker, setSelectedWord, saveWordAssociation]);
+  }, [selectedWord, word, activeContent, sticker, highlight, discovered, setShowEmojiPicker, setSelectedHighlight, setActiveContent, setShowHighlightPicker, setSelectedSticker, setSelectedWord, saveWordAssociation]);
 
   useEffect(() => {
     if (selectedWord?.id === word.id && activeContent) {
@@ -123,28 +119,25 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
   }, [selectedWord, activeContent, selectedSticker, selectedHighlight]);
 
   const handleMouseDown = useCallback(() => {
-    setDragging(isDragging);
-    setIsMouseDown(true);
-  }, [isDragging]);
-
-  const handleMouseUp = useCallback(() => {
-    setIsMouseDown(false);
+    setClickStartTime(Date.now());
   }, []);
 
-  useEffect(() => {
-    setDragging(isDragging);
-  }, [isDragging]);
+  const handleMouseUp = useCallback(() => {
+    if (clickStartTime && Date.now() - clickStartTime < clickThreshold && !isDragging) {
+      handleWordClick();
+    }
+    setClickStartTime(null);
+  }, [clickStartTime, isDragging, handleWordClick]);
 
   return (
     <>
       <div
-        onClick={() => handleWordClick(word)} 
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
+        onTouchStart={handleMouseDown}
+        onTouchEnd={handleMouseUp}
         ref={ref}
         className={`word select-none border-2 border-white px-[.75em] pb-1 absolute rounded-full hover:bg-white hover:!text-black -translate-x-1/2 -translate-y-1/2 backdrop-blur-sm text-nowrap whitespace-nowrap ${
-          isMouseDown ? 'cursor-grabbing' : 'cursor-pointer'
-        } ${
           isSelected ? 'bg-white text-black shadow-[0_0_.5em_.25em_white]' : discoveredThisLanguage ? 'bg-white/85 text-black shadow-[0_0_.5em_.25em_transparent]' : 'shadow-[0_0_.5em_.25em_transparent] border-dashed'
         }`}
         style={{
@@ -155,7 +148,8 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
           fontSize: `${Math.max(1.5, 3 - Math.min(index / 30, 1.5))}rem`,
           ...(highlight !== "#ffffff" && discoveredThisLanguage && { backgroundColor: highlight }),
           ...(highlight !== "#ffffff" && !discoveredThisLanguage && isSelected && { backgroundColor: highlight }),
-          ...(highlight !== "#ffffff" && !discoveredThisLanguage && !isSelected && { color: highlight })
+          ...(highlight !== "#ffffff" && !discoveredThisLanguage && !isSelected && { color: highlight }),
+					cursor: isDragging ? 'grabbing' : 'pointer',
         }}
       >
         <span className='relative inline-block'>{word.translations.target?.translation}</span>

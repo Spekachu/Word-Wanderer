@@ -49,7 +49,7 @@ const WordMap = () => {
     },
     onPinch: ({ delta: [d], origin: [ox, oy], event }) => {
       event.preventDefault();
-      handleZoom(d * 0.01, ox, oy);
+      handleZoom(d * 0.001, ox, oy);
     },
     onPinchStart: () => {
       setIsMouseDown(true);

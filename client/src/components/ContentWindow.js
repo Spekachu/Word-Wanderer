@@ -73,8 +73,9 @@ const ContentWindow = () => {
 				text-stone-900 
 				p-8 
 				backdrop-blur-sm 
-				shadow-[0_0_0_8px_rgba(255,200,200,0.75)]
-				sm:rounded-t-3xl
+				shadow-[0_0_0_4px_rgba(255,200,200,1)]
+				sm:shadow-[0_0_0_8px_rgba(255,200,200,0.75)]
+				sm:rounded-tl-3xl
 				z-10 
 				w-full
 				sm:w-[calc(100%-2rem)]

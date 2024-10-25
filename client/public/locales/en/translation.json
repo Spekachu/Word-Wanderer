@@ -12,6 +12,8 @@
 		"levels": "Levels",
 		"context": "Context",
 		"contexts": "Contexts",
+		"register": "Register",
+		"login": "Login",	
 		"profile": "Profile",
 		"logout": "Logout",
 		"wordMap": "Word Map"

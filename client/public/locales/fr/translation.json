@@ -14,7 +14,9 @@
     "contexts": "Contextes",
     "profile": "Profil",
     "logout": "Déconnexion",
-    "wordMap": "Carte des mots"
+    "wordMap": "Carte des mots",
+    "register": "S'inscrire",
+    "login": "Se connecter"
   },
   "languages": {
     "de": "Allemand",

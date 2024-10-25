@@ -14,7 +14,9 @@
     "filters": "Filter",
     "partsOfSpeech": "Wortarten",
     "levels": "Stufen",
-    "contexts": "Kontexte"
+    "contexts": "Kontexte",
+    "register": "Registrieren",
+    "login": "Anmelden"
   },
   "languages": {
     "de": "Deutsch",

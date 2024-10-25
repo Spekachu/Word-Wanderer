@@ -14,7 +14,9 @@
     "contexts": "Contextos",
     "profile": "Perfil",
     "logout": "Cerrar sesión",
-    "wordMap": "Mapa de palabras"
+    "wordMap": "Mapa de palabras",
+    "register": "Registrarse",
+    "login": "Iniciar sesión"
   },
   "languages": {
     "de": "Alemán",

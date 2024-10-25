@@ -5,11 +5,13 @@ import { RiEmojiStickerLine } from "react-icons/ri";
 import EmojiPicker from 'emoji-picker-react'; 
 import { IoIosCloseCircle } from "react-icons/io";
 import { PiHighlighterDuotone } from "react-icons/pi";
+import { useTranslation } from 'react-i18next';
 
 const ContentWindow = () => {
   const { selectedWord, activeContent, setActiveContent, selectedSticker, setSelectedSticker, showEmojiPicker, setShowEmojiPicker,selectedHighlight, setSelectedHighlight, showHighlightPicker, setShowHighlightPicker, userLearningLanguage } = useContext(AppContext);
 
 	const emojiPickerRef = useRef(null);
+  const { t, i18n } = useTranslation();
 
   function closeContentWindow() {
     setActiveContent(false);
@@ -145,8 +147,8 @@ const ContentWindow = () => {
           text-4xl p-1 absolute left-0 -top-4 transition-colors aspect-square
         `}
         onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-        aria-label={selectedSticker ? "Change sticker" : "Add sticker"}
-        title={selectedSticker ? "Change sticker" : "Add sticker"}
+        aria-label={selectedSticker ? t('contentWindow.changeSticker') : t('contentWindow.addSticker')}
+        title={selectedSticker ? t('contentWindow.changeSticker') : t('contentWindow.addSticker')}
       >
         <div className={`
           ${selectedSticker 
@@ -174,31 +176,33 @@ const ContentWindow = () => {
 				<PiHighlighterDuotone />
 			</button>
 
-      {/* Emoji picker (conditionally render based on showEmojiPicker state) */}
-			<div 
-				loading='lazy' 
-				ref={emojiPickerRef} 
-				className={`fixed right-0 bottom-0 z-20 w-full transition-all ${
-				showEmojiPicker ? "h-[calc(100%-2rem)]" : "translate-y-full opacity-0 pointer-events-none h-0 origin-bottom"
-			}`}>
-				<EmojiPicker 
-					onEmojiClick={onEmojiClick} 
-					width="100%" 
-					height="100%" 
-					autoFocusSearch={false} 
-					open={showEmojiPicker}
-					lazyLoadEmojis={true}
-					skinTonesDisabled={true} 
-					previewConfig={{
-						defaultCaption: "Pick a sticker for this word!"
-					}}
-				/>
-			</div>
+      {/* Emoji picker */}
+      <div 
+        loading='lazy' 
+        ref={emojiPickerRef} 
+        className={`fixed right-0 bottom-0 z-20 w-full transition-all ${
+        showEmojiPicker ? "h-[calc(100%-2rem)]" : "translate-y-full opacity-0 pointer-events-none h-0 origin-bottom"
+      }`}
+      >
+        <EmojiPicker 
+          onEmojiClick={onEmojiClick} 
+          width="100%" 
+          height="100%" 
+          autoFocusSearch={false} 
+          open={showEmojiPicker}
+          lazyLoadEmojis={true}
+          skinTonesDisabled={true} 
+          previewConfig={{
+            defaultCaption: t('contentWindow.pickSticker')
+          }}
+        />
+      </div>
 
       {/* Conditionally render the content */}
       {selectedWord && activeContent && (
         <>
-          <p className='text-4xl capitalize'><span className='relative inline-block'>{selectedHighlight !== "#ffffff" && (
+          <p className='text-4xl capitalize'>
+            <span className='relative inline-block'>{selectedHighlight !== "#ffffff" && (
 						<span className='absolute -z-10 w-[calc(100%+2rem)] min-w-40 h-full top-0 -left-4 -skew-y-1' 
 						style={{
 							backgroundColor: selectedHighlight

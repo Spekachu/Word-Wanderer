@@ -73,18 +73,18 @@ export const MainMenu = () => {
 
 	const menuLinks = () => (
     <div className={`${showMobileMenu ? 'flex justify-center flex-wrap w-full pt-4 order-last' : 'hidden'} lg:flex items-center lg:order-1 lg:flex-row lg:w-auto lg:py-0`}>
-      <Link to="/" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Home</Link>
-      <Link to="/map" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Word Map</Link>
+      <Link to="/" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.home')}</Link>
+      <Link to="/map" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.wordMap')}</Link>
       {!isLoggedIn && (
         <>
-          <Link to="/register" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Register</Link>
-          <Link to="/login" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Login</Link>
+          <Link to="/register" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.register')}</Link>
+          <Link to="/login" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.login')}</Link>
         </>
       )}
       {isLoggedIn && (
         <>
-          <Link to="/profile" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>Profile</Link>
-          <button onClick={() => { logout(); closeMobileMenu(); }} className="text-white hover:text-fuchsia-300 py-2">Logout</button>
+          <Link to="/profile" className="text-white hover:text-fuchsia-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.profile')}</Link>
+          <button onClick={() => { logout(); closeMobileMenu(); }} className="text-white hover:text-fuchsia-300 py-2">{t('menu.logout')}</button>
         </>
       )}
     </div>
@@ -140,9 +140,9 @@ export const MainMenu = () => {
 							onChange={(e) => handlePartOfSpeechChange(e.target.value)}
 							className="bg-transparent text-white border border-white rounded p-1"
 						>
-							<option className='text-black' value="adjective">{t('partOfSpeech.adjective')}</option>
-							<option className='text-black' value="noun">{t('partOfSpeech.noun')}</option>
-							<option className='text-black' value="verb">{t('partOfSpeech.verb')}</option>
+							<option className='text-black' value="adjective">{t('partOfSpeech.adjective_other')}</option>
+							<option className='text-black' value="noun">{t('partOfSpeech.noun_other')}</option>
+							<option className='text-black' value="verb">{t('partOfSpeech.verb_other')}</option>
 						</select>
 					</div>
 				)}

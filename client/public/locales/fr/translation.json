@@ -5,9 +5,16 @@
     "about": "À propos de nous",
     "contact": "Contact",
     "filter": "Filtrer",
+    "filters": "Filtres",
     "partOfSpeech": "Partie du discours",
+    "partsOfSpeech": "Parties du discours",
     "level": "Niveau",
-    "context": "Contexte"
+    "levels": "Niveaux",
+    "context": "Contexte",
+    "contexts": "Contextes",
+    "profile": "Profil",
+    "logout": "Déconnexion",
+    "wordMap": "Carte des mots"
   },
   "languages": {
     "de": "Allemand",
@@ -15,26 +22,94 @@
     "es": "Espagnol",
     "fr": "Français"
   },
-	"partOfSpeech": {
-		"adjective": "Adjectif",
-		"article": "Article",
-		"noun": "Nom",
-		"preposition": "Préposition",
-		"verb": "Verbe",
-		"adverb": "Adverbe",
-		"conjunction": "Conjonction",
-		"pronoun": "Pronom",
-		"interjection": "Interjection"
-	},
-	"register": {
-    "title": "Create your account",
-    "username": "Username",
-    "email": "Email address",
-    "password": "Password",
-    "confirmPassword": "Confirm password",
-    "submit": "Sign up",
-    "passwordMismatch": "Passwords do not match",
-    "error": "Registration failed",
-    "networkError": "Network error, please try again"
+  "partOfSpeech": {
+    "adjective_one": "Adjectif",
+    "adjective_other": "Adjectifs",
+    "article_one": "Article",
+    "article_other": "Articles",
+    "noun_one": "Nom",
+    "noun_other": "Noms",
+    "preposition_one": "Préposition",
+    "preposition_other": "Prépositions",
+    "verb_one": "Verbe",
+    "verb_other": "Verbes",
+    "adverb_one": "Adverbe",
+    "adverb_other": "Adverbes",
+    "conjunction_one": "Conjonction",
+    "conjunction_other": "Conjonctions",
+    "pronoun_one": "Pronom",
+    "pronoun_other": "Pronoms",
+    "interjection_one": "Interjection",
+    "interjection_other": "Interjections"
+  },
+  "register": {
+    "title": "Créez votre compte",
+    "username": "Nom d'utilisateur",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "submit": "S'inscrire",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "error": "Échec de l'inscription",
+    "networkError": "Erreur réseau, veuillez réessayer"
+  },
+  "login": {
+    "title": "Bienvenue de retour",
+    "username": "Nom d'utilisateur",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "submit": "Se connecter",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "error": "Échec de la connexion",
+    "networkError": "Erreur réseau, veuillez réessayer"
+  },
+  "profile": {
+    "title": "Profil",
+    "email": "E-mail",
+    "wordsWandered_one": "Vous avez parcouru {{count}} mot",
+    "wordsWandered_other": "Vous avez parcouru {{count}} mots",
+    "inLanguage": "en {{language}}",
+    "changePassword": "Changer le mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "confirmNewPassword": "Confirmer le nouveau mot de passe",
+    "updatePassword": "Mettre à jour le mot de passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "deleteProfile": "Supprimer le profil",
+    "deleteConfirmTitle": "Êtes-vous sûr de vouloir supprimer votre profil ?",
+    "deleteConfirmMessage": "Cette action ne peut pas être annulée.",
+    "deleteConfirmCheckbox": "Je comprends que tous mes progrès dans l'application seront supprimés",
+    "confirmDelete": "Oui, supprimer mon profil",
+    "currentPasswordIncorrect": "Le mot de passe actuel est incorrect",
+    "passwordUpdateSuccess": "Mot de passe mis à jour avec succès",
+    "passwordUpdateFail": "Échec de la mise à jour du mot de passe",
+    "passwordResetEmailSent": "E-mail de réinitialisation du mot de passe envoyé",
+    "passwordResetEmailFail": "Échec de l'envoi de l'e-mail de réinitialisation du mot de passe",
+    "deleteConfirmRequired": "Veuillez confirmer que vous comprenez les conséquences de la suppression de votre profil",
+    "deleteSuccess": "Profil supprimé avec succès",
+    "deleteFail": "Échec de la suppression du profil"
+  },
+  "common": {
+    "cancel": "Annuler"
+  },
+  "passwordErrors": {
+    "newPasswordsDontMatch": "Les nouveaux mots de passe ne correspondent pas"
+  },
+  "home": {
+    "exploreTheWordMap": "Explorez la carte des mots"
+  },
+  "contentWindow": {
+    "changeSticker": "Changer l'autocollant",
+    "addSticker": "Ajouter un autocollant",
+    "pickSticker": "Choisissez un autocollant pour ce mot !",
+    "literalTranslation": "Traduction littérale",
+    "alternateTranslations": "Traductions alternatives",
+    "noAlternateTranslations": "Aucune traduction alternative disponible"
+  },
+  "filters": {
+    "apply": "Appliquer les filtres",
+    "clear": "Effacer les filtres",
+    "noResults": "Aucun résultat trouvé. Essayez d'ajuster vos filtres."
   }
 }

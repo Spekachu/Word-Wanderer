@@ -7,7 +7,14 @@
     "filter": "Filtrar",
     "partOfSpeech": "Parte del discurso",
     "level": "Nivel",
-    "context": "Contexto"
+    "context": "Contexto",
+    "filters": "Filtros",
+    "partsOfSpeech": "Partes del discurso",
+    "levels": "Niveles",
+    "contexts": "Contextos",
+    "profile": "Perfil",
+    "logout": "Cerrar sesión",
+    "wordMap": "Mapa de palabras"
   },
   "languages": {
     "de": "Alemán",
@@ -15,26 +22,94 @@
     "es": "Español",
     "fr": "Francés"
   },
-	"partOfSpeech": {
-		"adjective": "Adjetivo",
-		"article": "Artículo",
-		"noun": "Sustantivo",
-		"preposition": "Preposición",
-		"verb": "Verbo",
-		"adverb": "Adverbio",
-		"conjunction": "Conjunción",
-		"pronoun": "Pronombre",
-		"interjection": "Interjección"
-	},
-	"register": {
-    "title": "Create your account",
-    "username": "Username",
-    "email": "Email address",
-    "password": "Password",
-    "confirmPassword": "Confirm password",
-    "submit": "Sign up",
-    "passwordMismatch": "Passwords do not match",
-    "error": "Registration failed",
-    "networkError": "Network error, please try again"
+  "partOfSpeech": {
+    "adjective_one": "Adjetivo",
+    "adjective_other": "Adjetivos",
+    "article_one": "Artículo",
+    "article_other": "Artículos",
+    "noun_one": "Sustantivo",
+    "noun_other": "Sustantivos",
+    "preposition_one": "Preposición",
+    "preposition_other": "Preposiciones",
+    "verb_one": "Verbo",
+    "verb_other": "Verbos",
+    "adverb_one": "Adverbio",
+    "adverb_other": "Adverbios",
+    "conjunction_one": "Conjunción",
+    "conjunction_other": "Conjunciones",
+    "pronoun_one": "Pronombre",
+    "pronoun_other": "Pronombres",
+    "interjection_one": "Interjección",
+    "interjection_other": "Interjecciones"
+  },
+  "register": {
+    "title": "Crea tu cuenta",
+    "username": "Nombre de usuario",
+    "email": "Dirección de correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "submit": "Registrarse",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "error": "Error en el registro",
+    "networkError": "Error de red, por favor intenta de nuevo"
+  },
+  "login": {
+    "title": "Bienvenido de nuevo",
+    "username": "Nombre de usuario",
+    "email": "Dirección de correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "submit": "Iniciar sesión",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "error": "Error al iniciar sesión",
+    "networkError": "Error de red, por favor intenta de nuevo"
+  },
+  "profile": {
+    "title": "Perfil",
+    "email": "Correo electrónico",
+    "wordsWandered_one": "Has recorrido {{count}} palabra",
+    "wordsWandered_other": "Has recorrido {{count}} palabras",
+    "inLanguage": "en {{language}}",
+    "changePassword": "Cambiar contraseña",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Nueva contraseña",
+    "confirmNewPassword": "Confirmar nueva contraseña",
+    "updatePassword": "Actualizar contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "deleteProfile": "Eliminar perfil",
+    "deleteConfirmTitle": "¿Estás seguro de que quieres eliminar tu perfil?",
+    "deleteConfirmMessage": "Esta acción no se puede deshacer.",
+    "deleteConfirmCheckbox": "Entiendo que todo mi progreso en la aplicación será eliminado",
+    "confirmDelete": "Sí, eliminar mi perfil",
+    "currentPasswordIncorrect": "La contraseña actual es incorrecta",
+    "passwordUpdateSuccess": "Contraseña actualizada con éxito",
+    "passwordUpdateFail": "Error al actualizar la contraseña",
+    "passwordResetEmailSent": "Correo de restablecimiento de contraseña enviado",
+    "passwordResetEmailFail": "Error al enviar el correo de restablecimiento de contraseña",
+    "deleteConfirmRequired": "Por favor, confirma que entiendes las consecuencias de eliminar tu perfil",
+    "deleteSuccess": "Perfil eliminado con éxito",
+    "deleteFail": "Error al eliminar el perfil"
+  },
+  "common": {
+    "cancel": "Cancelar"
+  },
+  "passwordErrors": {
+    "newPasswordsDontMatch": "Las nuevas contraseñas no coinciden"
+  },
+  "home": {
+    "exploreTheWordMap": "Explora el Mapa de Palabras"
+  },
+  "contentWindow": {
+    "changeSticker": "Cambiar pegatina",
+    "addSticker": "Añadir pegatina",
+    "pickSticker": "¡Elige una pegatina para esta palabra!",
+    "literalTranslation": "Traducción literal",
+    "alternateTranslations": "Traducciones alternativas",
+    "noAlternateTranslations": "No hay traducciones alternativas disponibles"
+  },
+  "filters": {
+    "apply": "Aplicar filtros",
+    "clear": "Limpiar filtros",
+    "noResults": "No se encontraron resultados. Intenta ajustar tus filtros."
   }
 }

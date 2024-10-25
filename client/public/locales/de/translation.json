@@ -7,7 +7,14 @@
     "filter": "Filtern",
     "partOfSpeech": "Wortart",
     "level": "Stufe",
-    "context": "Kontext"
+    "context": "Kontext",
+    "profile": "Profil",
+    "logout": "Abmelden",
+    "wordMap": "Wortkarte",
+    "filters": "Filter",
+    "partsOfSpeech": "Wortarten",
+    "levels": "Stufen",
+    "contexts": "Kontexte"
   },
   "languages": {
     "de": "Deutsch",
@@ -16,25 +23,93 @@
     "fr": "Französisch"
   },
 	"partOfSpeech": {
-		"adjective": "Adjektiv",
-		"article": "Artikel",
-		"noun": "Nomen",
-		"preposition": "Präposition",
-		"verb": "Verb",
-		"adverb": "Adverb",
-		"conjunction": "Konjunktion",
-		"pronoun": "Pronomen",
-		"interjection": "Interjektion"
+		"adjective_one": "Adjektiv",
+		"adjective_other": "Adjektive",
+		"article_one": "Artikel",
+		"article_other": "Artikel",
+		"noun_one": "Nomen",
+		"noun_other": "Nomen",
+		"preposition_one": "Präposition",
+		"preposition_other": "Präpositionen",
+		"verb_one": "Verb",
+		"verb_other": "Verben",
+		"adverb_one": "Adverb",
+		"adverb_other": "Adverbien",
+		"conjunction_one": "Konjunktion",
+		"conjunction_other": "Konjunktionen",
+		"pronoun_one": "Pronomen",
+		"pronoun_other": "Pronomen",
+		"interjection_one": "Interjektion",
+		"interjection_other": "Interjektionen"	
 	},
 	"register": {
-    "title": "Create your account",
-    "username": "Username",
-    "email": "Email address",
-    "password": "Password",
-    "confirmPassword": "Confirm password",
-    "submit": "Sign up",
-    "passwordMismatch": "Passwords do not match",
-    "error": "Registration failed",
-    "networkError": "Network error, please try again"
+    "title": "Erstellen Sie Ihr Konto",
+    "username": "Benutzername",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "submit": "Registrieren",
+    "passwordMismatch": "Passwörter stimmen nicht überein",
+    "error": "Registrierung fehlgeschlagen",
+    "networkError": "Netzwerkfehler, bitte versuchen Sie es erneut"
+  },
+  "login": {
+    "title": "Willkommen zurück",
+    "username": "Benutzername",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "submit": "Anmelden",
+    "passwordMismatch": "Passwörter stimmen nicht überein",
+    "error": "Anmeldung fehlgeschlagen",
+    "networkError": "Netzwerkfehler, bitte versuchen Sie es erneut"
+  },
+  "profile": {
+    "title": "Profil",
+    "email": "E-Mail",
+    "wordsWandered_one": "Sie haben {{count}} Wort durchwandert",
+    "wordsWandered_other": "Sie haben {{count}} Wörter durchwandert",
+    "inLanguage": "auf {{language}}",
+    "changePassword": "Passwort ändern",
+    "currentPassword": "Aktuelles Passwort",
+    "newPassword": "Neues Passwort",
+    "confirmNewPassword": "Neues Passwort bestätigen",
+    "updatePassword": "Passwort aktualisieren",
+    "forgotPassword": "Passwort vergessen?",
+    "deleteProfile": "Profil löschen",
+    "deleteConfirmTitle": "Sind Sie sicher, dass Sie Ihr Profil löschen möchten?",
+    "deleteConfirmMessage": "Diese Aktion kann nicht rückgängig gemacht werden.",
+    "deleteConfirmCheckbox": "Ich verstehe, dass mein gesamter Fortschritt in der App gelöscht wird",
+    "confirmDelete": "Ja, mein Profil löschen",
+    "currentPasswordIncorrect": "Aktuelles Passwort ist falsch",
+    "passwordUpdateSuccess": "Passwort erfolgreich aktualisiert",
+    "passwordUpdateFail": "Passwort konnte nicht aktualisiert werden",
+    "passwordResetEmailSent": "E-Mail zum Zurücksetzen des Passworts gesendet",
+    "passwordResetEmailFail": "E-Mail zum Zurücksetzen des Passworts konnte nicht gesendet werden",
+    "deleteConfirmRequired": "Bitte bestätigen Sie, dass Sie die Konsequenzen der Löschung Ihres Profils verstehen",
+    "deleteSuccess": "Profil erfolgreich gelöscht",
+    "deleteFail": "Profil konnte nicht gelöscht werden"
+  },
+  "common": {
+    "cancel": "Abbrechen"
+  },
+  "passwordErrors": {
+    "newPasswordsDontMatch": "Neue Passwörter stimmen nicht überein"
+  },
+	"home": {
+		"exploreTheWordMap": "Erkunden Sie die Wortkarte"
+	},
+  "contentWindow": {
+    "changeSticker": "Sticker ändern",
+    "addSticker": "Sticker hinzufügen",
+    "pickSticker": "Wählen Sie einen Sticker für dieses Wort!",
+    "literalTranslation": "Wörtliche Übersetzung:",
+    "alternateTranslations": "Alternative Übersetzungen:",
+    "noAlternateTranslations": "Keine alternativen Übersetzungen verfügbar"
+  },
+  "filters": {
+    "apply": "Filter anwenden",
+    "clear": "Filter löschen",
+    "noResults": "Keine Ergebnisse gefunden. Versuchen Sie, Ihre Filter anzupassen."
   }
 }

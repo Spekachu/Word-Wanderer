@@ -4,11 +4,18 @@
     "home": "Home",
     "about": "About Us",
     "contact": "Contact",
-		"filter": "filter",
-		"partOfSpeech": "part of speech",
-		"level": "level",
-		"context": "context"
-  },
+		"filter": "Filter",
+		"filters": "Filters",
+		"partOfSpeech": "Part of Speech",
+		"partsOfSpeech": "Parts of Speech",
+		"level": "Level",
+		"levels": "Levels",
+		"context": "Context",
+		"contexts": "Contexts",
+		"profile": "Profile",
+		"logout": "Logout",
+		"wordMap": "Word Map"
+	},
 	"languages": {
 		"de": "German",
 		"en": "English",
@@ -16,15 +23,24 @@
 		"fr": "French"
 	},
 	"partOfSpeech": {
-		"adjective": "Adjective",
-		"article": "Article",
-		"noun": "Noun",
-		"preposition": "Preposition",
-		"verb": "Verb",
-		"adverb": "Adverb",
-		"conjunction": "Conjunction",
-		"pronoun": "Pronoun",
-		"interjection": "Interjection"
+		"adjective_one": "Adjective",
+		"adjective_other": "Adjectives",
+		"article_one": "Article",
+		"article_other": "Articles",
+		"noun_one": "Noun",
+		"noun_other": "Nouns",
+		"preposition_one": "Preposition",
+		"preposition_other": "Prepositions",
+		"verb_one": "Verb",
+		"verb_other": "Verbs",
+		"adverb_one": "Adverb",
+		"adverb_other": "Adverbs",
+		"conjunction_one": "Conjunction",
+		"conjunction_other": "Conjunctions",
+		"pronoun_one": "Pronoun",
+		"pronoun_other": "Pronouns",
+		"interjection_one": "Interjection",
+		"interjection_other": "Interjections"
 	},
 	"register": {
     "title": "Start your journey",
@@ -47,5 +63,53 @@
     "passwordMismatch": "Passwords do not match",
     "error": "Login failed",
     "networkError": "Network error, please try again"
+  },
+	"profile": {
+    "title": "Profile",
+    "email": "Email",
+    "wordsWandered_one": "You've wandered through {{count}} word",
+    "wordsWandered_other": "You've wandered through {{count}} words",
+    "inLanguage": "in {{language}}",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "updatePassword": "Update Password",
+    "forgotPassword": "Forgot Password?",
+    "deleteProfile": "Delete Profile",
+    "deleteConfirmTitle": "Are you sure you want to delete your profile?",
+    "deleteConfirmMessage": "This action cannot be undone.",
+    "deleteConfirmCheckbox": "I understand that all my progress in the app will be deleted",
+    "confirmDelete": "Yes, Delete My Profile",
+    "currentPasswordIncorrect": "Current password is incorrect",
+    "passwordUpdateSuccess": "Password updated successfully",
+    "passwordUpdateFail": "Failed to update password",
+    "passwordResetEmailSent": "Password reset email sent",
+    "passwordResetEmailFail": "Failed to send password reset email",
+    "deleteConfirmRequired": "Please confirm that you understand the consequences of deleting your profile",
+    "deleteSuccess": "Profile deleted successfully",
+    "deleteFail": "Failed to delete profile"
+  },
+  "common": {
+    "cancel": "Cancel"
+  },
+  "passwordErrors": {
+    "newPasswordsDontMatch": "New passwords don't match"
+  },
+	"home": {
+		"exploreTheWordMap": "Explore the Word Map"
+	},
+  "contentWindow": {
+    "changeSticker": "Change sticker",
+    "addSticker": "Add sticker",
+    "pickSticker": "Pick a sticker for this word!",
+    "literalTranslation": "Literal translation",
+    "alternateTranslations": "Alternate translations",
+    "noAlternateTranslations": "No alternate translations available"
+  },
+  "filters": {
+    "apply": "Apply Filters",
+    "clear": "Clear Filters",
+    "noResults": "No results found. Try adjusting your filters."
   }
 }

@@ -46,9 +46,8 @@ const WordMap = () => {
 		onWheel: ({ delta: [, dy] }) => {
 			handleZoom(-dy * 0.001);
 		},
-		onPinch: ({ delta: [d], origin: [ox, oy], event }) => {
-			event.preventDefault();
-			handleZoom(d * 0.01, ox, oy);
+		onPinch: ({ delta: [d] }) => {
+			handleZoom(d * 0.01);
 		},
 		onDragStart: () => {
 			setDragStartTime(performance.now());
@@ -67,21 +66,12 @@ const WordMap = () => {
 		eventOptions: { passive: false }
 	});
 
-	const handleZoom = useCallback((zoomDelta, originX, originY) => {
+	const handleZoom = useCallback((zoomDelta) => {
 		queueUpdate(() => {
 			const newZoomLevel = Math.min(Math.max(zoomLevel + zoomDelta, zoomMin), zoomMax);
-			
-			if (originX && originY) {
-				const zoomRatio = newZoomLevel / zoomLevel;
-				const newOffsetX = originX - (originX - panOffset.x) * zoomRatio;
-				const newOffsetY = originY - (originY - panOffset.y) * zoomRatio;
-
-				setPanOffset({ x: newOffsetX, y: newOffsetY });
-			}
-
 			setZoomLevel(newZoomLevel);
 		});
-	}, [zoomLevel, panOffset, queueUpdate]);
+	}, [zoomLevel, queueUpdate]);
 
 	const handlePan = useCallback((deltaX, deltaY) => {
 		queueUpdate(() => {

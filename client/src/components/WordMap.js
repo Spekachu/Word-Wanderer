@@ -7,6 +7,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { fetchWords } from '../api/fetchWords';
 import { fetchUserWordAssociations } from '../api/fetchUserWordAssociations';
 import { useAnimationFrame } from '../hooks/useAnimationFrame';
+import { useGesture } from '@use-gesture/react';
 
 const WordMap = () => {
 	const { addNotification } = useNotification();
@@ -33,6 +34,7 @@ const WordMap = () => {
   const [isMouseDown, setIsMouseDown] = useState(false); // Zoom level
 	const [positions, setPositions] = useState([null]);
 	const [wordDimensions, setWordDimensions] = useState([null]);
+	const [lastDistance, setLastDistance] = useState(null);
 
 	const debouncedPartOfSpeech = useDebounce(partOfSpeech, 300);
   const debouncedCefrLevel = useDebounce(cefrLevel, 300);
@@ -40,6 +42,59 @@ const WordMap = () => {
   const debouncedUserLearningLanguage = useDebounce(userLearningLanguage, 300);
 
 	const queueUpdate = useAnimationFrame();
+
+	const bind = useGesture({
+    onWheel: ({ delta: [, dy] }) => {
+      handleZoom(-dy * 0.001);
+    },
+    onPinch: ({ delta: [d], origin: [ox, oy], event }) => {
+      event.preventDefault();
+      handleZoom(d * 0.01, ox, oy);
+    },
+    onPinchStart: () => {
+      setIsMouseDown(true);
+    },
+    onPinchEnd: () => {
+      setIsMouseDown(false);
+    },
+    onDrag: ({ delta: [dx, dy] }) => {
+      handlePan(dx, dy);
+    },
+  }, {
+    eventOptions: { passive: false }
+  });
+
+	const handleZoom = useCallback((zoomDelta, originX, originY) => {
+    queueUpdate(() => {
+      const newZoomLevel = Math.min(Math.max(zoomLevel + zoomDelta, zoomMin), zoomMax);
+      
+      if (originX && originY) {
+        const mapRect = mapRef.current.getBoundingClientRect();
+        const zoomRatio = newZoomLevel / zoomLevel;
+        const newOffsetX = originX - (originX - panOffset.x) * zoomRatio;
+        const newOffsetY = originY - (originY - panOffset.y) * zoomRatio;
+
+        setPanOffset({ x: newOffsetX, y: newOffsetY });
+      }
+
+      setZoomLevel(newZoomLevel);
+    });
+  }, [zoomLevel, panOffset, queueUpdate]);
+
+	const handlePan = useCallback((deltaX, deltaY) => {
+    queueUpdate(() => {
+      const mapRect = mapRef.current.getBoundingClientRect();
+      const minX = -mapRect.width / 2;
+      const maxX = mapRect.width / 2;
+      const minY = -mapRect.height / 2;
+      const maxY = mapRect.height / 2;
+
+      const newOffsetX = Math.max(minX, Math.min(maxX, panOffset.x + deltaX));
+      const newOffsetY = Math.max(minY, Math.min(maxY, panOffset.y + deltaY));
+
+      setPanOffset({ x: newOffsetX, y: newOffsetY });
+    });
+  }, [panOffset, queueUpdate]);
 
 	useEffect(() => {
     const getWords = async () => {
@@ -276,26 +331,6 @@ const WordMap = () => {
 		setIsMouseDown(false);
 	};
 	
-	// Handle zoom via scroll wheel
-  const handleWheel = useCallback((e) => {
-    const zoomDelta = e.deltaY * -0.001;
-    const newZoomLevel = Math.min(Math.max(zoomLevel + zoomDelta, zoomMin), zoomMax);
-
-    queueUpdate(() => {
-      const mapRect = mapRef.current.getBoundingClientRect();
-      const minX = -mapRect.width / 2;
-      const maxX = mapRect.width / 2;
-      const minY = -mapRect.height / 2;
-      const maxY = mapRect.height / 2;
-
-      const newOffsetX = Math.max(minX, Math.min(maxX, panOffset.x));
-      const newOffsetY = Math.max(minY, Math.min(maxY, panOffset.y));
-
-      setPanOffset({ x: newOffsetX, y: newOffsetY });
-      setZoomLevel(newZoomLevel);
-    });
-  }, [zoomLevel, panOffset, queueUpdate]);
-
 	if (error) {
 		return <div>Error: {error.message}</div>;
 	}
@@ -311,10 +346,11 @@ const WordMap = () => {
       onMouseUp={handleMouseUp}
       onTouchEnd={handleMouseUp}
 			onTouchCancel={handleMouseUp}
-			onWheel={handleWheel}
 			style={{
 				cursor: isMouseDown ? 'grabbing' : 'grab', // Change cursor when dragging
-			}}>
+			}}
+			{...bind()}
+		>
     	<div className="absolute left-1/2 top-1/2 transform-gpu -translate-x-1/2 -translate-y-1/2">
 				<div ref={mapRef} className='will-change-transform' 
 				style={{

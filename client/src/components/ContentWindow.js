@@ -190,7 +190,6 @@ const ContentWindow = () => {
           width="100%" 
           height="100%" 
           autoFocusSearch={false} 
-          open={showEmojiPicker}
           skinTonesDisabled={true} 
           previewConfig={{
             defaultCaption: t('contentWindow.pickSticker')

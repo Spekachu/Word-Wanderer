@@ -178,9 +178,10 @@ const ContentWindow = () => {
 
       {/* Emoji picker */}
       <div 
-        loading='lazy' 
         ref={emojiPickerRef} 
-        className={`fixed right-0 bottom-0 z-20 w-full transition-all ${
+        className={`fixed right-0 bottom-0 z-20 w-full transition-all
+				transform-gpu
+				will-change-transform ${
         showEmojiPicker ? "h-[calc(100%-2rem)]" : "translate-y-full opacity-0 pointer-events-none h-0 origin-bottom"
       }`}
       >
@@ -190,7 +191,6 @@ const ContentWindow = () => {
           height="100%" 
           autoFocusSearch={false} 
           open={showEmojiPicker}
-          lazyLoadEmojis={true}
           skinTonesDisabled={true} 
           previewConfig={{
             defaultCaption: t('contentWindow.pickSticker')

@@ -135,7 +135,7 @@ export const AuthProvider = ({ children }) => {
 			setIsLoggedIn(false);
 			setCurrentUser(null);
 			setUserWordAssociations({});
-			addNotification('You are logged out', 'success');
+			addNotification('You are logged out', 'info');
 		} catch (error) {
 			console.error('Logout error:', error);
 			addNotification('An error occurred during logout', 'error');

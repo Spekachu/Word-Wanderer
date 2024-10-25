@@ -73,11 +73,8 @@ const ContentWindow = () => {
 				text-stone-900 
 				p-8 
 				backdrop-blur-sm 
-				border-8 
-				border-slate-200 
-				rounded-t-lg
-				sm:rounded-t-3xl 
-				shadow-2xl 
+				shadow-[0_0_0_8px_rgba(255,200,200,0.75)]
+				sm:rounded-t-3xl
 				z-10 
 				w-full
 				sm:w-[calc(100%-2rem)]
@@ -89,7 +86,7 @@ const ContentWindow = () => {
         activeContent ? showEmojiPicker ?  'min-h-[35rem] max-h-dvh translate-y-[calc(100dvh-12rem)]' : 'min-h-48 translate-y-[calc(100dvh-12rem)]' : 'min-h-48 translate-y-[calc(100dvh+1rem)] pointer-events-none opacity-0'
       }`}
     >
-			<div className={`absolute bottom-[calc(100%+.5rem)] left-0 sm:left-4 w-full sm:w-[calc(100%-2rem)] overflow-hidden origin-bottom transition-all ${showHighlightPicker ? "h-20" : "h-0"}`}>
+			<div className={`absolute bottom-full left-0 sm:left-4 w-full sm:w-[calc(100%-2rem)] overflow-hidden origin-bottom transition-all ${showHighlightPicker ? "h-20" : "h-0"}`}>
 				<div className="flex h-full absolute w-full top-0 left-0 items-end">
 					{[
 						"#ffffff", 
@@ -136,22 +133,27 @@ const ContentWindow = () => {
 			</div>
 
       {/* Close button */}
-      <button className='text-4xl p-1 absolute right-0 -top-4 text-slate-300 bg-white rounded-full hover:text-slate-600 transition-colors' onClick={closeContentWindow}>
+      <button className='text-4xl p-1 absolute right-0 -top-4 text-[#a58b8b] bg-white rounded-full hover:text-[#ecb1b1] transition-colors' onClick={closeContentWindow}>
         <FaArrowAltCircleDown />
       </button>
 
       {/* Emoji sticker button */}
       <button 
-        className={`text-4xl p-1 absolute left-0 -top-4 text-slate-300 rounded-full hover:text-slate-600 transition-colors aspect-square ${
-					selectedSticker ? 'w-12 h-12' : 'bg-white'
-				}`}
-        onClick={() => setShowEmojiPicker(!showEmojiPicker)} // Toggle emoji picker
+        className={`
+          text-4xl p-1 absolute left-0 -top-4 transition-colors aspect-square
+        `}
+        onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+        aria-label={selectedSticker ? "Change sticker" : "Add sticker"}
+        title={selectedSticker ? "Change sticker" : "Add sticker"}
       >
-				<div className={`${
-					selectedSticker ? 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 drop-shadow-[-.1rem_-.1rem_0_rgba(255,255,255,0.9)]' : ''
-				}`}>
-        	{selectedSticker ? selectedSticker : <RiEmojiStickerLine />}
-				</div>
+        <div className={`
+          ${selectedSticker 
+            ? 'drop-shadow-[-.1rem_-.1rem_0_rgba(255,255,255,0.9)]' 
+            : ''
+          }
+        `}>
+          {selectedSticker || <RiEmojiStickerLine className='rounded-full text-[#a58b8b] bg-white hover:text-[#ecb1b1] transition-colors' />}
+        </div>
       </button>
       {/* Emoji sticker remove button */}
 			{selectedSticker && (
@@ -159,8 +161,8 @@ const ContentWindow = () => {
         	<IoIosCloseCircle />
       	</button>
 			)}
-			<button className={`text-2xl absolute right-14 -top-3 p-1  border-2 border-slate-300 rounded-full hover:text-slate-600 transition-colors ${
-				selectedHighlight === "#ffffff" ? "text-slate-300" : ""
+			<button className={`text-2xl absolute right-14 -top-3 p-1  border-2 border-[#a58b8b] hover:border-[#ecb1b1] rounded-full hover:text-[#ecb1b1] transition-colors ${
+				selectedHighlight === "#ffffff" ? "text-[#a58b8b]" : ""
 			}`} 
 			style={{
 				backgroundColor: selectedHighlight,

@@ -8,6 +8,7 @@ import { fetchWords } from '../api/fetchWords';
 import { fetchUserWordAssociations } from '../api/fetchUserWordAssociations';
 import { useAnimationFrame } from '../hooks/useAnimationFrame';
 import { useGesture } from '@use-gesture/react';
+import Slider from '@mui/material/Slider';
 
 const WordMap = () => {
 	const { addNotification } = useNotification();
@@ -45,9 +46,6 @@ const WordMap = () => {
 	const bind = useGesture({
 		onWheel: ({ delta: [, dy] }) => {
 			handleZoom(-dy * 0.001);
-		},
-		onPinch: ({ delta: [d] }) => {
-			handleZoom(d * 0.01);
 		},
 		onDragStart: () => {
 			setDragStartTime(performance.now());
@@ -280,34 +278,53 @@ const WordMap = () => {
 		return <div>Error: {error.message}</div>;
 	}
 
+	const handleSliderChange = (event, newValue) => {
+		setZoomLevel(newValue);
+	};
+
 	return (
-		<div 
-			className={`word-map text-white w-full h-dvh overflow-hidden fixed top-0 left-0 touch-none transition-opacity duration-300 ${
-				loading ? 'opacity-0' : 'opacity-100'
-			}`}
-			style={{
-				cursor: isDragging ? 'grabbing' : 'grab',
-			}}
-			{...bind()}
-		>
-			<div className="absolute left-1/2 top-1/2 transform-gpu -translate-x-1/2 -translate-y-1/2">
-				<div ref={mapRef} className='will-change-transform' 
+		<>
+			<div 
+				className={`word-map text-white w-full h-dvh overflow-hidden fixed top-0 left-0 touch-none transition-opacity duration-300 ${
+					loading ? 'opacity-0' : 'opacity-100'
+				}`}
 				style={{
-					transform: `translate3d(${panOffset.x}px, ${panOffset.y}px, 0) scale(${zoomLevel})`
-				}}>
-					{wordList?.map((word, index) => (
-						<Word
-							key={word.id}
-							index={index}
-							word={word}
-							position={positions[index] || { centerX: 0, centerY: 0 }}
-							dimensions={wordDimensions[index] || { width: 0, height: 0 }}
-							ref={(el) => (wordRefs.current[index] = el)}
-						/>
-					))}
+					cursor: isDragging ? 'grabbing' : 'grab',
+				}}
+				{...bind()}
+			>
+				<div className="absolute left-1/2 top-1/2 transform-gpu -translate-x-1/2 -translate-y-1/2">
+					<div ref={mapRef} className='will-change-transform' 
+					style={{
+						transform: `translate3d(${panOffset.x}px, ${panOffset.y}px, 0) scale(${zoomLevel})`
+					}}>
+						{wordList?.map((word, index) => (
+							<Word
+								key={word.id}
+								index={index}
+								word={word}
+								position={positions[index] || { centerX: 0, centerY: 0 }}
+								dimensions={wordDimensions[index] || { width: 0, height: 0 }}
+								ref={(el) => (wordRefs.current[index] = el)}
+							/>
+						))}
+					</div>
 				</div>
+				
 			</div>
-		</div>
+			<div className="fixed right-2 top-16 w-36 backdrop-blur-sm bg-black/10 rounded-full h-4 flex items-center justify-center px-2">
+				<Slider
+					value={zoomLevel}
+					min={zoomMin}
+					max={zoomMax}
+					step={0.01}
+					onChange={handleSliderChange}
+					aria-labelledby="zoom-slider"
+					size="small"
+					color="white"
+				/>
+			</div>
+		</>
 	);
 };
 

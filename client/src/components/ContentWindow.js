@@ -55,16 +55,41 @@ const ContentWindow = () => {
 
 	useEffect(() => {
 		if (activeContent && showEmojiPicker) {
-			const timeoutId = setTimeout(() => {
-				emojiPickerRef.current.scrollIntoView({
-					behavior: "smooth"
-				});
-			}, 150);
-	
-			// Cleanup timeout if the component unmounts or dependencies change
-			return () => clearTimeout(timeoutId);
+			let attempts = 0;
+			const maxAttempts = 5;
+			const initialDelay = 100;
+
+			const scrollEmojiPickerIntoView = () => {
+				const emojiPickerElement = emojiPickerRef.current?.querySelector('.EmojiPickerReact');
+				if (emojiPickerElement) {
+					emojiPickerElement.scrollIntoView({ behavior: 'smooth' });
+					
+					// Force a final scroll after a short delay
+					setTimeout(() => {
+						emojiPickerElement.scrollIntoView({ behavior: 'auto' });
+					}, 300);
+
+					return true;
+				}
+				return false;
+			};
+
+			const attemptScroll = () => {
+				if (scrollEmojiPickerIntoView()) return;
+
+				attempts++;
+				if (attempts < maxAttempts) {
+					setTimeout(attemptScroll, initialDelay * Math.pow(2, attempts));
+				}
+			};
+
+			setTimeout(attemptScroll, initialDelay);
+
+			return () => {
+				attempts = maxAttempts; // Stop any pending attempts on cleanup
+			};
 		}
-	}, [showEmojiPicker, activeContent]);	
+	}, [showEmojiPicker, activeContent]);
 
   return (
     <div id="ContentWindow"

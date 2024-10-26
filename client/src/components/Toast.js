@@ -3,7 +3,7 @@ import React from 'react';
 const Toast = ({ notification, onClose }) => {
   return (
     <div 
-      className={`w-full sm:w-auto px-6 sm:px-4 py-1 sm:py-2 sm:rounded shadow-lg text-white flex items-start justify-between gap-2
+      className={`px-4 py-1 sm:py-2 rounded-full shadow-lg text-white flex items-start justify-between gap-2
                   ${notification.exiting ? 'animate-slide-out-up sm:animate-slide-out-left' : 'animate-slide-in-up sm:animate-slide-in-left'}
                   transition-all duration-300 linear
                   ${

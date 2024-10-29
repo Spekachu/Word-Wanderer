@@ -13,18 +13,14 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import NotificationDisplay from './components/NotificationDisplay';
 import Profile from './pages/Profile';
+
 function App() {
   return (
     <Router>
       <NotificationProvider>
         <AuthProvider>
           <WordProvider>
-            <div className="App w-full h-dvh flex flex-col text-white font-nunito" 
-              style={{
-                backgroundImage: `linear-gradient(to right top, rgb(125, 89, 108), rgb(217 161 161))`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}>
+            <div className="App relative w-full h-full box-content flex flex-col text-white font-nunito py-[env(safe-area-inset-top)] z-10 overflow-hidden">
               <div className="flex-grow overflow-auto">
                 <Routes>
                   <Route path="/" element={<Home />} />
@@ -34,12 +30,12 @@ function App() {
                       <ContentWindow />
                     </AppWindow>
                   } />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/profile" element={<Profile />} />
+									<Route path="/register" element={<Register />} />
+									<Route path="/login" element={<Login />} />
+									<Route path="/profile" element={<Profile />} />
                 </Routes>
               </div>
-              <MainMenu />
+							<MainMenu />
               <NotificationDisplay />
             </div>
           </WordProvider>

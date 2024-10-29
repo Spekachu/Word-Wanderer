@@ -12,7 +12,7 @@ const Home = () => {
 	const partsOfSpeech = ['verb', 'noun', 'adjective'];
 
 	return (
-		<div className="min-h-screen text-white p-3 sm:p-4 py-24 flex flex-col justify-center">
+		<div className="min-h-screen text-white p-3 sm:p-4 py-12 flex flex-col justify-center">
 				<div className="text-center">
 					<h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-8">
 						<span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{t('welcome')}, <br></br></span>
@@ -32,9 +32,9 @@ const Home = () => {
 									key={`${level}-${pos}`}
 									to="/map"
 									className={`inline-block border border-white hover:border-fuchsia-900 hover:bg-white transition-colors font-bold py-2 px-2 md:px-4 rounded-lg text-lg ${
-										index < 2 ? 'text-fuchsia-900 bg-fuchsia-50' :
-										index < 4 ? 'text-orange-900 bg-orange-50' :
-										'text-rose-900 bg-rose-50'
+										index < 2 ? 'text-fuchsia-950 bg-fuchsia-300' :
+										index < 4 ? 'text-orange-950 bg-orange-300' :
+										'text-rose-950 bg-rose-300'
 									}`}
 									onClick={() => { set_partOfSpeech(pos); set_cefrLevel(level); }}
 								>

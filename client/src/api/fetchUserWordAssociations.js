@@ -1,4 +1,4 @@
-export const fetchUserWordAssociations = async (addNotification, getAuthHeaders, setAccessToken) => {
+export const fetchUserWordAssociations = async (addNotification, getAuthHeaders) => {
   try {
 
     // Fetch user word associations (should not be cached)

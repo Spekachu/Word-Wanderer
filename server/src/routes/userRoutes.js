@@ -130,9 +130,9 @@ router.post('/logout', (req, res) => {
 });
 
 const authenticateUser = (req, res, next) => {
-	console.log('Authenticating user');
+	console.log('Api call requires authentication');
 	const authHeader = req.headers['authorization'];
-	console.log('Auth header:', authHeader);
+	// console.log('Auth header:', authHeader);
 
 	const token = authHeader && authHeader.split(' ')[1];
 	if (!token) {
@@ -140,7 +140,7 @@ const authenticateUser = (req, res, next) => {
 		return res.status(401).json({ message: 'Authentication required' });
 	}
 
-	console.log('Token:', token);
+	// console.log('Token:', token);
 
 	try {
 		const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
@@ -274,6 +274,81 @@ router.delete('/word-association/:word_id', authenticateUser, async (req, res) =
 
 router.get('/check-auth', authenticateUser, (req, res) => {
   res.json({ isAuthenticated: true, user: { id: req.user.id } });
+});
+
+// Get user preferences
+router.get('/user-preferences/:userId', authenticateUser, async (req, res) => {
+  try {
+    const userId = parseInt(req.params.userId);
+    
+    if (userId !== req.user.id) {
+      return res.status(403).json({ message: 'Unauthorized access to user preferences' });
+    }
+
+    const userPreferences = await prisma.user_preferences.findUnique({
+      where: { user_id: userId }
+    });
+
+    if (!userPreferences) {
+      return res.status(404).json({ message: 'User preferences not found' });
+    }
+
+    res.json({
+      part_of_speech: userPreferences.part_of_speech,
+      cefr_level: userPreferences.cefr_level,
+      user_language: userPreferences.user_language,
+      learning_language: userPreferences.learning_language,
+      zoom_level: userPreferences.zoom_level
+    });
+  } catch (error) {
+    console.error('Error fetching user preferences:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
+// Save user preferences
+router.post('/user-preferences/:userId', authenticateUser, async (req, res) => {
+  try {
+    console.log('Server saving user preferences:', req.body);
+    const userId = parseInt(req.params.userId);
+    
+    if (userId !== req.user.id) {
+      return res.status(403).json({ message: 'Unauthorized access to update user preferences' });
+    }
+
+    const { part_of_speech, cefr_level, user_language, learning_language, zoom_level } = req.body;
+
+    // Validate inputs (you may want to add more specific validations)
+    if (!part_of_speech || !cefr_level || !user_language || !learning_language || !zoom_level) {
+      return res.status(400).json({ message: 'Missing required fields' });
+    }
+
+    // Build update object only with non-null values
+    const updateData = {};
+    if (part_of_speech !== null) updateData.part_of_speech = part_of_speech;
+    if (cefr_level !== null) updateData.cefr_level = cefr_level;
+    if (user_language !== null) updateData.user_language = user_language;
+    if (learning_language !== null) updateData.learning_language = learning_language;
+    if (zoom_level !== null) updateData.zoom_level = zoom_level;
+
+    const updatedPreferences = await prisma.user_preferences.upsert({
+      where: { user_id: userId },
+      update: updateData,
+      create: {
+        user_id: userId,
+        part_of_speech,
+        cefr_level,
+        user_language,
+        learning_language,
+        zoom_level: zoom_level || 0.75 // Default for new records
+      }
+    });
+
+    res.json({ message: 'User preferences updated successfully', preferences: updatedPreferences });
+  } catch (error) {
+    console.error('Server error saving user preferences:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
 });
 
 export default router;

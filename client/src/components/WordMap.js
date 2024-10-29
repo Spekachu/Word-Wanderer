@@ -20,7 +20,8 @@ const WordMap = () => {
 		cefrLevel,
 		relatedContext,
 		userLanguage,
-		userLearningLanguage		
+		userLearningLanguage	,
+		zoomLevel, setZoomLevel	
 	} = useContext(AppContext);
 	const [wordList, setWordList] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -28,7 +29,6 @@ const WordMap = () => {
 	const wordRefs = useRef([]); // To store references to word elements
 	const mapRef = useRef(null); // Reference to the word map container
 	const [panOffset, setPanOffset] = useState({ x: 0, y: 0 }); // Current offset
-  const [zoomLevel, setZoomLevel] = useState(0.75); // Zoom level
   const zoomMin = 0.5;
   const zoomMax = 1;
 	const [positions, setPositions] = useState([null]);
@@ -66,7 +66,7 @@ const WordMap = () => {
 
 	const handleZoom = useCallback((zoomDelta) => {
 		queueUpdate(() => {
-			const newZoomLevel = Math.min(Math.max(zoomLevel + zoomDelta, zoomMin), zoomMax);
+			const newZoomLevel = Number((Math.min(Math.max(zoomLevel + zoomDelta, zoomMin), zoomMax)).toFixed(2));
 			setZoomLevel(newZoomLevel);
 		});
 	}, [zoomLevel, queueUpdate]);

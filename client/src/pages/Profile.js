@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 const Profile = () => {
 	const navigate = useNavigate();
-	const { isLoggedIn, checkAuth, currentUser, updatePassword, sendPasswordResetEmail, deleteUser, logout, userWordAssociations } = useAuth();
+	const { checkAuth, currentUser, updatePassword, sendPasswordResetEmail, deleteUser, logout, userWordAssociations } = useAuth();
 	const { addNotification } = useNotification();
 	const currentPasswordRef = useRef();
 	const newPasswordRef = useRef();

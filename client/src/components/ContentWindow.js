@@ -6,12 +6,13 @@ import EmojiPicker from 'emoji-picker-react';
 import { IoIosCloseCircle } from "react-icons/io";
 import { PiHighlighterDuotone } from "react-icons/pi";
 import { useTranslation } from 'react-i18next';
-
+import { useAuth } from '../contexts/AuthContext';
 const ContentWindow = () => {
+	const { isLoggedIn } = useAuth();
   const { selectedWord, activeContent, setActiveContent, selectedSticker, setSelectedSticker, showEmojiPicker, setShowEmojiPicker,selectedHighlight, setSelectedHighlight, showHighlightPicker, setShowHighlightPicker, userLearningLanguage } = useContext(AppContext);
 
 	const emojiPickerRef = useRef(null);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   function closeContentWindow() {
     setActiveContent(false);
@@ -90,6 +91,12 @@ const ContentWindow = () => {
 			};
 		}
 	}, [showEmojiPicker, activeContent]);
+
+	useEffect(() => {
+		if (!isLoggedIn) {
+			closeContentWindow();
+		}
+	}, [isLoggedIn]);
 
   return (
     <div id="ContentWindow"

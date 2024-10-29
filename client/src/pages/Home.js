@@ -20,7 +20,7 @@ const Home = () => {
 					</h1>
 				</div>
 				<div className="text-center mb-8">
-					<Link to="/map" className="inline-block border border-white hover:bg-white text-white hover:text-fuchsia-900 transition-colors font-bold py-2 px-4 rounded-lg text-lg">
+					<Link to="/map" className="inline-block border border-white hover:bg-white text-white hover:text-rose-900 transition-colors font-bold py-2 px-4 rounded-lg text-lg">
 						{t('home.exploreTheWordMap')}
 					</Link>
 				</div>
@@ -31,7 +31,7 @@ const Home = () => {
 								<Link
 									key={`${level}-${pos}`}
 									to="/map"
-									className={`inline-block border border-white hover:border-fuchsia-900 hover:bg-white transition-colors font-bold py-2 px-2 md:px-4 rounded-lg text-lg ${
+									className={`inline-block border border-white hover:border-rose-900 hover:bg-white transition-colors font-bold py-2 px-2 md:px-4 rounded-lg text-lg ${
 										index < 2 ? 'text-fuchsia-950 bg-fuchsia-300' :
 										index < 4 ? 'text-orange-950 bg-orange-300' :
 										'text-rose-950 bg-rose-300'

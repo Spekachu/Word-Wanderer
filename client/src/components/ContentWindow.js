@@ -107,6 +107,7 @@ const ContentWindow = () => {
 				bg-white 
 				text-stone-900 
 				p-8 
+				pb-[calc(env(safe-area-inset-top)+2rem)]
 				backdrop-blur-sm 
 				shadow-[0_0_0_4px_rgba(255,200,200,1)]
 				sm:shadow-[0_0_0_8px_rgba(255,200,200,0.75)]
@@ -119,7 +120,7 @@ const ContentWindow = () => {
 				transform-gpu
 				will-change-transform
 				${
-        activeContent ? showEmojiPicker ?  'min-h-[35rem] max-h-dvh translate-y-[calc(100dvh-12rem)]' : 'min-h-48 translate-y-[calc(100dvh-12rem)]' : 'min-h-48 translate-y-[calc(100dvh+1rem)] pointer-events-none opacity-0'
+        activeContent ? showEmojiPicker ?  'min-h-[35rem] max-h-dvh translate-y-[calc(100dvh-12rem)]' : 'min-h-[15rem] translate-y-[calc(100dvh-12rem)]' : 'min-h-[15rem] translate-y-[calc(100dvh+1rem)] pointer-events-none opacity-0'
       }`}
     >
 			<div className={`absolute bottom-full left-0 sm:left-4 w-full sm:w-[calc(100%-2rem)] overflow-hidden origin-bottom transition-all ${showHighlightPicker ? "h-20" : "h-0"}`}>

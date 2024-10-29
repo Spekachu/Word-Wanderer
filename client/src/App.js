@@ -20,7 +20,7 @@ function App() {
       <NotificationProvider>
         <AuthProvider>
           <WordProvider>
-            <div className="App relative w-full h-full box-content flex flex-col text-white font-nunito py-[env(safe-area-inset-top)] z-10 overflow-hidden">
+            <div className="App relative w-full h-full box-content flex flex-col text-white font-nunito pt-[env(safe-area-inset-top)] z-10">
               <div className="flex-grow overflow-auto">
                 <Routes>
                   <Route path="/" element={<Home />} />

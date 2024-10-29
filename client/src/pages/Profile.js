@@ -124,12 +124,12 @@ const Profile = () => {
 									id={field}
 									ref={field === 'currentPassword' ? currentPasswordRef : field === 'newPassword' ? newPasswordRef : newPasswordConfirmRef}
 									required
-									className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-white bg-white appearance-none focus:outline-none focus:ring-0 focus:border-fuchsia-600 peer"
+									className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-white bg-white appearance-none focus:outline-none focus:ring-0 focus:border-rose-600 peer"
 									placeholder=" "
 								/>
 								<label
 									htmlFor={field}
-									className="absolute pointer-events-none text-sm rounded-md text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-fuchsia-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
+									className="absolute pointer-events-none text-sm rounded-md text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-rose-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
 								>
 									{t(`profile.${field}`)}
 								</label>
@@ -142,7 +142,7 @@ const Profile = () => {
 					<div>
 						<button
 							type="submit"
-							className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500"
+							className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
 							disabled={passwordError !== ''}
 						>
 							{t('profile.updatePassword')}
@@ -153,7 +153,7 @@ const Profile = () => {
 				<div className="mt-4">
 					<button
 						onClick={handleForgotPassword}
-						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500"
+						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
 					>
 						{t('profile.forgotPassword')}
 					</button>

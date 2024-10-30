@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import NotificationDisplay from './components/NotificationDisplay';
 import Profile from './pages/Profile';
+import Starfield from 'react-starfield';
 
 function App() {
   return (
@@ -38,6 +39,14 @@ function App() {
 							<MainMenu />
               <NotificationDisplay />
             </div>
+						<div className="absolute top-0 left-0 w-full h-full mix-blend-screen pointer-events-none">
+							<Starfield
+							starCount={750}
+							starColor={[255, 255, 255]}
+							speedFactor={0.01}
+							backgroundColor="black"
+							/>
+						</div>
           </WordProvider>
         </AuthProvider>
       </NotificationProvider>

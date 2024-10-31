@@ -17,9 +17,11 @@ export const WordProvider = ({ children }) => {
   const [selectedHighlight, setSelectedHighlight] = useState("#ffffff");
   const [activeContent, setActiveContent] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [showHighlightPicker, setShowHighlightPicker] = useState(false);
   const [pinPosition, setPinPosition] = useState(null);
+  const [hoverPinPosition, setHoverPinPosition] = useState(null);
 
   // settings for api calls
   const [partOfSpeech, set_partOfSpeech] = useState("verb");
@@ -105,6 +107,8 @@ export const WordProvider = ({ children }) => {
     setShowHighlightPicker(false);
     setSelectedWord(null);
     setSelectedSticker(null);
+		setPinPosition(null);
+		setHoverPinPosition(null);
     // Add any other values you want to reset here
   }, [location.pathname]);
 
@@ -115,6 +119,18 @@ export const WordProvider = ({ children }) => {
     setShowHighlightPicker(false);
     // Add any other resets you need here
   };
+
+  let hoverTimer = null;
+	const resetHoverPinPosition = () => {
+		if (hoverTimer) clearTimeout(hoverTimer);
+		hoverTimer = setTimeout(() => {
+			if (!isHovering) setHoverPinPosition(null);
+		}, 1000);
+	}
+
+	const holdHoverPinPosition = () => {
+		if (hoverTimer) clearTimeout(hoverTimer);
+	}
 
   return (
     <AppContext.Provider value={{ 
@@ -132,7 +148,11 @@ export const WordProvider = ({ children }) => {
       showHighlightPicker, setShowHighlightPicker,
 			zoomLevel, setZoomLevel,
       pinPosition, setPinPosition,
-      resetContentWindow
+			hoverPinPosition, setHoverPinPosition,
+			isHovering, setIsHovering,
+      resetContentWindow,
+			resetHoverPinPosition, 
+			holdHoverPinPosition
     }}>
       {children}
     </AppContext.Provider>

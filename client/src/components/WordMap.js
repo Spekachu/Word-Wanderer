@@ -10,6 +10,7 @@ import { useAnimationFrame } from '../hooks/useAnimationFrame';
 import { useGesture } from '@use-gesture/react';
 import Slider from '@mui/material/Slider';
 import MapPin from './MapPin';
+import HoverMapPin from './HoverMapPin';
 
 const WordMap = () => {
 	const { addNotification } = useNotification();
@@ -309,6 +310,7 @@ const WordMap = () => {
 								ref={(el) => (wordRefs.current[index] = el)}
 							/>
 						))}
+						<HoverMapPin />
 						<MapPin />
 					</div>
 				</div>

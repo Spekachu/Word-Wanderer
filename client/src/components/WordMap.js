@@ -9,6 +9,7 @@ import { fetchUserWordAssociations } from '../api/fetchUserWordAssociations';
 import { useAnimationFrame } from '../hooks/useAnimationFrame';
 import { useGesture } from '@use-gesture/react';
 import Slider from '@mui/material/Slider';
+import MapPin from './MapPin';
 
 const WordMap = () => {
 	const { addNotification } = useNotification();
@@ -308,6 +309,7 @@ const WordMap = () => {
 								ref={(el) => (wordRefs.current[index] = el)}
 							/>
 						))}
+						<MapPin />
 					</div>
 				</div>
 				

@@ -19,6 +19,7 @@ export const WordProvider = ({ children }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [showHighlightPicker, setShowHighlightPicker] = useState(false);
+  const [pinPosition, setPinPosition] = useState(null);
 
   // settings for api calls
   const [partOfSpeech, set_partOfSpeech] = useState("verb");
@@ -130,6 +131,7 @@ export const WordProvider = ({ children }) => {
       selectedHighlight, setSelectedHighlight,
       showHighlightPicker, setShowHighlightPicker,
 			zoomLevel, setZoomLevel,
+      pinPosition, setPinPosition,
       resetContentWindow
     }}>
       {children}

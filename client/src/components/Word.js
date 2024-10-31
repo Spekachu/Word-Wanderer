@@ -13,7 +13,8 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
     setShowEmojiPicker, 
     selectedHighlight, setSelectedHighlight, 
     setShowHighlightPicker,
-		userLearningLanguage
+		userLearningLanguage,
+		setPinPosition
   } = useContext(AppContext);
 
   const { addNotification } = useNotification();
@@ -93,7 +94,12 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 
     if (selectedWord?.id === word.id && activeContent) {
       setActiveContent(false);
+      setPinPosition(null);
     } else {
+			setPinPosition({
+				x: `calc(50% + ${position.centerX + (dimensions.width / 3)}px)`,
+				y: `calc(50% + ${position.centerY - (dimensions.height / 4)}px)`
+			});
       setSelectedSticker(sticker);
       setSelectedHighlight(highlight);
       if (!discoveredThisLanguage) {
@@ -105,7 +111,7 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
       setActiveContent(true);
       setSelectedWord(word);
     }
-  }, [selectedWord, word, activeContent, sticker, highlight, discovered, setShowEmojiPicker, setSelectedHighlight, setActiveContent, setShowHighlightPicker, setSelectedSticker, setSelectedWord, saveWordAssociation]);
+  }, [selectedWord, word, activeContent, sticker, highlight, discovered, setShowEmojiPicker, setSelectedHighlight, setActiveContent, setShowHighlightPicker, setSelectedSticker, setSelectedWord, saveWordAssociation, setPinPosition]);
 
   useEffect(() => {
     if (selectedWord?.id === word.id && activeContent) {
@@ -129,14 +135,18 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
     setClickStartTime(null);
   }, [clickStartTime, isDragging, handleWordClick]);
 
+	useEffect(() => {
+		console.log(position, dimensions);
+	}, [position, dimensions]);
+
   return (
     <>
       <div
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         ref={ref}
-        className={`word select-none border-2 border-white px-[.75em] pb-1 absolute rounded-full hover:bg-white hover:!text-black -translate-x-1/2 -translate-y-1/2 backdrop-blur-sm text-nowrap whitespace-nowrap ${
-          isSelected ? 'bg-white text-black shadow-[0_0_.5em_.25em_white]' : discoveredThisLanguage ? 'bg-white/85 text-black shadow-[0_0_.5em_.25em_transparent]' : 'shadow-[0_0_.5em_.25em_transparent] border-dashed'
+        className={`word select-none border-2 border-white px-[.75em] pb-1 absolute rounded-full hover:bg-white hover:!text-black -translate-x-1/2 -translate-y-1/2 text-nowrap whitespace-nowrap ${
+          isSelected ? 'bg-white text-black' : discoveredThisLanguage ? 'bg-white text-black' : 'border-dashed'
         }`}
         style={{
           top: `calc(50% + ${position.centerY}px)`,
@@ -155,7 +165,7 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
       {sticker && (
         <div 
 					loading='lazy'
-          className={`absolute pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 drop-shadow-[-1px_-1px_0_rgba(255,255,255,0.9)] text-slate-700`}
+          className={`absolute pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 drop-shadow-[-1px_-1px_0_rgba(255,255,255,0.9)] text-rose-950`}
           style={{
             top: `calc(50% + ${position.centerY - (dimensions.height / 2)}px + .35em)`,
             left: `calc(50% + ${position.centerX - (dimensions.width / 2)}px + .35em)`,

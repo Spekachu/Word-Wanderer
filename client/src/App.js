@@ -21,7 +21,7 @@ function App() {
       <NotificationProvider>
         <AuthProvider>
           <WordProvider>
-            <div className="App relative w-full h-full box-content flex flex-col text-white font-nunito pt-[env(safe-area-inset-top)] z-10">
+            <div className="App relative w-full h-full box-content flex flex-col text-white font-nunito pt-[env(safe-area-inset-top)]">
               <div className="flex-grow overflow-auto">
                 <Routes>
                   <Route path="/" element={<Home />} />
@@ -39,11 +39,11 @@ function App() {
 							<MainMenu />
               <NotificationDisplay />
             </div>
-						<div className="absolute top-0 left-0 w-full h-full mix-blend-screen pointer-events-none">
+						<div className="fixed top-0 left-0 w-full h-full mix-blend-screen pointer-events-none z-10">
 							<Starfield
-							starCount={750}
+							starCount={1000}
 							starColor={[255, 255, 255]}
-							speedFactor={0.01}
+							speedFactor={0.05}
 							backgroundColor="black"
 							/>
 						</div>

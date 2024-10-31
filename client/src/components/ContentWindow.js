@@ -1,6 +1,6 @@
 import { useContext, useRef, useEffect } from 'react';
 import { AppContext } from '../contexts/AppContext';
-import { FaArrowAltCircleDown, FaVolumeUp } from "react-icons/fa";
+import { FaArrowDown , FaVolumeUp } from "react-icons/fa";
 import { RiEmojiStickerLine } from "react-icons/ri";
 import EmojiPicker from 'emoji-picker-react'; 
 import { IoIosCloseCircle } from "react-icons/io";
@@ -108,10 +108,10 @@ const ContentWindow = () => {
 				text-stone-900 
 				p-8 
 				pb-[calc(env(safe-area-inset-top)+2rem)]
-				backdrop-blur-sm 
-				shadow-[0_0_0_4px_rgba(255,200,200,1)]
-				sm:shadow-[0_0_0_8px_rgba(255,200,200,0.75)]
-				sm:rounded-tl-3xl
+				border-8
+				border-[#8a5663]
+				rounded-t-3xl
+				rounded-b-[2rem]
 				z-10 
 				w-full
 				sm:w-[calc(100%-2rem)]
@@ -120,10 +120,10 @@ const ContentWindow = () => {
 				transform-gpu
 				will-change-transform
 				${
-        activeContent ? showEmojiPicker ?  'min-h-[35rem] max-h-dvh translate-y-[calc(100dvh-12rem)]' : 'min-h-[15rem] translate-y-[calc(100dvh-12rem)]' : 'min-h-[15rem] translate-y-[calc(100dvh+1rem)] pointer-events-none opacity-0'
+        activeContent ? showEmojiPicker ?  'min-h-[35rem] max-h-dvh translate-y-[calc(100dvh-12rem-env(safe-area-inset-bottom))]' : 'min-h-48 translate-y-[calc(100dvh-12rem-env(safe-area-inset-bottom))]' : 'min-h-48 translate-y-[calc(100dvh+1rem)] pointer-events-none opacity-0'
       }`}
     >
-			<div className={`absolute bottom-full left-0 sm:left-4 w-full sm:w-[calc(100%-2rem)] overflow-hidden origin-bottom transition-all ${showHighlightPicker ? "h-20" : "h-0"}`}>
+			<div className={`absolute bottom-[calc(100%+4px)] left-0 sm:left-4 w-full sm:w-[calc(100%-2rem)] overflow-hidden origin-bottom transition-all ${showHighlightPicker ? "h-20" : "h-0"}`}>
 				<div className="flex h-full absolute w-full top-0 left-0 items-end">
 					{[
 						"#ffffff", 
@@ -158,7 +158,7 @@ const ContentWindow = () => {
 						<div
 							key={color}
 							onClick={() => setHighlight(color)}
-							className={`w-auto grow h-16 border border-white rounded-t-full transition origin-bottom cursor-pointer hover:scale-y-125 ${
+							className={`w-auto grow h-16 rounded-t-full rounded-b-full transition origin-bottom cursor-pointer hover:scale-y-125 ${
 								selectedHighlight === color ? "scale-y-125" : ""
 							}`}
 							style={{
@@ -168,11 +168,6 @@ const ContentWindow = () => {
 					))}
 				</div>
 			</div>
-
-      {/* Close button */}
-      <button className='text-4xl p-1 absolute right-0 -top-4 text-[#a58b8b] bg-white rounded-full hover:text-[#ecb1b1] transition-colors' onClick={closeContentWindow}>
-        <FaArrowAltCircleDown />
-      </button>
 
       {/* Emoji sticker button */}
       <button 
@@ -189,7 +184,7 @@ const ContentWindow = () => {
             : ''
           }
         `}>
-          {selectedSticker || <RiEmojiStickerLine className='rounded-full text-[#a58b8b] bg-white hover:text-[#ecb1b1] transition-colors' />}
+          {selectedSticker || <RiEmojiStickerLine className='rounded-full text-[#8a5663] bg-white hover:text-[#df998b] transition-colors' />}
         </div>
       </button>
       {/* Emoji sticker remove button */}
@@ -198,8 +193,9 @@ const ContentWindow = () => {
         	<IoIosCloseCircle />
       	</button>
 			)}
-			<button className={`text-2xl absolute right-14 -top-3 p-1  border-2 border-[#a58b8b] hover:border-[#ecb1b1] rounded-full hover:text-[#ecb1b1] transition-colors ${
-				selectedHighlight === "#ffffff" ? "text-[#a58b8b]" : ""
+			{/* Highlight picker */}
+			<button className={`text-2xl absolute right-12 -top-3 p-1  border-2 border-[#8a5663] hover:border-[#df998b] rounded-full hover:text-[#df998b] transition-colors ${
+				selectedHighlight === "#ffffff" ? "text-[#8a5663]" : ""
 			}`} 
 			style={{
 				backgroundColor: selectedHighlight,
@@ -208,11 +204,17 @@ const ContentWindow = () => {
 			onClick={toggleHighlightPicker}>
 				<PiHighlighterDuotone />
 			</button>
+			
+      {/* Close button */}
+      <button className='text-2xl p-1 border-2 border-[#8a5663] hover:border-[#df998b] absolute right-1 -top-3 text-[#8a5663] bg-white rounded-full hover:text-[#df998b] transition-colors' onClick={closeContentWindow}>
+        <FaArrowDown  />
+      </button>
 
       {/* Emoji picker */}
       <div 
         ref={emojiPickerRef} 
-        className={`fixed right-0 bottom-0 z-20 w-full transition-all
+        className={`fixed right-0 bottom-0 z-20 w-full transition-all rounded-b-[2rem] 
+				overflow-hidden
 				transform-gpu
 				will-change-transform ${
         showEmojiPicker ? "h-[calc(100%-2rem)]" : "translate-y-full opacity-0 pointer-events-none h-0 origin-bottom"
@@ -241,7 +243,7 @@ const ContentWindow = () => {
 						}}></span>
 					)}{selectedWord.translations.target.translation}
 					<button 
-						className="ml-2 text-2xl text-slate-900 hover:text-slate-500 transition-colors"
+						className="ml-2 text-2xl text-[#8a5663] hover:text-[#df998b] transition-colors"
 						onClick={() => playPronunciation(selectedWord.translations.target.translation)}
 					>
 						<FaVolumeUp />

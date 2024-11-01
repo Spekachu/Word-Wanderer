@@ -39,7 +39,7 @@ function App() {
 							<MainMenu />
               <NotificationDisplay />
             </div>
-						<div className="fixed top-0 left-0 w-full h-full mix-blend-screen pointer-events-none z-10">
+						<div className="hidden md:block fixed top-0 left-0 w-full h-full mix-blend-screen pointer-events-none z-10">
 							<Starfield
 							starCount={1000}
 							starColor={[255, 255, 255]}

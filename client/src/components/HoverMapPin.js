@@ -8,13 +8,13 @@ const HoverMapPin = () => {
   const arePositionsEqual = () => {
     if (!hoverPinPosition && !pinPosition) return true;
     if (!hoverPinPosition && pinPosition || !pinPosition && hoverPinPosition) return false;
-    // Compare the exact strings since they're generated with the same calculation
+		
     return hoverPinPosition.x === pinPosition.x && hoverPinPosition.y === pinPosition.y;
   };
 
   return (
     <div
-      className="hidden sm:block fixed text-5xl text-orange-500/50 origin-bottom drop-shadow-[1px_-1px_0_#fff] pointer-events-none animate-wobble will-change-transform"
+      className="hidden md:block fixed text-5xl text-orange-500/50 origin-bottom drop-shadow-[1px_-1px_0_#fff] pointer-events-none animate-wobble will-change-transform"
       style={{
         top: hoverPinPosition ? `${hoverPinPosition.y}` : pinPosition ? `${pinPosition.y}` : '0%',
         left: hoverPinPosition ? `${hoverPinPosition.x}` : pinPosition ? `${pinPosition.x}` : '0%',

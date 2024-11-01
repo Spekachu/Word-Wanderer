@@ -6,7 +6,6 @@ const MapPin = () => {
   const { selectedWord, pinPosition, setPinPosition } = useContext(AppContext);
 
 	useEffect(() => {
-		console.log("selectedWord", selectedWord);
 		if (!selectedWord) {
 			setPinPosition(null);
 		}

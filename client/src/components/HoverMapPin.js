@@ -14,7 +14,7 @@ const HoverMapPin = () => {
 
   return (
     <div
-      className="fixed text-5xl text-orange-500/50 origin-bottom drop-shadow-[1px_-1px_0_#fff] pointer-events-none animate-wobble will-change-transform"
+      className="hidden sm:block fixed text-5xl text-orange-500/50 origin-bottom drop-shadow-[1px_-1px_0_#fff] pointer-events-none animate-wobble will-change-transform"
       style={{
         top: hoverPinPosition ? `${hoverPinPosition.y}` : pinPosition ? `${pinPosition.y}` : '0%',
         left: hoverPinPosition ? `${hoverPinPosition.x}` : pinPosition ? `${pinPosition.x}` : '0%',

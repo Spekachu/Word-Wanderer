@@ -150,7 +150,7 @@ export const MainMenu = () => {
 	);
 
   return (
-    <div id="MainMenu" className="fixed text-white pb-2 pt-[calc(env(safe-area-inset-top)+0.5rem)] pr-[calc(env(safe-area-inset-right)+0.5rem)] pl-[calc(env(safe-area-inset-left)+0.5rem)] top-0 flex items-center justify-center w-full backdrop-blur-xl bg-[#8a5663] bg-opacity-5 border-b border-white z-10">
+    <div id="MainMenu" className="fixed text-white pb-2 pt-[calc(env(safe-area-inset-top)+0.5rem)] pr-[calc(env(safe-area-inset-right)+0.5rem)] pl-[calc(env(safe-area-inset-left)+0.5rem)] top-0 flex items-center justify-center w-full backdrop-blur-xl bg-[#8a5663] bg-opacity-50 border-b border-white z-10">
 			<div className='flex items-center justify-between w-full max-w-screen-xl flex-wrap lg:flex-nowrap'>
 				{/* this is the main menu links */}
 				{menuLinks()}

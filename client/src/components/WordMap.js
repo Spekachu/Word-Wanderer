@@ -316,7 +316,7 @@ const WordMap = () => {
 				</div>
 				
 			</div>
-			<div className="fixed right-2 top-[calc(4rem+env(safe-area-inset-top))] w-36 backdrop-blur-sm bg-black/10 rounded-full h-4 flex items-center justify-center px-2">
+			<div className="fixed right-2 top-[calc(4rem+env(safe-area-inset-top))] w-36 backdrop-blur-sm bg-[#8a5663] bg-opacity-50 rounded-full h-4 flex items-center justify-center px-2">
 				<Slider
 					value={zoomLevel}
 					min={zoomMin}

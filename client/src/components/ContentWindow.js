@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 const ContentWindow = () => {
 	const { isLoggedIn } = useAuth();
-  const { selectedWord, activeContent, setActiveContent, selectedSticker, setSelectedSticker, showEmojiPicker, setShowEmojiPicker,selectedHighlight, setSelectedHighlight, showHighlightPicker, setShowHighlightPicker, userLearningLanguage } = useContext(AppContext);
+  const { selectedWord, setSelectedWord, setPinPosition, activeContent, setActiveContent, selectedSticker, setSelectedSticker, showEmojiPicker, setShowEmojiPicker,selectedHighlight, setSelectedHighlight, showHighlightPicker, setShowHighlightPicker, userLearningLanguage } = useContext(AppContext);
 
 	const emojiPickerRef = useRef(null);
   const { t } = useTranslation();
@@ -18,6 +18,8 @@ const ContentWindow = () => {
     setActiveContent(false);
 		setShowEmojiPicker(false);
 		setShowHighlightPicker(false);
+    setSelectedSticker(null);
+		setPinPosition(null);
   }
 
   function onEmojiClick(emojiData, event) {

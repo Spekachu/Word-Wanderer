@@ -171,6 +171,8 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
         onMouseUp={handleMouseUp}
 				onMouseEnter={handleWordHover}
 				onMouseLeave={handleWordHoverEnd}
+				onTouchStart={handleWordHover}
+				onTouchEnd={handleWordHoverEnd}
         ref={ref}
         className={`word select-none border-2 border-white px-[.75em] pb-1 absolute rounded-full hover:!text-black -translate-x-1/2 -translate-y-1/2 text-nowrap whitespace-nowrap ${
           isSelected ? 'bg-white text-black hover:bg-white' : discoveredThisLanguage ? 'bg-white text-black hover:bg-white' : 'border-dashed hover:bg-white/75'

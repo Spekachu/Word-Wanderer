@@ -32,6 +32,10 @@ module.exports = {
           '0%': { transform: 'translateY(0)', opacity: '1' },
           '100%': { transform: 'translateY(100%)', opacity: '0' },
         },
+        'wobble': {
+          '0%': { transform: 'translate(-50%, -100%) rotateZ(5deg)'},
+          '100%': { transform: 'translate(-50%, -100%) rotateZ(25deg)'},
+        },
       },
       animation: {
         'slide-in-right': 'slide-in-right 0.3s linear',
@@ -40,6 +44,7 @@ module.exports = {
         'slide-out-left': 'slide-out-left 0.3s linear forwards',
         'slide-in-up': 'slide-in-up 0.3s linear',
         'slide-out-up': 'slide-out-up 0.3s linear forwards',
+        'wobble': 'wobble 1s ease-in-out infinite alternate',
       },
     },
   },

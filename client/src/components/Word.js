@@ -180,7 +180,7 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
           left: `calc(50% + ${position.centerX}px)`,
           position: 'absolute',
           transition: `color .25s ease, background .25s ease, box-shadow .25s ease, border .25s ease, opacity .25s ease`,
-          fontSize: `${Math.max(1.5, 3 - Math.min(index / 30, 1.5))}rem`,
+          fontSize: `2.5rem`,
           ...(highlight !== "#ffffff" && discoveredThisLanguage && { backgroundColor: highlight }),
           ...(highlight !== "#ffffff" && !discoveredThisLanguage && isSelected && { backgroundColor: highlight }),
           ...(highlight !== "#ffffff" && !discoveredThisLanguage && !isSelected && { color: highlight }),
@@ -198,7 +198,7 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
             left: `calc(50% + ${position.centerX - (dimensions.width / 2)}px + .35em)`,
             position: 'absolute',
             transition: `color .25s ease, background .25s ease, box-shadow .25s ease, opacity .25s ease`,
-            fontSize: `${Math.max(1.5, 2.25 - Math.min(index / 30, 1))}rem`
+						fontSize: `2.5rem`,
           }}
         >
           {sticker}

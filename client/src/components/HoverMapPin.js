@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { IoLocationSharp  } from "react-icons/io5";
 import { AppContext } from '../contexts/AppContext';
 
@@ -7,7 +7,7 @@ const HoverMapPin = () => {
 
   const arePositionsEqual = () => {
     if (!hoverPinPosition && !pinPosition) return true;
-    if (!hoverPinPosition && pinPosition || !pinPosition && hoverPinPosition) return false;
+    if ((!hoverPinPosition && pinPosition) || (!pinPosition && hoverPinPosition)) return false;
 		
     return hoverPinPosition.x === pinPosition.x && hoverPinPosition.y === pinPosition.y;
   };

@@ -46,7 +46,7 @@ module.exports = {
         'slide-out-up': 'slide-out-up 0.3s linear forwards',
         'wobble': 'wobble 1s ease-in-out infinite alternate',
       },
-    },
-  },
+		},
+	},
   plugins: []
 }

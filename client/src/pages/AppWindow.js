@@ -1,5 +1,8 @@
 import { useContext } from 'react';
 import { AppContext } from '../contexts/AppContext';
+import { WordMapProvider } from '../contexts/WordMapContext';
+import WordMap from '../components/WordMap';
+import ContentWindow from '../components/ContentWindow';
 
 export const AppWindow = ({ children }) => {
 
@@ -10,7 +13,10 @@ export const AppWindow = ({ children }) => {
 		className={`min-h-dvh max-w-[2000px] mx-auto ${
 			activeContent ?  '' : 'overflow-hidden'
 		}`}>
-      {children}
+			<WordMapProvider>
+				<WordMap />
+				<ContentWindow />
+			</WordMapProvider>
     </div>
   );
 };

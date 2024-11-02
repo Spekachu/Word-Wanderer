@@ -2,6 +2,8 @@ import { forwardRef, useContext, useEffect, useState, useCallback } from 'react'
 import { AppContext } from '../contexts/AppContext';
 import { useNotification } from '../contexts/NotificationContext';
 import { useAuth } from '../contexts/AuthContext';
+import { WordMapContext } from '../contexts/WordMapContext';
+import { useAnimationFrame } from '../hooks/useAnimationFrame';
 
 const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 	const { isLoggedIn, logout, getAuthHeaders, userWordAssociations, updateUserWordAssociation } = useAuth();
@@ -20,8 +22,11 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 		resetHoverPinPosition,
 		holdHoverPinPosition
   } = useContext(AppContext);
+	const { setPanOffset } = useContext(WordMapContext);
 
   const { addNotification } = useNotification();
+
+	const queueUpdate = useAnimationFrame();
 
   const [discovered, setDiscovered] = useState(!!userWordAssociations[word.id]);
   const [sticker, setSticker] = useState(userWordAssociations[word.id]?.emoji || "");
@@ -107,7 +112,11 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
       setActiveContent(false);
       setPinPosition(null);
     } else {
-			callSetPinPosition();
+			queueUpdate(() => {
+				console.log("word position:",position);
+				setPanOffset({ x: Number(-position.centerX), y: Number(-position.centerY) });
+				callSetPinPosition();
+			});
       setSelectedSticker(sticker);
       setSelectedHighlight(highlight);
       if (!discoveredThisLanguage) {
@@ -119,7 +128,7 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
       setActiveContent(true);
       setSelectedWord(word);
     }
-  }, [selectedWord, word, activeContent, sticker, highlight, discovered, setShowEmojiPicker, setSelectedHighlight, setActiveContent, setShowHighlightPicker, setSelectedSticker, setSelectedWord, saveWordAssociation, setPinPosition, callSetPinPosition]);
+  }, [selectedWord, word, activeContent, sticker, highlight, discovered, setShowEmojiPicker, setSelectedHighlight, setActiveContent, setShowHighlightPicker, setSelectedSticker, setSelectedWord, saveWordAssociation, setPinPosition, callSetPinPosition, position, queueUpdate]);
 
   useEffect(() => {
     if (selectedWord?.id === word.id && activeContent) {

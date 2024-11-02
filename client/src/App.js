@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import WordMap from './components/WordMap';
-import ContentWindow from './components/ContentWindow';
 import { WordProvider } from './contexts/AppContext';
 import { AuthProvider } from './contexts/AuthContext';
 import { NotificationProvider } from './contexts/NotificationContext';
@@ -26,10 +24,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/map" element={
-                    <AppWindow>
-                      <WordMap />
-                      <ContentWindow />
-                    </AppWindow>
+                    <AppWindow/>
                   } />
 									<Route path="/register" element={<Register />} />
 									<Route path="/login" element={<Login />} />

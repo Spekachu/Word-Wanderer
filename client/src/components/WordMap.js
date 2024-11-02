@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef, useCallback, useContext, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useCallback, useContext } from 'react';
 import Word from './Word';
 import { AppContext } from '../contexts/AppContext';
+import { WordMapContext } from '../contexts/WordMapContext';
 import useDebounce from '../utils/useDebounce';
 import { useNotification } from '../contexts/NotificationContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -22,15 +23,15 @@ const WordMap = () => {
 		cefrLevel,
 		relatedContext,
 		userLanguage,
-		userLearningLanguage	,
+		userLearningLanguage,
 		zoomLevel, setZoomLevel	
 	} = useContext(AppContext);
+	const { panOffset, setPanOffset } = useContext(WordMapContext);
 	const [wordList, setWordList] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const wordRefs = useRef([]); // To store references to word elements
 	const mapRef = useRef(null); // Reference to the word map container
-	const [panOffset, setPanOffset] = useState({ x: 0, y: 0 }); // Current offset
   const zoomMin = 0.5;
   const zoomMax = 1;
 	const [positions, setPositions] = useState([null]);
@@ -74,16 +75,19 @@ const WordMap = () => {
 	}, [zoomLevel, queueUpdate]);
 
 	const handlePan = useCallback((deltaX, deltaY) => {
+		console.log("QUEUEING");
 		queueUpdate(() => {
+			console.log("PANNING");
 			const mapRect = mapRef.current.getBoundingClientRect();
 			const minX = -mapRect.width / 2;
 			const maxX = mapRect.width / 2;
 			const minY = -mapRect.height / 2;
 			const maxY = mapRect.height / 2;
 
+			console.log("pan oldOffset:", { panOffset });
 			const newOffsetX = Math.max(minX, Math.min(maxX, panOffset.x + deltaX));
 			const newOffsetY = Math.max(minY, Math.min(maxY, panOffset.y + deltaY));
-
+			console.log("pan newOffset:", { newOffsetX, newOffsetY });
 			setPanOffset({ x: newOffsetX, y: newOffsetY });
 		});
 	}, [panOffset, queueUpdate]);

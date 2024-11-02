@@ -120,10 +120,6 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 				let newY = Number(-(position.centerY+dimensions.height)*zoomLevel);
 				if (window.innerWidth <= 768) {
 					setPanOffset({ x: newX, y: newY });
-				} else {
-					newX = newX/2;
-					newY = newY/2;
-					setPanOffset({ x: newX, y: newY });
 				}
 				callSetPinPosition();
 			});

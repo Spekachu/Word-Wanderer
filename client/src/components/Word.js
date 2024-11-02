@@ -20,9 +20,10 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 		setHoverPinPosition,
 		setIsHovering,
 		resetHoverPinPosition,
-		holdHoverPinPosition
+		holdHoverPinPosition,
+		zoomLevel
   } = useContext(AppContext);
-	const { setPanOffset } = useContext(WordMapContext);
+	const { panOffset, setPanOffset } = useContext(WordMapContext);
 
   const { addNotification } = useNotification();
 
@@ -111,10 +112,19 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
     if (selectedWord?.id === word.id && activeContent) {
       setActiveContent(false);
       setPinPosition(null);
+			resetHoverPinPosition();
     } else {
 			queueUpdate(() => {
-				console.log("word position:",position);
-				setPanOffset({ x: Number(-position.centerX), y: Number(-position.centerY) });
+				//only setPanOffset on mobile screens
+				let newX = Number(-position.centerX*zoomLevel);
+				let newY = Number(-(position.centerY+dimensions.height)*zoomLevel);
+				if (window.innerWidth <= 768) {
+					setPanOffset({ x: newX, y: newY });
+				} else {
+					newX = newX/2;
+					newY = newY/2;
+					setPanOffset({ x: newX, y: newY });
+				}
 				callSetPinPosition();
 			});
       setSelectedSticker(sticker);

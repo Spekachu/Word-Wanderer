@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
-const port = isDevelopment ? 5002 : (process.env.PORT || 8080);
+const port = isDevelopment ? (process.env.DEV_PORT || 5000) : (process.env.PORT || 8080);
 const prisma = new PrismaClient();
 
 import wordsRoute from './src/routes/wordsRoute.js';

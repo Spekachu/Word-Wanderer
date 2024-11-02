@@ -75,19 +75,15 @@ const WordMap = () => {
 	}, [zoomLevel, queueUpdate]);
 
 	const handlePan = useCallback((deltaX, deltaY) => {
-		console.log("QUEUEING");
 		queueUpdate(() => {
-			console.log("PANNING");
 			const mapRect = mapRef.current.getBoundingClientRect();
 			const minX = -mapRect.width / 2;
 			const maxX = mapRect.width / 2;
 			const minY = -mapRect.height / 2;
 			const maxY = mapRect.height / 2;
 
-			console.log("pan oldOffset:", { panOffset });
 			const newOffsetX = Math.max(minX, Math.min(maxX, panOffset.x + deltaX));
 			const newOffsetY = Math.max(minY, Math.min(maxY, panOffset.y + deltaY));
-			console.log("pan newOffset:", { newOffsetX, newOffsetY });
 			setPanOffset({ x: newOffsetX, y: newOffsetY });
 		});
 	}, [panOffset, queueUpdate]);
@@ -302,7 +298,8 @@ const WordMap = () => {
 				<div className="absolute left-1/2 top-1/2 transform-gpu -translate-x-1/2 -translate-y-1/2">
 					<div ref={mapRef} className='will-change-transform' 
 					style={{
-						transform: `translate3d(${panOffset.x}px, ${panOffset.y}px, 0) scale(${zoomLevel})`
+						transform: `translate3d(${panOffset.x}px, ${panOffset.y}px, 0) scale(${zoomLevel})`,
+						transition: isDragging ? 'none' : 'transform 0.25s ease-out',
 					}}>
 						{wordList?.map((word, index) => (
 							<Word

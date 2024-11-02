@@ -125,7 +125,7 @@ export const WordProvider = ({ children }) => {
 		if (hoverTimer) clearTimeout(hoverTimer);
 		hoverTimer = setTimeout(() => {
 			if (!isHovering) setHoverPinPosition(null);
-		}, 2000);
+		}, 1000);
 	}
 
 	const holdHoverPinPosition = () => {

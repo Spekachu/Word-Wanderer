@@ -28,7 +28,7 @@ export const WordProvider = ({ children }) => {
   const [cefrLevel, set_cefrLevel] = useState("a1");
   const [relatedContext, set_relatedContext] = useState("");
   const [userLanguage, set_userLanguage] = useState("en");
-  const [zoomLevel, setZoomLevel] = useState(0.75);
+  const [zoomLevel, setZoomLevel] = useState(window.innerWidth < 768 ? 0.75 : .9);
   const learning = i18n.language === "de" ? "en" : "de";
   const [userLearningLanguage, set_userLearningLanguage] = useState(learning);
 

@@ -36,6 +36,10 @@ module.exports = {
           '0%': { transform: 'translate(-50%, -100%) rotateZ(5deg)'},
           '100%': { transform: 'translate(-50%, -100%) rotateZ(25deg)'},
         },
+        'inset': {
+          '0%': { opacity: '0.5'},
+          '100%': { opacity: '1'},
+        },
       },
       animation: {
         'slide-in-right': 'slide-in-right 0.3s linear',
@@ -45,6 +49,7 @@ module.exports = {
         'slide-in-up': 'slide-in-up 0.3s linear',
         'slide-out-up': 'slide-out-up 0.3s linear forwards',
         'wobble': 'wobble 1s ease-in-out infinite alternate',
+        'inset': 'inset 1s linear infinite alternate',
       },
 		},
 	},

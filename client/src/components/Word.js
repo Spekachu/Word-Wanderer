@@ -205,8 +205,27 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 				onMouseEnter={handleWordHover}
 				onMouseLeave={handleWordHoverEnd}
         ref={ref}
-        className={`word select-none border-2 border-white px-[.75em] pb-1 absolute rounded-full hover:!text-black -translate-x-1/2 -translate-y-1/2 text-nowrap whitespace-nowrap ${
-          isSelected ? 'bg-white text-black hover:bg-white' : discoveredThisLanguage ? 'bg-white text-black hover:bg-white' : 'border-dashed hover:bg-white/75'
+        className={`word select-none 
+					border-2 border-white 
+					px-[.75em] pb-1 
+					absolute 
+					rounded-full 
+					hover:!text-black 
+					-translate-x-1/2 -translate-y-1/2 
+					text-nowrap 
+					whitespace-nowrap 
+					before:content-[\'\']
+					before:rounded-full
+					before:absolute
+					before:inset-[2px]
+					before:border-2
+					before:border-orange-500
+					before:border-dashed
+					before:pointer-events-none
+					before:opacity-0
+					before:transition-opacity
+					${
+          isSelected ? 'bg-white text-black hover:bg-white before:opacity-100' : discoveredThisLanguage ? 'bg-white text-black hover:bg-white' : 'border-dashed hover:bg-white/75'
         }`}
         style={{
           top: `calc(50% + ${position.centerY}px)`,

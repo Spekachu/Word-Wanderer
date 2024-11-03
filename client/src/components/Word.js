@@ -118,7 +118,25 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 				//only setPanOffset on mobile screens
 				let newX = Number(-position.centerX*zoomLevel);
 				let newY = Number(-(position.centerY+dimensions.height)*zoomLevel);
+				const winWFraction = window.innerWidth/4;
+				const winHFraction = window.innerHeight/8;
 				if (window.innerWidth <= 768) {
+					setPanOffset({ x: newX, y: newY });
+				} else {
+					const xD = panOffset.x - newX;
+					const xNewD = Math.abs(xD) - winWFraction;
+					if (Math.abs(xD) > winWFraction) {
+						newX = xD > 0 ? panOffset.x - xNewD : panOffset.x + xNewD;
+					} else {
+						newX = panOffset.x;
+					}
+					const yD = panOffset.y - newY;
+					const yNewD = Math.abs(yD) - winHFraction;
+					if (Math.abs(yD) > winHFraction) {
+						newY = yD > 0 ? panOffset.y - yNewD : panOffset.y + (yNewD/1);
+					} else {
+						newY = panOffset.y;
+					}
 					setPanOffset({ x: newX, y: newY });
 				}
 				callSetPinPosition();

@@ -299,7 +299,7 @@ const WordMap = () => {
 					<div ref={mapRef} className='will-change-transform' 
 					style={{
 						transform: `translate3d(${panOffset.x}px, ${panOffset.y}px, 0) scale(${zoomLevel})`,
-						transition: isDragging ? 'none' : 'transform 0.25s ease-out',
+						transition: isDragging ? 'none' : 'transform 0.5s ease-out',
 					}}>
 						{wordList?.map((word, index) => (
 							<Word

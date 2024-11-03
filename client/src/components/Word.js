@@ -250,7 +250,7 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
             left: `calc(50% + ${position.centerX - (dimensions.width / 2)}px + .35em)`,
             position: 'absolute',
             transition: `color .25s ease, background .25s ease, box-shadow .25s ease, opacity .25s ease`,
-						fontSize: `2.5rem`,
+						fontSize: `2.25rem`,
           }}
         >
           {sticker}

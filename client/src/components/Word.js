@@ -225,7 +225,7 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 					before:opacity-0
 					before:transition-opacity
 					${
-          isSelected ? 'bg-white text-black hover:bg-white before:opacity-100 before:animate-inset' : discoveredThisLanguage ? 'bg-white text-black hover:bg-white' : 'border-dashed hover:bg-white/75'
+          isSelected ? 'bg-white text-black hover:bg-white before:opacity-100' : discoveredThisLanguage ? 'bg-white text-black hover:bg-white' : 'border-dashed hover:bg-white/75'
         }`}
         style={{
           top: `calc(50% + ${position.centerY}px)`,

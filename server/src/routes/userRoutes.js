@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { PrismaClient } from '@prisma/client';
 import { validateColor } from '../utils/validators.js';
 import { getUserWordAssociations } from '../queries/getUserWordAssociations.js';
+import { sendPasswordResetEmail } from '../actions/sendPasswordResetEmail.js';
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -349,6 +350,75 @@ router.post('/user-preferences/:userId', authenticateUser, async (req, res) => {
     console.error('Server error saving user preferences:', error);
     res.status(500).json({ message: 'Server error', error: error.message });
   }
+});
+
+// Update Password 
+router.post('/update-password', authenticateUser, async (req, res) => {
+	try {
+		const { oldPassword, newPassword } = req.body;
+		const user = req.user;
+
+		const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
+		if (!isPasswordValid) {
+			return res.status(401).json({ message: 'Invalid current password' });
+		}
+
+		const hashedPassword = await bcrypt.hash(newPassword, 10);
+		const updatedUser = await prisma.users.update({
+			where: { user_id: user.id },
+			data: { password: hashedPassword },
+		});
+		res.status(200).json({ message: 'Password updated successfully' });
+	} catch (error) {
+		res.status(500).json({ message: 'Server error', error: error.message });
+	}
+});
+
+// forgot password
+router.post('/forgot-password', async (req, res) => {
+	try {
+		const { email } = req.body;
+		const user = await prisma.users.findUnique({ where: { email } });
+		if (!user) {
+			return res.status(404).json({ message: 'User not found' });
+		}
+		await sendPasswordResetEmail(email);
+		res.status(200).json({ message: 'Password reset email sent' });
+	} catch (error) {
+		res.status(500).json({ message: 'Server error', error: error.message });
+	}
+});
+
+// reset password
+router.post('/reset-password/:token', async (req, res) => {
+	try {
+		const { password } = req.body;
+		const { token } = req.params;
+		const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+		const user = await prisma.users.findUnique({ where: { email: decodedToken.email } });
+		if (!user) {
+			return res.status(404).json({ message: 'User not found' });
+		}
+		const hashedPassword = await bcrypt.hash(password, 10);
+		await prisma.users.update({
+			where: { user_id: user.id },
+			data: { password: hashedPassword },
+		});
+		res.status(200).json({ message: 'Password updated successfully' });
+	} catch (error) {
+		res.status(500).json({ message: 'Server error', error: error.message });
+	}
+});
+
+// delete profile
+router.delete('/delete-profile', authenticateUser, async (req, res) => {
+	try {
+		const user = req.user;
+		await prisma.users.delete({ where: { user_id: user.id } });
+		res.status(200).json({ message: 'Profile deleted successfully' });
+	} catch (error) {
+		res.status(500).json({ message: 'Server error', error: error.message });
+	}
 });
 
 export default router;

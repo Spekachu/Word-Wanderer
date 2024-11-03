@@ -37,8 +37,8 @@ module.exports = {
           '100%': { transform: 'translate(-50%, -100%) rotateZ(25deg)'},
         },
         'inset': {
-          '0%': { opacity: '0.5'},
-          '100%': { opacity: '1'},
+          '0%': { opacity: '.5', inset: '-4px'},
+          '100%': { opacity: '1', inset: '4px'},
         },
       },
       animation: {

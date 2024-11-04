@@ -29,7 +29,6 @@ const Profile = () => {
 		}
 
 		try {
-			console.log('trying update password',currentPasswordRef.current.value, newPasswordRef.current.value);
 			await updatePassword(currentPasswordRef.current.value, newPasswordRef.current.value);
 			addNotification(t('profile.passwordUpdateSuccess'), 'success');
 			currentPasswordRef.current.value = '';
@@ -129,7 +128,7 @@ const Profile = () => {
 						))}
 					</div>
 					{passwordError && (
-						<p className="text-red-400 text-sm mt-2">{t(passwordError)}</p>
+						<p className="text-red-400 text-sm mt-2">{passwordError}</p>
 					)}
 					<div>
 						<button

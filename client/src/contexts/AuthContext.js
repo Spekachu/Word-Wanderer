@@ -58,7 +58,6 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
 		try {
-			console.log('Checking authentication');
 			const result = await refreshAccessToken();
 			if (result) {
 				setIsLoggedIn(true);

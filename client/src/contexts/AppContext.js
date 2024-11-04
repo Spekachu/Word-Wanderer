@@ -70,9 +70,7 @@ export const WordProvider = ({ children }) => {
 	
   const loadUserPreferences = async () => {
     try {
-      console.log("fetching user prefs");
       const { part_of_speech, cefr_level, user_language, learning_language, zoom_level } = await api.fetchUserPreferences(currentUser.id, getAuthHeaders);
-      console.log("user prefs fetched", { part_of_speech, cefr_level, user_language, learning_language, zoom_level });
       
       if (part_of_speech) set_partOfSpeech(part_of_speech);
       if (cefr_level) set_cefrLevel(cefr_level);
@@ -86,7 +84,6 @@ export const WordProvider = ({ children }) => {
 
   const saveUserPreferences = async () => {
     try {
-      console.log("Client saving user prefs");
       await api.saveUserPreferences(currentUser.id, {
         part_of_speech: debouncedPartOfSpeech,
         cefr_level: debouncedCefrLevel,

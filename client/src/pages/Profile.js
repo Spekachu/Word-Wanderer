@@ -3,11 +3,10 @@ import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useNotification } from '../contexts/NotificationContext';
 import { useTranslation } from 'react-i18next';
-import { useVerifyCurrentPassword } from '../api/useVerifyCurrentPassword';
 
 const Profile = () => {
 	const navigate = useNavigate();
-	const { checkAuth, currentUser, updatePassword, sendPasswordResetEmail, deleteUser, logout, userWordAssociations, getAuthHeaders } = useAuth();
+	const { checkAuth, currentUser, updatePassword, sendPasswordResetEmail, deleteUser, logout, userWordAssociations } = useAuth();
 	const { addNotification } = useNotification();
 	const currentPasswordRef = useRef();
 	const newPasswordRef = useRef();
@@ -30,18 +29,8 @@ const Profile = () => {
 		}
 
 		try {
-			const isCurrentPasswordValid = await useVerifyCurrentPassword(
-				currentUser.email, 
-				currentPasswordRef.current.value,
-				getAuthHeaders
-			);
-			
-			if (!isCurrentPasswordValid) {
-				addNotification(t('profile.currentPasswordIncorrect'), 'error');
-				return;
-			}
-
-			await updatePassword(newPasswordRef.current.value);
+			console.log('trying update password',currentPasswordRef.current.value, newPasswordRef.current.value);
+			await updatePassword(currentPasswordRef.current.value, newPasswordRef.current.value);
 			addNotification(t('profile.passwordUpdateSuccess'), 'success');
 			currentPasswordRef.current.value = '';
 			newPasswordRef.current.value = '';
@@ -122,6 +111,7 @@ const Profile = () => {
 						{['currentPassword', 'newPassword', 'confirmNewPassword'].map((field) => (
 							<div key={field} className="relative">
 								<input
+									onChange={() => setPasswordError('')}
 									type="password"
 									id={field}
 									ref={field === 'currentPassword' ? currentPasswordRef : field === 'newPassword' ? newPasswordRef : newPasswordConfirmRef}
@@ -152,7 +142,7 @@ const Profile = () => {
 					</div>
 				</form>
 
-				<div className="mt-4">
+				<div className="mt-4 hidden">
 					<button
 						onClick={handleForgotPassword}
 						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
@@ -161,7 +151,7 @@ const Profile = () => {
 					</button>
 				</div>
 
-				<div className="mt-4">
+				<div className="mt-4 hidden">
 					<button
 						onClick={handleDeleteProfile}
 						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border bg-red-100 border-red-700 text-red-700 hover:bg-red-500 hover:text-white transition-colors"

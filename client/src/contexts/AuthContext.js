@@ -146,7 +146,7 @@ export const AuthProvider = ({ children }) => {
       const response = await fetch(`${apiUrl}/user/update-password`, {
         method: 'POST',
         headers: getAuthHeaders(),
-        body: JSON.stringify({ currentPassword, newPassword }),
+        body: JSON.stringify({ email: currentUser.email, oldPassword:currentPassword, newPassword }),
       });
       const data = await response.json();
       if (response.ok) {

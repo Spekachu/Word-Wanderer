@@ -131,7 +131,7 @@ router.post('/logout', (req, res) => {
 });
 
 const authenticateUser = (req, res, next) => {
-	console.log('Api call requires authentication');
+	// console.log('Api call requires authentication');
 	const authHeader = req.headers['authorization'];
 	// console.log('Auth header:', authHeader);
 
@@ -240,7 +240,7 @@ router.post('/word-association', authenticateUser, async (req, res) => {
 // Get user-word associations
 router.get('/word-associations', authenticateUser, async (req, res) => {
   try {
-		console.log('Fetching user word associations');
+		// console.log('Fetching user word associations');
     if (req.user) {
       const associationsMap = await getUserWordAssociations(req.user.id);
       res.json(associationsMap);
@@ -310,7 +310,7 @@ router.get('/user-preferences/:userId', authenticateUser, async (req, res) => {
 // Save user preferences
 router.post('/user-preferences/:userId', authenticateUser, async (req, res) => {
   try {
-    console.log('Server saving user preferences:', req.body);
+    // console.log('Server saving user preferences:', req.body);
     const userId = parseInt(req.params.userId);
     
     if (userId !== req.user.id) {
@@ -355,18 +355,24 @@ router.post('/user-preferences/:userId', authenticateUser, async (req, res) => {
 // Update Password 
 router.post('/update-password', authenticateUser, async (req, res) => {
 	try {
-		const { oldPassword, newPassword } = req.body;
-		const user = req.user;
+		// console.log('Updating password', req.body);
+		const { email, oldPassword, newPassword } = req.body;
+		
+    // Find user by email
+    const user = await prisma.users.findUnique({ where: { email } });
+    if (!user) {
+      return res.status(400).json({ isValid: false });
+    }
 
-		const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
+		const isPasswordValid = await bcrypt.compare(oldPassword, user.hashed_password);
 		if (!isPasswordValid) {
 			return res.status(401).json({ message: 'Invalid current password' });
 		}
 
 		const hashedPassword = await bcrypt.hash(newPassword, 10);
 		const updatedUser = await prisma.users.update({
-			where: { user_id: user.id },
-			data: { password: hashedPassword },
+			where: { user_id: user.user_id },
+			data: { hashed_password: hashedPassword },
 		});
 		res.status(200).json({ message: 'Password updated successfully' });
 	} catch (error) {

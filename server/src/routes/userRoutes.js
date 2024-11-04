@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { PrismaClient } from '@prisma/client';
 import { validateColor } from '../utils/validators.js';
 import { getUserWordAssociations } from '../queries/getUserWordAssociations.js';
+import { sendPasswordResetEmail } from '../actions/sendPasswordResetEmail.js';
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -130,7 +131,7 @@ router.post('/logout', (req, res) => {
 });
 
 const authenticateUser = (req, res, next) => {
-	console.log('Api call requires authentication');
+	// console.log('Api call requires authentication');
 	const authHeader = req.headers['authorization'];
 	// console.log('Auth header:', authHeader);
 
@@ -239,7 +240,7 @@ router.post('/word-association', authenticateUser, async (req, res) => {
 // Get user-word associations
 router.get('/word-associations', authenticateUser, async (req, res) => {
   try {
-		console.log('Fetching user word associations');
+		// console.log('Fetching user word associations');
     if (req.user) {
       const associationsMap = await getUserWordAssociations(req.user.id);
       res.json(associationsMap);
@@ -309,7 +310,7 @@ router.get('/user-preferences/:userId', authenticateUser, async (req, res) => {
 // Save user preferences
 router.post('/user-preferences/:userId', authenticateUser, async (req, res) => {
   try {
-    console.log('Server saving user preferences:', req.body);
+    // console.log('Server saving user preferences:', req.body);
     const userId = parseInt(req.params.userId);
     
     if (userId !== req.user.id) {
@@ -349,6 +350,101 @@ router.post('/user-preferences/:userId', authenticateUser, async (req, res) => {
     console.error('Server error saving user preferences:', error);
     res.status(500).json({ message: 'Server error', error: error.message });
   }
+});
+
+// Update Password 
+router.post('/update-password', authenticateUser, async (req, res) => {
+	try {
+		// console.log('Updating password', req.body);
+		const { email, oldPassword, newPassword } = req.body;
+		
+    // Find user by email
+    const user = await prisma.users.findUnique({ where: { email } });
+    if (!user) {
+      return res.status(400).json({ isValid: false });
+    }
+
+		const isPasswordValid = await bcrypt.compare(oldPassword, user.hashed_password);
+		if (!isPasswordValid) {
+			return res.status(401).json({ message: 'Invalid current password' });
+		}
+
+		const hashedPassword = await bcrypt.hash(newPassword, 10);
+		const updatedUser = await prisma.users.update({
+			where: { user_id: user.user_id },
+			data: { hashed_password: hashedPassword },
+		});
+		res.status(200).json({ message: 'Password updated successfully' });
+	} catch (error) {
+		res.status(500).json({ message: 'Server error', error: error.message });
+	}
+});
+
+// forgot password
+router.post('/forgot-password', async (req, res) => {
+	try {
+		const { email } = req.body;
+		const user = await prisma.users.findUnique({ where: { email } });
+		if (!user) {
+			return res.status(404).json({ message: 'User not found' });
+		}
+		await sendPasswordResetEmail(email);
+		res.status(200).json({ message: 'Password reset email sent' });
+	} catch (error) {
+		res.status(500).json({ message: 'Server error', error: error.message });
+	}
+});
+
+// reset password
+router.post('/reset-password/:token', async (req, res) => {
+	try {
+		const { password } = req.body;
+		const { token } = req.params;
+		const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+		const user = await prisma.users.findUnique({ where: { email: decodedToken.email } });
+		if (!user) {
+			return res.status(404).json({ message: 'User not found' });
+		}
+		const hashedPassword = await bcrypt.hash(password, 10);
+		await prisma.users.update({
+			where: { user_id: user.id },
+			data: { password: hashedPassword },
+		});
+		res.status(200).json({ message: 'Password updated successfully' });
+	} catch (error) {
+		res.status(500).json({ message: 'Server error', error: error.message });
+	}
+});
+
+// Verify current password
+router.post('/verify-password', authenticateUser, async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Find user by email
+    const user = await prisma.users.findUnique({ where: { email } });
+    if (!user) {
+      return res.status(400).json({ isValid: false });
+    }
+
+    // Check password
+    const isMatch = await bcrypt.compare(password, user.hashed_password);
+    res.json({ isValid: isMatch });
+  } catch (error) {
+    console.error('Password verification error:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
+// delete profile
+router.delete('/delete-profile', authenticateUser, async (req, res) => {
+	try {
+		const user = req.user;
+		await prisma.users.delete({ where: { user_id: user.id } });
+		res.status(200).json({ message: 'Profile deleted successfully' });
+	} catch (error) {
+		res.status(500).json({ message: 'Server error', error: error.message });
+	}
 });
 
 export default router;

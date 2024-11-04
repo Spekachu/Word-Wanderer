@@ -58,7 +58,6 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
 		try {
-			console.log('Checking authentication');
 			const result = await refreshAccessToken();
 			if (result) {
 				setIsLoggedIn(true);
@@ -146,7 +145,7 @@ export const AuthProvider = ({ children }) => {
       const response = await fetch(`${apiUrl}/user/update-password`, {
         method: 'POST',
         headers: getAuthHeaders(),
-        body: JSON.stringify({ currentPassword, newPassword }),
+        body: JSON.stringify({ email: currentUser.email, oldPassword:currentPassword, newPassword }),
       });
       const data = await response.json();
       if (response.ok) {
@@ -234,7 +233,8 @@ export const AuthProvider = ({ children }) => {
       sendPasswordResetEmail,
       userWordAssociations, setUserWordAssociations,
 			updateUserWordAssociation,
-      deleteUser
+      deleteUser,
+			apiUrl
     }}>
       {children}
     </AuthContext.Provider>

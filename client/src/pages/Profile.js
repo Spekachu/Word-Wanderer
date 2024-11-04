@@ -29,17 +29,7 @@ const Profile = () => {
 		}
 
 		try {
-			const isCurrentPasswordValid = await verifyCurrentPassword(
-				currentUser.email, 
-				currentPasswordRef.current.value
-			);
-			
-			if (!isCurrentPasswordValid) {
-				addNotification(t('profile.currentPasswordIncorrect'), 'error');
-				return;
-			}
-
-			await updatePassword(newPasswordRef.current.value);
+			await updatePassword(currentPasswordRef.current.value, newPasswordRef.current.value);
 			addNotification(t('profile.passwordUpdateSuccess'), 'success');
 			currentPasswordRef.current.value = '';
 			newPasswordRef.current.value = '';
@@ -120,16 +110,17 @@ const Profile = () => {
 						{['currentPassword', 'newPassword', 'confirmNewPassword'].map((field) => (
 							<div key={field} className="relative">
 								<input
+									onChange={() => setPasswordError('')}
 									type="password"
 									id={field}
 									ref={field === 'currentPassword' ? currentPasswordRef : field === 'newPassword' ? newPasswordRef : newPasswordConfirmRef}
 									required
-									className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-white bg-white appearance-none focus:outline-none focus:ring-0 focus:border-rose-600 peer"
+									className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-white bg-white appearance-none focus:outline-none focus:ring-0 focus:border-orange-600 peer"
 									placeholder=" "
 								/>
 								<label
 									htmlFor={field}
-									className="absolute pointer-events-none text-sm rounded-md text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-rose-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
+									className="absolute pointer-events-none text-sm rounded-md text-gray-6 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-orange-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
 								>
 									{t(`profile.${field}`)}
 								</label>
@@ -137,12 +128,12 @@ const Profile = () => {
 						))}
 					</div>
 					{passwordError && (
-						<p className="text-red-400 text-sm mt-2">{t(passwordError)}</p>
+						<p className="text-red-400 text-sm mt-2">{passwordError}</p>
 					)}
 					<div>
 						<button
 							type="submit"
-							className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
+							className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-fuchsia-950 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
 							disabled={passwordError !== ''}
 						>
 							{t('profile.updatePassword')}
@@ -150,16 +141,16 @@ const Profile = () => {
 					</div>
 				</form>
 
-				<div className="mt-4">
+				<div className="mt-4 hidden">
 					<button
 						onClick={handleForgotPassword}
-						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
+						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border border-white hover:bg-white text-white hover:text-fuchsia-950 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
 					>
 						{t('profile.forgotPassword')}
 					</button>
 				</div>
 
-				<div className="mt-4">
+				<div className="mt-4 hidden">
 					<button
 						onClick={handleDeleteProfile}
 						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border bg-red-100 border-red-700 text-red-700 hover:bg-red-500 hover:text-white transition-colors"
@@ -206,9 +197,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-// This function should be implemented to verify the current password with your backend
-const verifyCurrentPassword = async (email, password) => {
-	// Implement your API call to verify the password
-	// Return true if the password is correct, false otherwise
-};

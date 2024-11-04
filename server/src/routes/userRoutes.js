@@ -410,6 +410,26 @@ router.post('/reset-password/:token', async (req, res) => {
 	}
 });
 
+// Verify current password
+router.post('/verify-password', authenticateUser, async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Find user by email
+    const user = await prisma.users.findUnique({ where: { email } });
+    if (!user) {
+      return res.status(400).json({ isValid: false });
+    }
+
+    // Check password
+    const isMatch = await bcrypt.compare(password, user.hashed_password);
+    res.json({ isValid: isMatch });
+  } catch (error) {
+    console.error('Password verification error:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
 // delete profile
 router.delete('/delete-profile', authenticateUser, async (req, res) => {
 	try {

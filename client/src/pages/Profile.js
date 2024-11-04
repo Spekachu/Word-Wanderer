@@ -3,10 +3,11 @@ import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useNotification } from '../contexts/NotificationContext';
 import { useTranslation } from 'react-i18next';
+import { useVerifyCurrentPassword } from '../api/useVerifyCurrentPassword';
 
 const Profile = () => {
 	const navigate = useNavigate();
-	const { checkAuth, currentUser, updatePassword, sendPasswordResetEmail, deleteUser, logout, userWordAssociations } = useAuth();
+	const { checkAuth, currentUser, updatePassword, sendPasswordResetEmail, deleteUser, logout, userWordAssociations, getAuthHeaders } = useAuth();
 	const { addNotification } = useNotification();
 	const currentPasswordRef = useRef();
 	const newPasswordRef = useRef();
@@ -29,9 +30,10 @@ const Profile = () => {
 		}
 
 		try {
-			const isCurrentPasswordValid = await verifyCurrentPassword(
+			const isCurrentPasswordValid = await useVerifyCurrentPassword(
 				currentUser.email, 
-				currentPasswordRef.current.value
+				currentPasswordRef.current.value,
+				getAuthHeaders
 			);
 			
 			if (!isCurrentPasswordValid) {
@@ -206,9 +208,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-// This function should be implemented to verify the current password with your backend
-const verifyCurrentPassword = async (email, password) => {
-	// Implement your API call to verify the password
-	// Return true if the password is correct, false otherwise
-};

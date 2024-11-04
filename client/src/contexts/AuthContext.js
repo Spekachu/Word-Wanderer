@@ -234,7 +234,8 @@ export const AuthProvider = ({ children }) => {
       sendPasswordResetEmail,
       userWordAssociations, setUserWordAssociations,
 			updateUserWordAssociation,
-      deleteUser
+      deleteUser,
+			apiUrl
     }}>
       {children}
     </AuthContext.Provider>

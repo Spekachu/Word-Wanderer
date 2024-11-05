@@ -59,9 +59,6 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
 		try {
-			if (!isLoggedIn) {
-				return false;
-			}
 			const result = await refreshAccessToken();
 			if (result) {
 				setIsLoggedIn(true);

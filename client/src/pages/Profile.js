@@ -162,22 +162,22 @@ const Profile = () => {
 					<div className="mt-4 p-4 border border-red-500 rounded-lg bg-orange-900">
 						<h3 className="text-lg font-semibold mb-2">{t('profile.deleteConfirmTitle')}</h3>
 						<p className="mb-4">{t('profile.deleteConfirmMessage')}</p>
-						<div className="flex items-center mb-4">
+						<div className="flex items-baseline mb-4">
 							<input
 								type="checkbox"
 								id="deleteConfirm"
 								checked={deleteConfirmed}
 								onChange={(e) => setDeleteConfirmed(e.target.checked)}
-								className="mr-2"
+								className="mr-2 accent-red-500"
 							/>
-							<label htmlFor="deleteConfirm">
+							<label className='text-pretty' htmlFor="deleteConfirm">
 								{t('profile.deleteConfirmCheckbox')}
 							</label>
 						</div>
 						<div className="flex justify-end space-x-2">
 							<button
 								onClick={() => setShowDeleteConfirmation(false)}
-								className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+								className="px-4 py-2 text-sm font-medium text-orange-900 bg-orange-200 rounded-md hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
 							>
 								{t('common.cancel')}
 							</button>

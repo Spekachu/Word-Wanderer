@@ -18,7 +18,7 @@ const Home = () => {
 						<span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{t('welcome')}, <br></br></span>
 						<span className="font-pacifico">Wanderer</span>
 					</h1>
-					<p class="mt-2 text-lg text-balance">Your interactive, personalized language-learning app</p>
+					<p className="mt-2 text-lg text-balance">Your interactive, personalized language-learning app</p>
     
 				</header>
 				<div className="text-center mt-4">
@@ -26,27 +26,35 @@ const Home = () => {
 						{t('home.exploreTheWordMap')}
 					</Link>
 				</div>
-				<main class="py-12">
-					<section class="text-center max-w-3xl mx-auto mb-12">
-						<h2 class="text-3xl font-semibold text-orange-300">Start Your Language Journey</h2>
-						<p class="mt-4 text-lg text-balance">Create a profile to explore words across a beautifully interactive word map.</p>
+				<main className="py-12">
+					<section className="text-center max-w-3xl mx-auto mb-12">
+						<h2 className="text-3xl font-semibold text-orange-300">Start Your Language Journey</h2>
+						<p className="mt-4 text-lg text-balance">Create a profile to explore words across a beautifully interactive word map.</p>
 					</section>
 
-					<section class="grid md:grid-cols-2 gap-8">
-						<div class="bg-white/10 p-6 shadow-lg rounded-lg">
-							<h3 class="text-2xl font-semibold text-orange-300">Discover New Words</h3>
-							<p class="mt-2 text-pretty">Explore vocabulary at your own pace, finding new words that match your level and interests.</p>
+					<section className="grid md:grid-cols-2 gap-8">
+						<div className="bg-white/10 p-6 shadow-lg rounded-lg">
+							<h3 className="text-2xl font-semibold text-orange-300">Discover New Words</h3>
+							<p className="mt-2 text-pretty">Explore vocabulary at your own pace, finding new words that match your learning level and interests using the list filters (language, level, and part of speech).</p>
+							<img className='mt-2 rounded-lg' src="/media/filters.png" alt="Screenshot of the list filters" />
 						</div>
 
-						<div class="bg-white/10 p-6 shadow-lg rounded-lg">
-							<h3 class="text-2xl font-semibold text-orange-300">Personalize Your Words</h3>
-							<p class="mt-2 text-pretty">Make each word your own by adding emojis and highlights that stand out and make them easier to remember.</p>
+						<div className="bg-white/10 p-6 shadow-lg rounded-lg">
+							<h3 className="text-2xl font-semibold text-orange-300"><span className='bg-yellow-100 p-1 text-orange-500'>Personalize</span> Your Words</h3>
+							<p className="mt-2 text-pretty">Make each word your own by adding sticker emojis and highlights that stand out and make them easier to remember.</p>
+							<img className='mt-2 rounded-lg' src="/media/emoji-picker.png" alt="Screenshot of the emoji picker" />
 						</div>
 					</section>
 
-					<section class="my-12 text-center">
-						<h2 class="text-3xl font-semibold text-orange-300">Why Choose Word Wanderer?</h2>
-						<p class="mt-4 text-lg text-balance">With Word Wanderer, learning vocabulary becomes a visual, memorable experience. Each interaction helps reinforce words, making them easier to recall in real-world settings.</p>
+					<section>
+						<p className='text-lg text-center my-8 text-pretty'>Fill out your word map and make it your own!</p>
+						<img className='w-full sm:hidden' src="/media/demo-usecase-mobile.png" alt="Screenshot of a filled out word map" />
+						<img className='w-full hidden sm:block' src="/media/demo-usecase.png" alt="Screenshot of a filled out word map" />
+					</section>
+
+					<section className="my-12 text-center">
+						<h2 className="text-3xl font-semibold text-orange-300">Why Choose Word Wanderer?</h2>
+						<p className="mt-4 text-lg text-balance">With Word Wanderer, learning vocabulary becomes a visual, memorable experience. Each interaction helps reinforce words, making them easier to recall in real-world settings.</p>
 					</section>
 
 					<p className='my-6 text-center text-lg text-pretty'>Take a shortcut with one of the links below:</p>
@@ -78,7 +86,7 @@ const Home = () => {
 
 				</main>
 
-				<footer class="bg-white/10 shadow-lg rounded-lg py-6 text-center text-pretty">
+				<footer className="bg-white/10 shadow-lg rounded-lg py-6 text-center text-pretty">
 					<p>&copy; 2024 Word Wanderer. All rights reserved.</p>
 				</footer>
 			</div>

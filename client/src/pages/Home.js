@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../contexts/AuthContext';
 
 const Home = () => {
+
+	const { isLoggedIn } = useAuth();
 	const { t } = useTranslation();
 	const { set_partOfSpeech, set_cefrLevel } = useContext(AppContext);
 
@@ -25,6 +28,19 @@ const Home = () => {
 					<Link to="/map" className="bg-white/10 shadow-lg inline-block border border-white hover:bg-white text-white hover:text-rose-900 transition-colors font-bold py-2 px-4 rounded-lg text-lg">
 						{t('home.exploreTheWordMap')}
 					</Link>
+					{(!isLoggedIn && (
+
+					<div className='mt-4 gap-2 flex justify-center'>
+
+						<Link to="/login" className="bg-white/10 shadow-lg inline-block border border-white hover:bg-white text-white hover:text-rose-900 transition-colors font-bold py-2 px-4 rounded-lg text-lg">
+							{t('menu.login')}
+						</Link>
+						<Link to="/register" className="bg-white/10 shadow-lg inline-block border border-white hover:bg-white text-white hover:text-rose-900 transition-colors font-bold py-2 px-4 rounded-lg text-lg">
+							{t('menu.register')}
+						</Link>
+
+					</div>
+					))}
 				</div>
 				<main className="py-12">
 					<section className="text-center max-w-3xl mx-auto mb-12">

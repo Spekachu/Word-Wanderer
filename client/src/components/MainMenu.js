@@ -2,9 +2,11 @@ import React, { useState, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AppContext } from '../contexts/AppContext';
 import { useTranslation } from 'react-i18next';
-import { FaArrowRightArrowLeft, FaBars, FaFilter } from "react-icons/fa6";
+import { FaArrowRightArrowLeft, FaBars } from "react-icons/fa6";
+import { ImFilter } from "react-icons/im";
 import { useAuth } from '../contexts/AuthContext';
 import { GrMapLocation } from "react-icons/gr";
+import { IoPersonCircle } from "react-icons/io5";
 
 export const MainMenu = () => {
 	const { isLoggedIn, logout } = useAuth();
@@ -164,14 +166,32 @@ export const MainMenu = () => {
 				{/* this is the language selector and filters for the word map */}
 				{filters()}
 				<div className='flex items-center order-2'>
+					{isLoggedIn && (
+						<Link 
+							className={`text-3xl p-1 mr-2 rounded-md lg:hidden transition-colors text-white hover:text-rose-950 hover:bg-white`} 
+							to="/profile"
+						>
+							<IoPersonCircle />
+						</Link>
+						
+					)}
+					{!isLoggedIn && (
+						<Link 
+							className={`text-3xl p-1 mr-2 rounded-md lg:hidden transition-colors text-white hover:text-rose-950 hover:bg-white`} 
+							to="/login"
+						>
+							<IoPersonCircle />
+						</Link>
+						
+					)}
 					<button 
-						className={`text-2xl mr-2 p-2 rounded-md md:hidden transition-colors ${showMobileFilters ? 'text-rose-950 bg-white' : ''}`} 
+						className={`text-2xl mr-2 p-2 rounded-md md:hidden transition-colors hover:text-rose-950 hover:bg-white ${showMobileFilters ? 'text-rose-950 bg-white' : ''}`} 
 						onClick={() => setShowMobileFilters(!showMobileFilters)}
 					>
-						<FaFilter />
+						<ImFilter />
 					</button>
 					<button 
-						className={`text-2xl p-2 rounded-md lg:hidden transition-colors ${showMobileMenu ? 'text-rose-950 bg-white' : ''}`} 
+						className={`text-2xl p-2 rounded-md lg:hidden transition-colors hover:text-rose-950 hover:bg-white ${showMobileMenu ? 'text-rose-950 bg-white' : ''}`} 
 						onClick={() => setShowMobileMenu(!showMobileMenu)}
 					>
 						<FaBars />

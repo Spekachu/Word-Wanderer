@@ -61,7 +61,6 @@ const Profile = () => {
 		try {
 			await deleteUser();
 			logout();
-			addNotification(t('profile.deleteSuccess'), 'success');
 			navigate('/');
 		} catch (error) {
 			addNotification(t('profile.deleteFail'), 'error');
@@ -150,7 +149,7 @@ const Profile = () => {
 					</button>
 				</div>
 
-				<div className="mt-4 hidden">
+				<div className="mt-4">
 					<button
 						onClick={handleDeleteProfile}
 						className="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-lg border bg-red-100 border-red-700 text-red-700 hover:bg-red-500 hover:text-white transition-colors"

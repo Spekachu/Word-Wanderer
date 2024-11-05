@@ -440,10 +440,15 @@ router.post('/verify-password', authenticateUser, async (req, res) => {
 router.delete('/delete-profile', authenticateUser, async (req, res) => {
 	try {
 		const user = req.user;
-		await prisma.users.delete({ where: { user_id: user.id } });
+		await prisma.$transaction([
+			prisma.user_word_associations.deleteMany({ where: { user_id: user.id } }),
+			prisma.user_preferences.deleteMany({ where: { user_id: user.id } }),
+			prisma.users.delete({ where: { user_id: user.id } }),
+		]);
 		res.status(200).json({ message: 'Profile deleted successfully' });
 	} catch (error) {
-		res.status(500).json({ message: 'Server error', error: error.message });
+		console.error(error); // log the error
+		res.status(500).json({ message: 'Server error', error: error.message, code: error.code });
 	}
 });
 

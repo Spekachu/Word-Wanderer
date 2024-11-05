@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
     let isMounted = true;
     const performAuthCheck = async () => {
       if (isMounted) {
+				console.log("Client checking authentication...");
         await checkAuth();
       }
     };
@@ -50,7 +51,7 @@ export const AuthProvider = ({ children }) => {
 			setUserWordAssociations(userWordAssociations);
 			return { accessToken, user, userWordAssociations };
 		} catch (error) {
-			console.error('Error refreshing token:', error.message);
+			if (isLoggedIn) console.error('Error refreshing token:', error.message);
 			logout();
 			return null;
 		}
@@ -58,13 +59,15 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
 		try {
+			if (!isLoggedIn) {
+				return false;
+			}
 			const result = await refreshAccessToken();
 			if (result) {
 				setIsLoggedIn(true);
 				return true;
-			} else {
-				throw new Error('Failed to refresh token');
 			}
+			throw new Error('Failed to refresh token');
 		} catch (error) {
 			console.error('Error checking authentication:', error.message);
 			setAccessToken(null);
@@ -182,6 +185,23 @@ export const AuthProvider = ({ children }) => {
 
   const deleteUser = async () => {
     // Implement delete user logic here
+		try {
+			const response = await fetch(`${apiUrl}/user/delete-profile`, {
+				method: 'DELETE',
+				headers: getAuthHeaders(),
+			});
+			const data = await response.json();
+			if (response.ok) {
+				addNotification('Profile deleted successfully', 'success');
+				logout();
+			} else {
+				throw new Error(data.message || 'Failed to delete user');
+			}
+		} catch (error) {
+			console.error('Delete user error:', error);
+			addNotification(error.message || 'An error occurred while deleting user', 'error');
+			throw error;
+		}
   };
 
 	// Axios interceptor to handle token expiration
@@ -204,7 +224,6 @@ export const AuthProvider = ({ children }) => {
 
     return () => axios.interceptors.response.eject(interceptor);
   }, []);
-
 	
   const updateUserWordAssociation = (wordId, emoji, highlightColor, languageCode) => {
     setUserWordAssociations(prevAssociations => ({

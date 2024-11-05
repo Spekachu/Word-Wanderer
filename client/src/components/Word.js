@@ -217,13 +217,14 @@ const Word = forwardRef(({ index, word, position, dimensions }, ref) => {
 					before:content-[\'\']
 					before:rounded-full
 					before:absolute
-					before:inset-[2px]
+					before:inset-[0px]
 					before:border-2
 					before:border-orange-500
 					before:border-dashed
 					before:pointer-events-none
 					before:opacity-0
 					before:transition-opacity
+					before:duration-500
 					${
           isSelected ? 'bg-white text-black hover:bg-white before:opacity-100' : discoveredThisLanguage ? 'bg-white text-black hover:bg-white' : 'border-dashed hover:bg-white/75'
         }`}

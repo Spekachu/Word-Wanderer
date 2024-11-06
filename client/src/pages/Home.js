@@ -15,7 +15,7 @@ const Home = () => {
 	const partsOfSpeech = ['verb', 'noun', 'adjective'];
 
 	return (
-		<div className="max-w-screen-lg mx-auto min-h-screen text-white px-3 sm:px-4 pt-20 pb-4 flex flex-col justify-center">
+		<div className="max-w-screen-lg mx-auto min-h-screen text-white pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))] sm:pl-[calc(2rem+env(safe-area-inset-left)] sm:pr-[calc(2rem+env(safe-area-inset-right)] pt-20 pb-[calc(1rem+env(safe-area-inset-bottom))] flex flex-col justify-center">
 				<header className="text-center">
 					<h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-8">
 						<span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{t('welcome')}, <br></br></span>

@@ -10,7 +10,7 @@ export const AppContext = createContext();
 export const WordProvider = ({ children }) => {
   const { i18n } = useTranslation();
   const location = useLocation();
-  const { isLoggedIn, currentUser, getAuthHeaders } = useAuth();
+  const { isLoggedIn, currentUser, getAuthHeaders, isAuthChecking } = useAuth();
 
   const [selectedWord, setSelectedWord] = useState(null);
   const [selectedSticker, setSelectedSticker] = useState(null);
@@ -32,8 +32,10 @@ export const WordProvider = ({ children }) => {
   const learning = i18n.language === "de" ? "en" : "de";
   const [userLearningLanguage, set_userLearningLanguage] = useState(learning);
 
-  // Add a ref to track initial load
+  // Add a ref to track initial load and loading state
   const isInitialLoad = useRef(true);
+  const isLoadingPreferences = useRef(false);
+  const hasLoadedPreferences = useRef(false);
 
   // Add debounced versions of the preferences
   const debouncedPartOfSpeech = useDebounce(partOfSpeech, 1000);
@@ -42,17 +44,22 @@ export const WordProvider = ({ children }) => {
   const debouncedLearningLanguage = useDebounce(userLearningLanguage, 1000);
   const debouncedZoomLevel = useDebounce(zoomLevel, 1000);
 
-  // Load user preferences when logged in
+  // Load user preferences when logged in and initial auth check is complete
   useEffect(() => {
-    if (isLoggedIn && currentUser) {
+    if (!isAuthChecking && isLoggedIn && currentUser && !hasLoadedPreferences.current) {
       loadUserPreferences();
+      hasLoadedPreferences.current = true;
     }
-  }, [isLoggedIn, currentUser]);
+  }, [isAuthChecking, isLoggedIn, currentUser]);
 
-  // Save preferences when they change (but not on initial load)
+  // Save preferences when they change (but not on initial load or during preference loading)
   useEffect(() => {
     if (isInitialLoad.current) {
       isInitialLoad.current = false;
+      return;
+    }
+
+    if (isLoadingPreferences.current || isAuthChecking) {
       return;
     }
     
@@ -67,9 +74,9 @@ export const WordProvider = ({ children }) => {
     debouncedZoomLevel
   ]);
 
-	
   const loadUserPreferences = async () => {
     try {
+      isLoadingPreferences.current = true;
       const { part_of_speech, cefr_level, user_language, learning_language, zoom_level } = await api.fetchUserPreferences(currentUser.id, getAuthHeaders);
       
       if (part_of_speech) set_partOfSpeech(part_of_speech);
@@ -79,6 +86,11 @@ export const WordProvider = ({ children }) => {
       if (zoom_level) setZoomLevel(Number(zoom_level));
     } catch (error) {
       console.error('Error loading user preferences:', error);
+    } finally {
+      // Add a small delay before allowing saves to prevent race conditions
+      setTimeout(() => {
+        isLoadingPreferences.current = false;
+      }, 1000);
     }
   };
 
@@ -96,7 +108,6 @@ export const WordProvider = ({ children }) => {
     }
   };
 
-
   // Reset certain values when the route changes
   useEffect(() => {
     setActiveContent(false);
@@ -104,9 +115,8 @@ export const WordProvider = ({ children }) => {
     setShowHighlightPicker(false);
     setSelectedWord(null);
     setSelectedSticker(null);
-		setPinPosition(null);
-		setHoverPinPosition(null);
-    // Add any other values you want to reset here
+    setPinPosition(null);
+    setHoverPinPosition(null);
   }, [location.pathname]);
 
   // Function to reset content window
@@ -114,20 +124,19 @@ export const WordProvider = ({ children }) => {
     setActiveContent(false);
     setShowEmojiPicker(false);
     setShowHighlightPicker(false);
-    // Add any other resets you need here
   };
 
   let hoverTimer = null;
-	const resetHoverPinPosition = () => {
-		if (hoverTimer) clearTimeout(hoverTimer);
-		hoverTimer = setTimeout(() => {
-			if (!isHovering) setHoverPinPosition(null);
-		}, 1000);
-	}
+  const resetHoverPinPosition = () => {
+    if (hoverTimer) clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(() => {
+      if (!isHovering) setHoverPinPosition(null);
+    }, 1000);
+  }
 
-	const holdHoverPinPosition = () => {
-		if (hoverTimer) clearTimeout(hoverTimer);
-	}
+  const holdHoverPinPosition = () => {
+    if (hoverTimer) clearTimeout(hoverTimer);
+  }
 
   return (
     <AppContext.Provider value={{ 
@@ -143,13 +152,13 @@ export const WordProvider = ({ children }) => {
       showEmojiPicker, setShowEmojiPicker,
       selectedHighlight, setSelectedHighlight,
       showHighlightPicker, setShowHighlightPicker,
-			zoomLevel, setZoomLevel,
+      zoomLevel, setZoomLevel,
       pinPosition, setPinPosition,
-			hoverPinPosition, setHoverPinPosition,
-			isHovering, setIsHovering,
+      hoverPinPosition, setHoverPinPosition,
+      isHovering, setIsHovering,
       resetContentWindow,
-			resetHoverPinPosition, 
-			holdHoverPinPosition
+      resetHoverPinPosition, 
+      holdHoverPinPosition
     }}>
       {children}
     </AppContext.Provider>

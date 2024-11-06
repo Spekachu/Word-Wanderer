@@ -108,10 +108,10 @@ const WordMap = () => {
 				console.log("ERROR getting user word associations", err);
 			}
 		};
-		if (checkAuth()) {
+		if (isLoggedIn) {
 			getUserWordAssociations();
 		}
-	}, [isLoggedIn, wordList, accessToken]);
+	}, [isLoggedIn, wordList]);
 
 	useEffect(() => {
 		if (!wordList?.length || !mapRef.current) return;

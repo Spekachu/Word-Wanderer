@@ -22,18 +22,15 @@ const useWordListCache = (
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Clear cache when filters change
+  useEffect(() => {
+    const cacheKey = generateCacheKey(language, learningLanguage, cefrLevel, partOfSpeech);
+    cache.delete(cacheKey);
+  }, [language, learningLanguage, cefrLevel, partOfSpeech]);
+
   useEffect(() => {
     const fetchData = async () => {
       const cacheKey = generateCacheKey(language, learningLanguage, cefrLevel, partOfSpeech);
-      const cachedData = cache.get(cacheKey);
-
-      // Check if we have valid cached data
-      if (cachedData && (Date.now() - cachedData.timestamp) < CACHE_EXPIRATION) {
-        setData(cachedData.data);
-        setPositions(cachedData.positions || []);
-        setWordDimensions(cachedData.wordDimensions || []);
-        return;
-      }
 
       try {
         setIsLoading(true);

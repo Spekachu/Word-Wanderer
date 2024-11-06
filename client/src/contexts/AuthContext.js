@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [userWordAssociations, setUserWordAssociations] = useState({});
+  const [isAuthChecking, setIsAuthChecking] = useState(true); // New state to track initial auth check
   const navigate = useNavigate();
   const { addNotification } = useNotification();
 	const apiUrl = process.env.NODE_ENV === 'production' ? "/api" : process.env.REACT_APP_API_URL + "/api";
@@ -18,8 +19,9 @@ export const AuthProvider = ({ children }) => {
     let isMounted = true;
     const performAuthCheck = async () => {
       if (isMounted) {
-				console.log("Client checking authentication...");
+        setIsAuthChecking(true);
         await checkAuth();
+        setIsAuthChecking(false);
       }
     };
     performAuthCheck();
@@ -140,6 +142,7 @@ export const AuthProvider = ({ children }) => {
 			addNotification('An error occurred during logout', 'error');
 		}
 	};
+
   const updatePassword = async (currentPassword, newPassword) => {
     try {
       const response = await fetch(`${apiUrl}/user/update-password`, {
@@ -181,7 +184,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const deleteUser = async () => {
-    // Implement delete user logic here
 		try {
 			const response = await fetch(`${apiUrl}/user/delete-profile`, {
 				method: 'DELETE',
@@ -207,11 +209,11 @@ export const AuthProvider = ({ children }) => {
       (response) => response,
       async (error) => {
         const originalRequest = error.config;
-        if (error.response.status === 401 && !originalRequest._retry) {
+        if (error.response?.status === 401 && !originalRequest._retry) {
           originalRequest._retry = true;
-          const newToken = await refreshAccessToken();
-          if (newToken) {
-            originalRequest.headers['Authorization'] = `Bearer ${newToken}`;
+          const result = await refreshAccessToken();
+          if (result?.accessToken) {
+            originalRequest.headers['Authorization'] = `Bearer ${result.accessToken}`;
             return axios(originalRequest);
           }
         }
@@ -248,9 +250,10 @@ export const AuthProvider = ({ children }) => {
       updatePassword,
       sendPasswordResetEmail,
       userWordAssociations, setUserWordAssociations,
-			updateUserWordAssociation,
+      updateUserWordAssociation,
       deleteUser,
-			apiUrl
+      apiUrl,
+      isAuthChecking // Expose the auth checking state
     }}>
       {children}
     </AuthContext.Provider>

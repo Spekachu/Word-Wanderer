@@ -9,26 +9,19 @@ export const AuthProvider = ({ children }) => {
 	const [accessToken, setAccessToken] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-  const [userWordAssociations, setUserWordAssociations] = useState({});
-  const [isAuthChecking, setIsAuthChecking] = useState(true); // New state to track initial auth check
+  const [userWordAssociations, setUserWordAssociations] = useState(() => {
+    try {
+      const saved = localStorage.getItem('wordWanderer_associations');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+  const [isAuthChecking, setIsAuthChecking] = useState(false); // Demo mode: no async auth check needed
+  const isDemoMode = true;
   const navigate = useNavigate();
   const { addNotification } = useNotification();
 	const apiUrl = process.env.NODE_ENV === 'production' ? "/api" : process.env.REACT_APP_API_URL + "/api";
-
-  useEffect(() => {
-    let isMounted = true;
-    const performAuthCheck = async () => {
-      if (isMounted) {
-        setIsAuthChecking(true);
-        await checkAuth();
-        setIsAuthChecking(false);
-      }
-    };
-    performAuthCheck();
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
 	const getAuthHeaders = () => {
 		return {
@@ -225,20 +218,29 @@ export const AuthProvider = ({ children }) => {
   }, []);
 	
   const updateUserWordAssociation = (wordId, emoji, highlightColor, languageCode) => {
-    setUserWordAssociations(prevAssociations => ({
-      ...prevAssociations,
-      [wordId]: {
-        ...prevAssociations[wordId],
-        emoji,
-        highlightColor,
-        languageCodes: [...new Set([...(prevAssociations[wordId]?.languageCodes || []), languageCode])]
+    setUserWordAssociations(prevAssociations => {
+      const next = {
+        ...prevAssociations,
+        [wordId]: {
+          ...prevAssociations[wordId],
+          emoji,
+          highlightColor,
+          languageCodes: [...new Set([...(prevAssociations[wordId]?.languageCodes || []), languageCode])]
+        }
+      };
+      try {
+        localStorage.setItem('wordWanderer_associations', JSON.stringify(next));
+      } catch (e) {
+        console.error('Failed to save associations to localStorage:', e);
       }
-    }));
+      return next;
+    });
   };
 
   return (
     <AuthContext.Provider value={{ 
       isLoggedIn, 
+      isDemoMode,
       currentUser, 
       register, 
       login, 

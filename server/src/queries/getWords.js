@@ -1,6 +1,11 @@
-import { PrismaClient } from '@prisma/client';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const prisma = new PrismaClient();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const wordsDataPath = path.join(__dirname, '../../data/words.json');
+const allWords = JSON.parse(fs.readFileSync(wordsDataPath, 'utf-8'));
 
 const getWordsWithTranslations = async (
 	level = 'a1', 
@@ -9,25 +14,13 @@ const getWordsWithTranslations = async (
 	targetLanguage = 'de'
 ) => {
   try {
-    let words = await prisma.words.findMany({
-      where: {
-        level,
-        part_of_speech: partOfSpeech,
-        words_translations: {
-          some: {
-            language_code: { in: [sourceLanguage, targetLanguage] },
-            translation: { not: null }
-          }
-        }
-      },
-      include: {
-        words_translations: {
-          where: {
-            language_code: { in: [sourceLanguage, targetLanguage] },
-            translation: { not: null }
-          }
-        }
+    const words = allWords.filter(word => {
+      if (word.level !== level || word.part_of_speech !== partOfSpeech) {
+        return false;
       }
+      return word.words_translations.some(
+        t => (t.language_code === sourceLanguage || t.language_code === targetLanguage) && t.translation != null
+      );
     });
 
     // Step 1: Group words by target translation

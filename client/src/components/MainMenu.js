@@ -9,7 +9,7 @@ import { GrMapLocation } from "react-icons/gr";
 import { IoPersonCircle } from "react-icons/io5";
 
 export const MainMenu = () => {
-	const { isLoggedIn, logout } = useAuth();
+	const { isLoggedIn, isDemoMode, logout } = useAuth();
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const isWordMapRoute = location.pathname === '/map';
@@ -77,16 +77,27 @@ export const MainMenu = () => {
     <div className={`${showMobileMenu ? 'flex justify-center flex-wrap w-full pt-4 order-last' : 'hidden'} lg:flex items-center lg:order-1 lg:flex-row lg:w-auto lg:py-0`}>
       <Link to="/" className="text-white hover:text-orange-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.home')}</Link>
       <Link to="/map" className="text-white hover:text-orange-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.wordMap')}</Link>
-      {!isLoggedIn && (
+      {isDemoMode ? (
+        <span
+          className="text-xs font-semibold uppercase tracking-wider bg-white/15 text-orange-200 border border-white/30 rounded-full px-3 py-1 mr-4 my-1"
+          title="Single-session Demo Mode: progress is saved locally in your browser"
+        >
+          Demo Mode
+        </span>
+      ) : (
         <>
-          <Link to="/register" className="text-white hover:text-orange-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.register')}</Link>
-          <Link to="/login" className="text-white hover:text-orange-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.login')}</Link>
-        </>
-      )}
-      {isLoggedIn && (
-        <>
-          <Link to="/profile" className="text-white hover:text-orange-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.profile')}</Link>
-          <button onClick={() => { logout(); closeMobileMenu(); }} className="text-white hover:text-orange-300 py-2">{t('menu.logout')}</button>
+          {!isLoggedIn && (
+            <>
+              <Link to="/register" className="text-white hover:text-orange-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.register')}</Link>
+              <Link to="/login" className="text-white hover:text-orange-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.login')}</Link>
+            </>
+          )}
+          {isLoggedIn && (
+            <>
+              <Link to="/profile" className="text-white hover:text-orange-300 mr-4 py-2" onClick={closeMobileMenu}>{t('menu.profile')}</Link>
+              <button onClick={() => { logout(); closeMobileMenu(); }} className="text-white hover:text-orange-300 py-2">{t('menu.logout')}</button>
+            </>
+          )}
         </>
       )}
     </div>

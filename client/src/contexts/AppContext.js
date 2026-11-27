@@ -23,14 +23,23 @@ export const WordProvider = ({ children }) => {
   const [pinPosition, setPinPosition] = useState(null);
   const [hoverPinPosition, setHoverPinPosition] = useState(null);
 
+  const savedPrefs = (() => {
+    try {
+      const raw = localStorage.getItem('wordWanderer_preferences');
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  })();
+
   // settings for api calls
-  const [partOfSpeech, set_partOfSpeech] = useState("verb");
-  const [cefrLevel, set_cefrLevel] = useState("a1");
+  const [partOfSpeech, set_partOfSpeech] = useState(savedPrefs.partOfSpeech || "verb");
+  const [cefrLevel, set_cefrLevel] = useState(savedPrefs.cefrLevel || "a1");
   const [relatedContext, set_relatedContext] = useState("");
-  const [userLanguage, set_userLanguage] = useState("en");
-  const [zoomLevel, setZoomLevel] = useState(window.innerWidth < 768 ? 0.75 : .9);
+  const [userLanguage, set_userLanguage] = useState(savedPrefs.userLanguage || "en");
+  const [zoomLevel, setZoomLevel] = useState(savedPrefs.zoomLevel || (window.innerWidth < 768 ? 0.75 : .9));
   const learning = i18n.language === "de" ? "en" : "de";
-  const [userLearningLanguage, set_userLearningLanguage] = useState(learning);
+  const [userLearningLanguage, set_userLearningLanguage] = useState(savedPrefs.userLearningLanguage || learning);
 
   // Add a ref to track initial load and loading state
   const isInitialLoad = useRef(true);
@@ -65,6 +74,18 @@ export const WordProvider = ({ children }) => {
     
     if (isLoggedIn && currentUser) {
       saveUserPreferences();
+    } else {
+      try {
+        localStorage.setItem('wordWanderer_preferences', JSON.stringify({
+          partOfSpeech: debouncedPartOfSpeech,
+          cefrLevel: debouncedCefrLevel,
+          userLanguage: debouncedUserLanguage,
+          userLearningLanguage: debouncedLearningLanguage,
+          zoomLevel: debouncedZoomLevel
+        }));
+      } catch (e) {
+        console.error('Failed to save preferences to localStorage:', e);
+      }
     }
   }, [
     debouncedPartOfSpeech, 

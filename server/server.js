@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import { PrismaClient } from '@prisma/client';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -10,7 +9,6 @@ const __dirname = path.dirname(__filename);
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const port = isDevelopment ? (process.env.DEV_PORT || 5000) : (process.env.PORT || 8080);
-const prisma = new PrismaClient();
 
 import wordsRoute from './src/routes/wordsRoute.js';
 import userRoutes from './src/routes/userRoutes.js';
@@ -47,8 +45,6 @@ const start = async () => {
 
 start()
   .catch((e) => {
-    throw e;
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
+    console.error(e);
+    process.exit(1);
   });

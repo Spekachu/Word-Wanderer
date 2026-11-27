@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -8,7 +9,26 @@ const Login = () => {
     password: '',
   });
   const { t } = useTranslation();
-  const { login } = useAuth();
+  const { login, isDemoMode } = useAuth();
+
+  if (isDemoMode) {
+    return (
+      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 text-white">
+        <div className="max-w-md w-full space-y-6 bg-white/10 border border-white/25 rounded-xl p-8 text-center">
+          <h2 className="text-3xl font-pacifico text-orange-300">Demo Mode</h2>
+          <p className="text-sm text-orange-100">
+            User accounts are disabled in this single-session proof of concept. You can explore the Word Map right away—your discovered words, stickers, and highlights are saved locally in your browser.
+          </p>
+          <Link
+            to="/map"
+            className="inline-block bg-white/15 border border-white hover:bg-white hover:text-rose-900 transition-colors font-bold py-2 px-6 rounded-lg"
+          >
+            {t('home.exploreTheWordMap')}
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

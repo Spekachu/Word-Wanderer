@@ -7,7 +7,7 @@ import { useAuth } from '../contexts/AuthContext';
 
 const Home = () => {
 
-	const { isLoggedIn } = useAuth();
+	const { isLoggedIn, isDemoMode } = useAuth();
 	const { t } = useTranslation();
 	const { set_partOfSpeech, set_cefrLevel } = useContext(AppContext);
 
@@ -28,17 +28,18 @@ const Home = () => {
 					<Link to="/map" className="bg-white/10 shadow-lg inline-block border border-white hover:bg-white text-white hover:text-rose-900 transition-colors font-bold py-2 px-4 rounded-lg text-lg">
 						{t('home.exploreTheWordMap')}
 					</Link>
-					{(!isLoggedIn && (
-
+					{isDemoMode ? (
+						<p className="mt-4 max-w-xl mx-auto text-sm bg-white/10 border border-white/25 rounded-lg px-4 py-2 text-orange-100">
+							Running in <span className="font-semibold text-orange-300">Demo Mode</span> — no account needed. Your discovered words, emoji stickers, and highlights are saved locally in your browser.
+						</p>
+					) : (!isLoggedIn && (
 					<div className='mt-4 gap-2 flex justify-center'>
-
 						<Link to="/login" className="bg-white/10 shadow-lg inline-block border border-white hover:bg-white text-white hover:text-rose-900 transition-colors font-bold py-2 px-4 rounded-lg text-lg">
 							{t('menu.login')}
 						</Link>
 						<Link to="/register" className="bg-white/10 shadow-lg inline-block border border-white hover:bg-white text-white hover:text-rose-900 transition-colors font-bold py-2 px-4 rounded-lg text-lg">
 							{t('menu.register')}
 						</Link>
-
 					</div>
 					))}
 				</div>

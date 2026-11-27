@@ -1,0 +1,8162 @@
+[
+  {
+    "word_id": 1,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 100,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to be",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "sein",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "être",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "ser",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 2,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 99,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to have",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "haben",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "avoir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "tener",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 3,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 98,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to go",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "gehen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "aller",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "ir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 4,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 97,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to come",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "kommen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "venir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "venir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 5,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 96,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to do",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "machen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "faire",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "hacer",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 6,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 95,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to say",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "sagen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "dire",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "decir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 7,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 94,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to see",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "sehen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "voir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "ver",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 8,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 93,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to eat",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "essen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "manger",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "comer",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 9,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 92,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to drink",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "trinken",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "boire",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "beber",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 10,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 91,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to sleep",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "schlafen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "dormir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "dormir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 11,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 90,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to read",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "lesen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "lire",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "leer",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 12,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 89,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to write",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "schreiben",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "écrire",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "escribir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 13,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 88,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to speak",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "sprechen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "parler",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "hablar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 14,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 87,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to learn",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "lernen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "apprendre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "aprender",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 15,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 86,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to live",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "wohnen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "habiter",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "vivir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 16,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 85,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to work",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "arbeiten",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "travailler",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "trabajar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 17,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 84,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to play",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "spielen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "jouer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "jugar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 18,
+    "part_of_speech": "verb",
+    "level": "a1",
+    "frequency_score": 83,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to like",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "mögen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "aimer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "gustar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 19,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 100,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "house",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Haus",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la maison",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la casa",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 20,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 99,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "water",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Wasser",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'eau",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el agua",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 21,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 98,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "bread",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Brot",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le pain",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el pan",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 22,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 97,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "friend",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Freund",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'ami",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el amigo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 23,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 96,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "family",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Familie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la famille",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la familia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 24,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 95,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "book",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Buch",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le livre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el libro",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 25,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 94,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "table",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Tisch",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la table",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la mesa",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 26,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 93,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "chair",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Stuhl",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la chaise",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la silla",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 27,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 92,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "city",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Stadt",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la ville",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la ciudad",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 28,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 91,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "school",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Schule",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'école",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la escuela",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 29,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 90,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "dog",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Hund",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le chien",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el perro",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 30,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 89,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "cat",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Katze",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le chat",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el gato",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 31,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 88,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "sun",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Sonne",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le soleil",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el sol",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 32,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 87,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "day",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Tag",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le jour",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el día",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 33,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 86,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "night",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Nacht",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la nuit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la noche",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 34,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 85,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "car",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Auto",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la voiture",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el coche",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 35,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 84,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "apple",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Apfel",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la pomme",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la manzana",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 36,
+    "part_of_speech": "noun",
+    "level": "a1",
+    "frequency_score": 83,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "time",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Zeit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le temps",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el tiempo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 37,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 100,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "good",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "gut",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "bon",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "bueno",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 38,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 99,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "bad",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "schlecht",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "mauvais",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "malo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 39,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 98,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "big",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "groß",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "grand",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "grande",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 40,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 97,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "small",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "klein",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "petit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "pequeño",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 41,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 96,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "new",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "neu",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "nouveau",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "nuevo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 42,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 95,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "old",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "alt",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "vieux",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "viejo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 43,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 94,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "hot",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "heiß",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "chaud",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "caliente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 44,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 93,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "cold",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "kalt",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "froid",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "frío",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 45,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 92,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "happy",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "glücklich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "heureux",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "feliz",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 46,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 91,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "sad",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "traurig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "triste",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "triste",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 47,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 90,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "fast",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "schnell",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "rapide",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "rápido",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 48,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 89,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "slow",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "langsam",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "lent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "lento",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 49,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 88,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "beautiful",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "schön",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "beau",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "hermoso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 50,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 87,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "young",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "jung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "jeune",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "joven",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 51,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 86,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "easy",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "einfach",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "facile",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "fácil",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 52,
+    "part_of_speech": "adjective",
+    "level": "a1",
+    "frequency_score": 85,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "tired",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "müde",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "fatigué",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "cansado",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 53,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 90,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to travel",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "reisen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "voyager",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "viajar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 54,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 89,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to buy",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "kaufen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "acheter",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "comprar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 55,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 88,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to sell",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verkaufen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "vendre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "vender",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 56,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 87,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to cook",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "kochen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "cuisiner",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "cocinar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 57,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 86,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to wait",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "warten",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "attendre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "esperar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 58,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 85,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to help",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "helfen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "aider",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "ayudar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 59,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 84,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to search",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "suchen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "chercher",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "buscar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 60,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 83,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to find",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "finden",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "trouver",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "encontrar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 61,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 82,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to forget",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "vergessen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "oublier",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "olvidar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 62,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 81,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to remember",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "sich erinnern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "se souvenir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "recordar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 63,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 80,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to understand",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verstehen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "comprendre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "entender",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 64,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 79,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to explain",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "erklären",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "expliquer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "explicar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 65,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 78,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to listen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "zuhören",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "écouter",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "escuchar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 66,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 77,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to invite",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "einladen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "inviter",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "invitar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 67,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 76,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to pay",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "bezahlen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "payer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "pagar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 68,
+    "part_of_speech": "verb",
+    "level": "a2",
+    "frequency_score": 75,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to clean",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "putzen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "nettoyer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "limpiar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 69,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 90,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "train station",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Bahnhof",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la gare",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la estación",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 70,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 89,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "airport",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Flughafen",
+        "literal_translation": "the flight-harbor",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'aéroport",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el aeropuerto",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 71,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 88,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "kitchen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Küche",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la cuisine",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la cocina",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 72,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 87,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "weather",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Wetter",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le temps",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el clima",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 73,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 86,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "holiday",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Urlaub",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "les vacances",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "las vacaciones",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 74,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 85,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "ticket",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Fahrkarte",
+        "literal_translation": "the travel-card",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le billet",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el billete",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 75,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 84,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "doctor",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Arzt",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le médecin",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el médico",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 76,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 83,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "hospital",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Krankenhaus",
+        "literal_translation": "the sick-house",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'hôpital",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el hospital",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 77,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 82,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "clothes",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Kleidung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "les vêtements",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la ropa",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 78,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 81,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "breakfast",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Frühstück",
+        "literal_translation": "the early-piece",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le petit-déjeuner",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el desayuno",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 79,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 80,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "market",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Markt",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le marché",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el mercado",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 80,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 79,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "neighbor",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Nachbar",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le voisin",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el vecino",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 81,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 78,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "bicycle",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Fahrrad",
+        "literal_translation": "the drive-wheel",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le vélo",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la bicicleta",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 82,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 77,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "movie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Film",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le film",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la película",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 83,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 76,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "gift",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Geschenk",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le cadeau",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el regalo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 84,
+    "part_of_speech": "noun",
+    "level": "a2",
+    "frequency_score": 75,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "question",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Frage",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la question",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la pregunta",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 85,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 90,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "important",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "wichtig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "important",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "importante",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 86,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 89,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "interesting",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "interessant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "intéressant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "interesante",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 87,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 88,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "boring",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "langweilig",
+        "literal_translation": "long-while-ish",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "ennuyeux",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "aburrido",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 88,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 87,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "expensive",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "teuer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "cher",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "caro",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 89,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 86,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "cheap",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "billig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "bon marché",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "barato",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 90,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 85,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "quiet",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "ruhig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "calme",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "tranquilo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 91,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 84,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "loud",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "laut",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "bruyant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "ruidoso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 92,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 83,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "clean",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "sauber",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "propre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "limpio",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 93,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 82,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "dirty",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "schmutzig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "sale",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "sucio",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 94,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 81,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "healthy",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "gesund",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "sain",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "saludable",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 95,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 80,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "hungry",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "hungrig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "affamé",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "hambriento",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 96,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 79,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "friendly",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "freundlich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "aimable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "amable",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 97,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 78,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "possible",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "möglich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "possible",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "posible",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 98,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 77,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "different",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verschieden",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "différent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "diferente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 99,
+    "part_of_speech": "adjective",
+    "level": "a2",
+    "frequency_score": 76,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "ready",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "bereit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "prêt",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "listo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 100,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 80,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to decide",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "entscheiden",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "décider",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "decidir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 101,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 79,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to recommend",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "empfehlen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "recommander",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "recomendar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 102,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 78,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to improve",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verbessern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "améliorer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "mejorar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 103,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 77,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to compare",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "vergleichen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "comparer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "comparar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 104,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 76,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to organize",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "organisieren",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "organiser",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "organizar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 105,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 75,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to experience",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "erleben",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "vivre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "experimentar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 106,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 74,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to discover",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "entdecken",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "découvrir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "descubrir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 107,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 73,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to develop",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "entwickeln",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "développer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "desarrollar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 108,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 72,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to support",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "unterstützen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "soutenir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "apoyar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 109,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 71,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to avoid",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "vermeiden",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "éviter",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "evitar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 110,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 70,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to expect",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "erwarten",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "attendre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "esperar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 111,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 69,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to share",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "teilen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "partager",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "compartir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 112,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 68,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to suggest",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "vorschlagen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "suggérer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "sugerir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 113,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 67,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to achieve",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "erreichen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "atteindre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "lograr",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 114,
+    "part_of_speech": "verb",
+    "level": "b1",
+    "frequency_score": 66,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to notice",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "bemerken",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "remarquer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "notar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 115,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 80,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "experience",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Erfahrung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'expérience",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la experiencia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 116,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 79,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "environment",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Umwelt",
+        "literal_translation": "the around-world",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'environnement",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el medio ambiente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 117,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 78,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "opportunity",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Gelegenheit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'occasion",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la oportunidad",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 118,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 77,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "solution",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Lösung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la solution",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la solución",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 119,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 76,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "decision",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Entscheidung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la décision",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la decisión",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 120,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 75,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "culture",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Kultur",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la culture",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la cultura",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 121,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 74,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "goal",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Ziel",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'objectif",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el objetivo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 122,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 73,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "opinion",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Meinung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'opinion",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la opinión",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 123,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 72,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "success",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Erfolg",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le succès",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el éxito",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 124,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 71,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "society",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Gesellschaft",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la société",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la sociedad",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 125,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 70,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "memory",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Erinnerung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le souvenir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el recuerdo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 126,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 69,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "relationship",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Beziehung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la relation",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la relación",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 127,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 68,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "habit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Gewohnheit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'habitude",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el hábito",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 128,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 67,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "advantage",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Vorteil",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'avantage",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la ventaja",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 129,
+    "part_of_speech": "noun",
+    "level": "b1",
+    "frequency_score": 66,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "reason",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Grund",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la raison",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la razón",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 130,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 80,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "successful",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "erfolgreich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "réussi",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "exitoso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 131,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 79,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "independent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "unabhängig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "indépendant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "independiente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 132,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 78,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "necessary",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "notwendig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "nécessaire",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "necesario",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 133,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 77,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "confident",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "selbstbewusst",
+        "literal_translation": "self-aware",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "confiant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "seguro",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 134,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 76,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "curious",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "neugierig",
+        "literal_translation": "new-greedy",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "curieux",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "curioso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 135,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 75,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "practical",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "praktisch",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "pratique",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "práctico",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 136,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 74,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "creative",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "kreativ",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "créatif",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "creativo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 137,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 73,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "honest",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "ehrlich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "honnête",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "honesto",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 138,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 72,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "patient",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "geduldig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "patient",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "paciente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 139,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 71,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "similar",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "ähnlich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "similaire",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "similar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 140,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 70,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "comfortable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "bequem",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "confortable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "cómodo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 141,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 69,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "dangerous",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "gefährlich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "dangereux",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "peligroso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 142,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 68,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "responsible",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verantwortlich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "responsable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "responsable",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 143,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 67,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "pleasant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "angenehm",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "agréable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "agradable",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 144,
+    "part_of_speech": "adjective",
+    "level": "b1",
+    "frequency_score": 66,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "typical",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "typisch",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "typique",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "típico",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 145,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 70,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to analyze",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "analysieren",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "analyser",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "analizar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 146,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 69,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to persuade",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "überzeugen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "persuader",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "persuadir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 147,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 68,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to negotiate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verhandeln",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "négocier",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "negociar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 148,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 67,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to assume",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "annehmen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "supposer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "asumir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 149,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 66,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to evaluate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "bewerten",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "évaluer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "evaluar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 150,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 65,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to adapt",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "sich anpassen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "s'adapter",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "adaptarse",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 151,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 64,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to maintain",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "beibehalten",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "maintenir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "mantener",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 152,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 63,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to emphasize",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "betonen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "souligner",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "enfatizar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 153,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 62,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to establish",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "etablieren",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "établir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "establecer",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 154,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 61,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to reflect",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "nachdenken",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "réfléchir",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "reflexionar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 155,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 60,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to contribute",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "beitragen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "contribuer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "contribuir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 156,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 59,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to overcome",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "überwinden",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "surmonter",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "superar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 157,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 58,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to demonstrate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "demonstrieren",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "démontrer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "demostrar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 158,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 57,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to prioritize",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "priorisieren",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "prioriser",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "priorizar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 159,
+    "part_of_speech": "verb",
+    "level": "b2",
+    "frequency_score": 56,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to resolve",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "lösen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "résoudre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "resolver",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 160,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 70,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "perspective",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Perspektive",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la perspective",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la perspectiva",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 161,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 69,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "challenge",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Herausforderung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le défi",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el desafío",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 162,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 68,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "consequence",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Konsequenz",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la conséquence",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la consecuencia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 163,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 67,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "strategy",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Strategie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la stratégie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la estrategia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 164,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 66,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "phenomenon",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Phänomen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le phénomène",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el fenómeno",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 165,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 65,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "commitment",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Engagement",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'engagement",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el compromiso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 166,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 64,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "innovation",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Innovation",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'innovation",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la innovación",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 167,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 63,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "diversity",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Vielfalt",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la diversité",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la diversidad",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 168,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 62,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "influence",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Einfluss",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'influence",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la influencia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 169,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 61,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "efficiency",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Effizienz",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'efficacité",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la eficiencia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 170,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 60,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "sustainability",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Nachhaltigkeit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la durabilité",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la sostenibilidad",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 171,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 59,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "progress",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Fortschritt",
+        "literal_translation": "the forth-step",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le progrès",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el progreso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 172,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 58,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "awareness",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Bewusstsein",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la conscience",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la conciencia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 173,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 57,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "contrast",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Kontrast",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le contraste",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el contraste",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 174,
+    "part_of_speech": "noun",
+    "level": "b2",
+    "frequency_score": 56,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "criterion",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Kriterium",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le critère",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el criterio",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 175,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 70,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "significant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "bedeutend",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "significatif",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "significativo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 176,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 69,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "efficient",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "effizient",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "efficace",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "eficiente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 177,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 68,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "reliable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "zuverlässig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "fiable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "confiable",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 178,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 67,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "flexible",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "flexibel",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "flexible",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "flexible",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 179,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 66,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "controversial",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "umstritten",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "controversé",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "controvertido",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 180,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 65,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "sustainable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "nachhaltig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "durable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "sostenible",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 181,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 64,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "essential",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "wesentlich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "essentiel",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "esencial",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 182,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 63,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "accurate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "genau",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "précis",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "preciso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 183,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 62,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "complex",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "komplex",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "complexe",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "complejo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 184,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 61,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "obvious",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "offensichtlich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "évident",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "obvio",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 185,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 60,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "relevant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "relevant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "pertinent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "relevante",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 186,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 59,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "ambitious",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "ehrgeizig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "ambitieux",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "ambicioso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 187,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 58,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "transparent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "transparent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "transparent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "transparente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 188,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 57,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "consistent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "konsequent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "cohérent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "consistente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 189,
+    "part_of_speech": "adjective",
+    "level": "b2",
+    "frequency_score": 56,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "vulnerable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verletzlich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "vulnérable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "vulnerable",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 190,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 60,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to scrutinize",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "hinterfragen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "examiner",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "escrutar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 191,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 59,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to alleviate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "lindern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "atténuer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "aliviar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 192,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 58,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to foster",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "fördern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "favoriser",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "fomentar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 193,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 57,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to reconcile",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "versöhnen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "concilier",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "reconciliar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 194,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 56,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to substantiate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "untermauern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "étayer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "fundamentar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 195,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 55,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to undermine",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "untergraben",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "saper",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "socavar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 196,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 54,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to articulate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "artikulieren",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "articuler",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "articular",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 197,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 53,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to synthesize",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "synthetisieren",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "synthétiser",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "sintetizar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 198,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 52,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to discern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "erkennen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "discerner",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "discernir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 199,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 51,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to mitigate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "abmildern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "atténuer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "mitigar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 200,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 50,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to proliferate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "wuchern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "proliférer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "proliferar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 201,
+    "part_of_speech": "verb",
+    "level": "c1",
+    "frequency_score": 49,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to contemplate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "erwägen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "contempler",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "contemplar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 202,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 60,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "ambiguity",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Mehrdeutigkeit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'ambiguïté",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la ambigüedad",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 203,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 59,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "paradigm",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Paradigma",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le paradigme",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el paradigma",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 204,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 58,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "resilience",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Widerstandsfähigkeit",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la résilience",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la resiliencia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 205,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 57,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "implication",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Auswirkung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'implication",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la implicación",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 206,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 56,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "coherence",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Kohärenz",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la cohérence",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la coherencia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 207,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 55,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "discrepancy",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Diskrepanz",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la divergence",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la discrepancia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 208,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 54,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "autonomy",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Autonomie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'autonomie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la autonomía",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 209,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 53,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "equilibrium",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Gleichgewicht",
+        "literal_translation": "the equal-weight",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'équilibre",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el equilibrio",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 210,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 52,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "precedent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Präzedenzfall",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le précédent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el precedente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 211,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 51,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "synthesis",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Synthese",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la synthèse",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la síntesis",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 212,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 50,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "consensus",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Konsens",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le consensus",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el consenso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 213,
+    "part_of_speech": "noun",
+    "level": "c1",
+    "frequency_score": 49,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "pragmatism",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Pragmatismus",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "le pragmatisme",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el pragmatismo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 214,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 60,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "intricate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "komplex",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "complexe",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "intrincado",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 215,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 59,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "unprecedented",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "beispiellos",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "sans précédent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "sin precedentes",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 216,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 58,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "inherent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "inhärent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "inhérent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "inherente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 217,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 57,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "pragmatic",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "pragmatisch",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "pragmatique",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "pragmático",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 218,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 56,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "meticulous",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "akribisch",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "méticuleux",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "meticuloso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 219,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 55,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "ambiguous",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "mehrdeutig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "ambigu",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "ambiguo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 220,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 54,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "plausible",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "plausibel",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "plausible",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "plausible",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 221,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 53,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "profound",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "tiefgründig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "profond",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "profundo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 222,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 52,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "eloquent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "eloquent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "éloquent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "elocuente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 223,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 51,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "imperative",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "unerlässlich",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "impératif",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "imperativo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 224,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 50,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "resilient",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "belastbar",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "résilient",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "resiliente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 225,
+    "part_of_speech": "adjective",
+    "level": "c1",
+    "frequency_score": 49,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "versatile",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "vielseitig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "polyvalent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "versátil",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 226,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 50,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to corroborate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "bekräftigen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "corroborer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "corroborar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 227,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 49,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to exacerbate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verschärfen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "exacerber",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "exacerbar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 228,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 48,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to elucidate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "erläutern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "élucider",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "dilucidar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 229,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 47,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to extrapolate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "extrapolieren",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "extrapoler",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "extrapolar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 230,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 46,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to circumvent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "umgehen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "contourner",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "eludir",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 231,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 45,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to epitomize",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verkörpern",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "incarner",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "personificar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 232,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 44,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to juxtapose",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "gegenüberstellen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "juxtaposer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "yuxtaponer",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 233,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 43,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to perpetuate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "verewigen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "perpétuer",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "perpetuar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 234,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 42,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to transcend",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "transzendieren",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "transcender",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "trascender",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 235,
+    "part_of_speech": "verb",
+    "level": "c2",
+    "frequency_score": 41,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "to equivocate",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "ausweichen",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "tergiverser",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "tergiversar",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 236,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 50,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "dichotomy",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Dichotomie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la dichotomie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la dicotomía",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 237,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 49,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "zeitgeist",
+        "literal_translation": "time-spirit",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Zeitgeist",
+        "literal_translation": "the time-spirit",
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'esprit du temps",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el espíritu de la época",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 238,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 48,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "epiphany",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Erleuchtung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'épiphanie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la epifanía",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 239,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 47,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "ubiquity",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Allgegenwart",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'ubiquité",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la ubicuidad",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 240,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 46,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "euphemism",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Euphemismus",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'euphémisme",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el eufemismo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 241,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 45,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "juxtaposition",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Gegenüberstellung",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la juxtaposition",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la yuxtaposición",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 242,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 44,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "idiosyncrasy",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "die Eigenart",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'idiosyncrasie",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la idiosincrasia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 243,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 43,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "serendipity",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der glückliche Zufall",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "la sérendipité",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "la serendipia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 244,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 42,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "conundrum",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "das Dilemma",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'énigme",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el enigma",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 245,
+    "part_of_speech": "noun",
+    "level": "c2",
+    "frequency_score": 41,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "altruism",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "der Altruismus",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "l'altruisme",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "el altruismo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 246,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 50,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "ubiquitous",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "allgegenwärtig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "omniprésent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "ubicuo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 247,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 49,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "ephemeral",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "flüchtig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "éphémère",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "efímero",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 248,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 48,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "quintessential",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "typisch",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "quintessentiel",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "por excelencia",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 249,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 47,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "esoteric",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "esoterisch",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "ésotérique",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "esotérico",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 250,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 46,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "ineffable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "unsagbar",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "ineffable",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "inefable",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 251,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 45,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "pervasive",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "tiefgreifend",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "omniprésent",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "omnipresente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 252,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 44,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "fastidious",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "penibel",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "pointilleux",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "exigente",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 253,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 43,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "magnanimous",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "großmütig",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "magnanime",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "magnánimo",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 254,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 42,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "obsolete",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "veraltet",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "obsolète",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "obsoleto",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  },
+  {
+    "word_id": 255,
+    "part_of_speech": "adjective",
+    "level": "c2",
+    "frequency_score": 41,
+    "words_translations": [
+      {
+        "language_code": "en",
+        "translation": "concise",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "de",
+        "translation": "prägnant",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "fr",
+        "translation": "concis",
+        "literal_translation": null,
+        "translation_rank": 1
+      },
+      {
+        "language_code": "es",
+        "translation": "conciso",
+        "literal_translation": null,
+        "translation_rank": 1
+      }
+    ]
+  }
+]
